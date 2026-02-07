@@ -1,0 +1,97 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+  log_level: info
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+    tenant_id: default
+    batchwait: 1s
+    batchsize: 1048576
+    timeout: 10s
+
+scrape_configs:
+  # Docker container logs via Docker socket
+  - job_name: docker
+    docker_sd_configs:
+      - host: unix:///var/run/docker.sock
+        refresh_interval: 5s
+        filters:
+          - name: network
+            values: ['observability-network']
+    relabel_configs:
+      # Keep only containers on observability-network
+      - source_labels: [__meta_docker_container_name]
+        regex: '/(.*)'
+        target_label: container
+
+      # Extract container name
+      - source_labels: [__meta_docker_container_name]
+        regex: '/(.*)'
+        target_label: container_name
+
+      # Extract compose service name
+      - source_labels: [__meta_docker_container_label_com_docker_compose_service]
+        target_label: service
+
+      # Extract compose project name
+      - source_labels: [__meta_docker_container_label_com_docker_compose_project]
+        target_label: project
+
+      # Extract custom appName label if present
+      - source_labels: [__meta_docker_container_label_appName]
+        target_label: appName
+
+      # Drop internal observability containers from log collection (they have their own logging)
+      - source_labels: [__meta_docker_container_label_observability_component]
+        regex: (prometheus|grafana|loki|promtail|node-exporter)
+        action: drop
+
+      # Set log path
+      - source_labels: [__meta_docker_container_id]
+        target_label: __path__
+        replacement: /var/lib/docker/containers/$1/$1-json.log
+
+    pipeline_stages:
+      # Parse Docker JSON log format
+      - docker: {}
+
+      # Try to parse JSON logs from applications
+      - match:
+          selector: '{container_name=~".+"}'
+          stages:
+            - json:
+                expressions:
+                  timestamp: timestamp
+                  level: level
+                  appName: appName
+                  component: component
+                  message: message
+                  correlationId: correlationId
+                  requestId: requestId
+                  method: method
+                  path: path
+                  durationMs: durationMs
+                  statusCode: statusCode
+                  error: error
+
+            # Set labels from parsed JSON
+            - labels:
+                level:
+                appName:
+                component:
+
+            # Use parsed timestamp if available
+            - timestamp:
+                source: timestamp
+                format: RFC3339Nano
+                fallback_formats:
+                  - RFC3339
+                  - '2006-01-02T15:04:05.000Z'
+
+            # Set output to message field if present
+            - output:
+                source: message
