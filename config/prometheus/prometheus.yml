@@ -37,13 +37,8 @@ scrape_configs:
         regex: '/(.*)'
         target_label: instance
 
-      # Use metrics.port label for target port
-      - source_labels: [__meta_docker_container_label_metrics_port]
-        target_label: __address__
-        regex: (.+)
-        replacement: '${1}'
-
-      # Combine container name with port for address
+      # Build scrape address from container name + metrics.port label
+      # Prometheus joins source_labels with ';' → "/<container_name>;<port>"
       - source_labels: [__meta_docker_container_name, __meta_docker_container_label_metrics_port]
         regex: '/(.+);(.+)'
         target_label: __address__
