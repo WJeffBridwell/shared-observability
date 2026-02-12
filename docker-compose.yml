@@ -89,6 +89,31 @@ services:
     labels:
       - "observability.component=promtail"
 
+  blackbox-exporter:
+    image: prom/blackbox-exporter:v0.24.0
+    container_name: blackbox-exporter
+    restart: unless-stopped
+    volumes:
+      - ./config/blackbox/blackbox.yml:/etc/blackbox_exporter/config.yml:ro
+    networks:
+      - observability-network
+    labels:
+      - "observability.component=blackbox-exporter"
+
+  mysqld-exporter:
+    image: prom/mysqld-exporter:v0.15.0
+    container_name: mysqld-exporter
+    restart: unless-stopped
+    environment:
+      - MYSQLD_EXPORTER_PASSWORD=wordpress_password
+    command:
+      - '--mysqld.address=wordpress-mysql:3306'
+      - '--mysqld.username=wordpress'
+    networks:
+      - observability-network
+    labels:
+      - "observability.component=mysqld-exporter"
+
   node-exporter:
     image: prom/node-exporter:v1.6.0
     container_name: node-exporter
