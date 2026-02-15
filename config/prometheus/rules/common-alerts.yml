@@ -71,6 +71,17 @@ groups:
           summary: "Low disk space on {{ $labels.instance }}"
           description: "Disk {{ $labels.mountpoint }} on {{ $labels.instance }} has only {{ $value | humanizePercentage }} free."
 
+  - name: blackbox-probes
+    rules:
+      - alert: EndpointDown
+        expr: probe_success == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Endpoint {{ $labels.instance }} is down"
+          description: "Blackbox probe for {{ $labels.instance }} (job {{ $labels.job }}) has been failing for 2 minutes."
+
   - name: log-metrics
     rules:
       - alert: HighErrorLogRate
