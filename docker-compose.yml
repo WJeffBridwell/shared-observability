@@ -62,7 +62,7 @@ services:
       - "3100:3000"
     environment:
       - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD}
       - GF_USERS_ALLOW_SIGN_UP=false
       - GF_SERVER_ROOT_URL=http://localhost:3100
       - GF_INSTALL_PLUGINS=
@@ -125,7 +125,7 @@ services:
     container_name: mysqld-exporter
     restart: unless-stopped
     environment:
-      - MYSQLD_EXPORTER_PASSWORD=wordpress_password
+      - MYSQLD_EXPORTER_PASSWORD=${MYSQLD_EXPORTER_PASSWORD}
     command:
       - '--mysqld.address=wordpress-mysql:3306'
       - '--mysqld.username=wordpress'
