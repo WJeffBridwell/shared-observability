@@ -1,0 +1,115 @@
+groups:
+  - name: home-network-compute
+    rules:
+      - alert: SecondaryMacOffline
+        expr: probe_success{job="blackbox-icmp", device="Mac Mini Secondary"} == 0
+        for: 5m
+        labels:
+          severity: critical
+          category: compute
+        annotations:
+          summary: "Secondary Mac (3rd floor) is offline"
+          description: "Mac Mini Secondary (192.168.86.242) has been unreachable for 5 minutes. Backup destination and media server are down."
+
+      - alert: PrimaryMacUnreachable
+        expr: probe_success{job="blackbox-icmp", device="Mac Mini Primary"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          category: compute
+        annotations:
+          summary: "Primary Mac is unreachable via ICMP"
+          description: "Mac Mini Primary (192.168.86.36) is not responding to ping. All services are likely down."
+
+  - name: home-network-mesh
+    rules:
+      - alert: MeshDegraded
+        expr: count(probe_success{job="blackbox-icmp", category="network"} == 1) < 3
+        for: 5m
+        labels:
+          severity: warning
+          category: network
+        annotations:
+          summary: "WiFi mesh degraded — {{ $value }}/3 nodes online"
+          description: "One or more Nest WiFi mesh nodes are offline. WiFi coverage may be reduced in parts of the house."
+
+      - alert: RouterDown
+        expr: probe_success{job="blackbox-icmp", device="Nest WiFi Router"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          category: network
+        annotations:
+          summary: "Nest WiFi Router is down"
+          description: "The primary router (192.168.86.1) is unreachable. All network connectivity is likely affected."
+
+  - name: home-network-devices
+    rules:
+      - alert: InfraDeviceDown
+        expr: probe_success{job="blackbox-icmp", category=~"compute|network"} == 0
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Infrastructure device {{ $labels.device }} ({{ $labels.room }}) is down"
+          description: "{{ $labels.device }} at {{ $labels.instance }} has been unreachable for 5 minutes."
+
+      - alert: EntertainmentDeviceDown
+        expr: probe_success{job="blackbox-icmp", category=~"entertainment|homepod|speaker"} == 0
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "{{ $labels.device }} ({{ $labels.room }}) is offline"
+          description: "{{ $labels.device }} at {{ $labels.instance }} has been unreachable for 10 minutes. May be powered off."
+
+      - alert: HighNetworkLatency
+        expr: probe_duration_seconds{job="blackbox-icmp", category=~"compute|network"} > 0.1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High latency to {{ $labels.device }} ({{ $labels.room }})"
+          description: "Ping latency to {{ $labels.device }} is {{ $value | humanizeDuration }}. Expected <50ms for infrastructure devices."
+
+  - name: home-network-constraints
+    rules:
+      - alert: C1DiskThreshold
+        expr: (1 - node_filesystem_avail_bytes{mountpoint="/"} / node_filesystem_size_bytes{mountpoint="/"}) > 0.90
+        for: 5m
+        labels:
+          severity: critical
+          constraint: C1
+        annotations:
+          summary: "C1 VIOLATION: Disk usage above 90%"
+          description: "Primary disk is at {{ $value | humanizePercentage }} usage. APFS degrades sharply above 90%. At 100%, Docker metadata DB corrupts."
+
+      - alert: C3MemoryHeadroom
+        expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) > 0.85
+        for: 5m
+        labels:
+          severity: warning
+          constraint: C3
+        annotations:
+          summary: "C3 WARNING: Memory usage above 85%"
+          description: "Memory at {{ $value | humanizePercentage }}. 16 containers on 16GB RAM — approaching headroom limit."
+
+      - alert: C4AppUnreachable
+        expr: probe_success{job="blackbox-app"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          constraint: C4
+        annotations:
+          summary: "C4 VIOLATION: Gathering app is unreachable"
+          description: "The main app health endpoint is not responding. User-facing service is down."
+
+      - alert: C5FusekiUnreachable
+        expr: probe_success{job="blackbox-fuseki"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          constraint: C5
+        annotations:
+          summary: "C5 VIOLATION: Fuseki SPARQL is unreachable"
+          description: "Fuseki is not responding. Knowledge graph queries will fail."
