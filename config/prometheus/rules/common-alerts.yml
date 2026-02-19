@@ -62,6 +62,15 @@ groups:
           summary: "High CPU usage on {{ $labels.instance }}"
           description: "CPU usage is {{ $value }}% on {{ $labels.instance }}."
 
+      - alert: DiskSpaceWarning
+        expr: (1 - node_filesystem_avail_bytes{fstype!~"tmpfs|overlay"} / node_filesystem_size_bytes{fstype!~"tmpfs|overlay"}) > 0.85
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Disk usage above 85% on {{ $labels.instance }}"
+          description: "Disk {{ $labels.mountpoint }} on {{ $labels.instance }} is at {{ $value | humanizePercentage }} usage."
+
       - alert: DiskSpaceLow
         expr: (node_filesystem_avail_bytes{fstype!~"tmpfs|overlay"} / node_filesystem_size_bytes{fstype!~"tmpfs|overlay"}) < 0.1
         for: 5m
