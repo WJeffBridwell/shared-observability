@@ -174,3 +174,136 @@ scrape_configs:
   - job_name: 'mysqld-exporter'
     static_configs:
       - targets: ['mysqld-exporter:9104']
+
+  # ICMP ping probes for all home network devices
+  - job_name: 'blackbox-icmp'
+    metrics_path: /probe
+    params:
+      module: [icmp]
+    scrape_interval: 30s
+    static_configs:
+      # Compute
+      - targets: ['192.168.86.36']
+        labels:
+          device: 'Mac Mini Primary'
+          category: 'compute'
+          room: 'office'
+      - targets: ['192.168.86.242']
+        labels:
+          device: 'Mac Mini Secondary'
+          category: 'compute'
+          room: '3rd-floor'
+      # Network Infrastructure
+      - targets: ['192.168.86.1']
+        labels:
+          device: 'Nest WiFi Router'
+          category: 'network'
+          room: 'office'
+      - targets: ['192.168.86.20']
+        labels:
+          device: 'Nest WiFi Point'
+          category: 'network'
+          room: 'mesh-2'
+      - targets: ['192.168.86.49']
+        labels:
+          device: 'Nest WiFi Point'
+          category: 'network'
+          room: 'mesh-3'
+      # Apple TVs
+      - targets: ['192.168.86.22']
+        labels:
+          device: 'Apple TV'
+          category: 'entertainment'
+          room: 'living-room'
+      - targets: ['192.168.86.40']
+        labels:
+          device: 'Apple TV'
+          category: 'entertainment'
+          room: 'bedroom'
+      - targets: ['192.168.86.43']
+        labels:
+          device: 'Apple TV'
+          category: 'entertainment'
+          room: 'kitchen'
+      # HomePods
+      - targets: ['192.168.86.42']
+        labels:
+          device: 'HomePod'
+          category: 'homepod'
+          room: 'kitchen'
+      - targets: ['192.168.86.45']
+        labels:
+          device: 'HomePod 2'
+          category: 'homepod'
+          room: 'kitchen'
+      - targets: ['192.168.86.38']
+        labels:
+          device: 'HomePod'
+          category: 'homepod'
+          room: 'library'
+      - targets: ['192.168.86.239']
+        labels:
+          device: 'HomePod'
+          category: 'homepod'
+          room: 'office'
+      - targets: ['192.168.86.41']
+        labels:
+          device: 'HomePod'
+          category: 'homepod'
+          room: 'attic'
+      # Entertainment
+      - targets: ['192.168.86.28']
+        labels:
+          device: 'Pioneer AV Receiver'
+          category: 'entertainment'
+          room: 'living-room'
+      - targets: ['192.168.86.27']
+        labels:
+          device: 'Roku Ultra'
+          category: 'entertainment'
+          room: 'living-room'
+      - targets: ['192.168.86.250']
+        labels:
+          device: 'LG OLED TV'
+          category: 'entertainment'
+          room: 'living-room'
+      # Smart Speakers
+      - targets: ['192.168.86.32']
+        labels:
+          device: 'Speaker'
+          category: 'speaker'
+          room: 'bedroom'
+      - targets: ['192.168.86.34']
+        labels:
+          device: 'Speaker 2'
+          category: 'speaker'
+          room: 'bedroom'
+      # Mobile Devices
+      - targets: ['192.168.86.31']
+        labels:
+          device: "Jeff's iPhone"
+          category: 'mobile'
+          room: 'mobile'
+      - targets: ['192.168.86.33']
+        labels:
+          device: "Kathy's iPhone"
+          category: 'mobile'
+          room: 'mobile'
+      # Other
+      - targets: ['192.168.86.29']
+        labels:
+          device: 'HP Printer'
+          category: 'other'
+          room: 'office'
+      - targets: ['192.168.86.23']
+        labels:
+          device: 'Apple Watch'
+          category: 'mobile'
+          room: 'mobile'
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
