@@ -53,13 +53,13 @@ services:
       retries: 3
       start_period: 10s
     environment:
-      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL:-https://hooks.slack.com/services/PLACEHOLDER}
+      - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
     volumes:
       - ./config/alertmanager:/etc/alertmanager:ro
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        sed "s|SLACK_WEBHOOK_URL_PLACEHOLDER|$$SLACK_WEBHOOK_URL|g" /etc/alertmanager/alertmanager.yml > /tmp/alertmanager.yml
+        sed "s|SLACK_BOT_TOKEN_PLACEHOLDER|$$SLACK_BOT_TOKEN|g" /etc/alertmanager/alertmanager.yml > /tmp/alertmanager.yml
         /bin/alertmanager --config.file=/tmp/alertmanager.yml
     networks:
       - observability-network
@@ -84,6 +84,7 @@ services:
       - GF_USERS_ALLOW_SIGN_UP=false
       - GF_SERVER_ROOT_URL=http://localhost:3100
       - GF_INSTALL_PLUGINS=
+      - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
     volumes:
       - grafana-data:/var/lib/grafana
       - ./config/grafana/provisioning:/etc/grafana/provisioning:ro

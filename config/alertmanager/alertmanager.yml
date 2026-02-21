@@ -6,7 +6,7 @@ route:
   group_wait: 30s
   group_interval: 5m
   repeat_interval: 4h
-  receiver: 'slack-default'
+  receiver: 'slack-warning'
   routes:
     - match:
         severity: critical
@@ -14,18 +14,35 @@ route:
       repeat_interval: 1h
 
 receivers:
-  - name: 'slack-default'
+  - name: 'slack-warning'
     slack_configs:
-      - api_url: 'SLACK_WEBHOOK_URL_PLACEHOLDER'
-        channel: '#all-gathering'
-        title: '{{ .GroupLabels.alertname }}'
-        text: '{{ range .Alerts }}{{ .Annotations.summary }}{{ end }}'
+      - api_url: 'https://slack.com/api/chat.postMessage'
+        http_config:
+          authorization:
+            type: Bearer
+            credentials: 'SLACK_BOT_TOKEN_PLACEHOLDER'
+        channel: '#silas'
+        title: '[{{ .Status | toUpper }}] {{ .GroupLabels.alertname }}'
+        text: |-
+          {{ range .Alerts }}
+          *{{ .Annotations.summary }}*
+          {{ if .Annotations.description }}{{ .Annotations.description }}{{ end }}
+          Severity: {{ .Labels.severity }}
+          {{ end }}
         send_resolved: true
 
   - name: 'slack-critical'
     slack_configs:
-      - api_url: 'SLACK_WEBHOOK_URL_PLACEHOLDER'
+      - api_url: 'https://slack.com/api/chat.postMessage'
+        http_config:
+          authorization:
+            type: Bearer
+            credentials: 'SLACK_BOT_TOKEN_PLACEHOLDER'
         channel: '#all-gathering'
         title: 'CRITICAL: {{ .GroupLabels.alertname }}'
-        text: '{{ range .Alerts }}{{ .Annotations.summary }}{{ end }}'
+        text: |-
+          {{ range .Alerts }}
+          *{{ .Annotations.summary }}*
+          {{ if .Annotations.description }}{{ .Annotations.description }}{{ end }}
+          {{ end }}
         send_resolved: true

@@ -63,7 +63,7 @@ groups:
           description: "CPU usage is {{ $value }}% on {{ $labels.instance }}."
 
       - alert: DiskSpaceWarning
-        expr: (1 - node_filesystem_avail_bytes{fstype!~"tmpfs|overlay"} / node_filesystem_size_bytes{fstype!~"tmpfs|overlay"}) > 0.85
+        expr: (1 - node_filesystem_avail_bytes{fstype!~"tmpfs|overlay|erofs",mountpoint!~"/oldroot.*"} / node_filesystem_size_bytes{fstype!~"tmpfs|overlay|erofs",mountpoint!~"/oldroot.*"}) > 0.85
         for: 5m
         labels:
           severity: warning
@@ -72,7 +72,7 @@ groups:
           description: "Disk {{ $labels.mountpoint }} on {{ $labels.instance }} is at {{ $value | humanizePercentage }} usage."
 
       - alert: DiskSpaceLow
-        expr: (node_filesystem_avail_bytes{fstype!~"tmpfs|overlay"} / node_filesystem_size_bytes{fstype!~"tmpfs|overlay"}) < 0.1
+        expr: (node_filesystem_avail_bytes{fstype!~"tmpfs|overlay|erofs",mountpoint!~"/oldroot.*"} / node_filesystem_size_bytes{fstype!~"tmpfs|overlay|erofs",mountpoint!~"/oldroot.*"}) < 0.1
         for: 5m
         labels:
           severity: critical
@@ -91,13 +91,5 @@ groups:
           summary: "Endpoint {{ $labels.instance }} is down"
           description: "Blackbox probe for {{ $labels.instance }} (job {{ $labels.job }}) has been failing for 2 minutes."
 
-  - name: log-metrics
-    rules:
-      - alert: HighErrorLogRate
-        expr: sum(rate({level="error"}[2m])) by (appName) > 10
-        for: 2m
-        labels:
-          severity: warning
-        annotations:
-          summary: "High error log rate for {{ $labels.appName }}"
-          description: "{{ $labels.appName }} is generating {{ $value }} error logs per second."
+  # HighErrorLogRate moved to Grafana Loki-based alerting (contact-points.yaml).
+  # LogQL expressions cannot evaluate in Prometheus — only Loki ruler or Grafana.
