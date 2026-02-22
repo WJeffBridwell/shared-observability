@@ -9,6 +9,8 @@ volumes:
   prometheus-data:
   grafana-data:
   loki-data:
+  alertmanager-data:
+  promtail-positions:
 
 services:
   prometheus:
@@ -16,6 +18,8 @@ services:
     container_name: prometheus
     restart: unless-stopped
     user: root  # Required for Docker socket access (Docker SD)
+    mem_limit: 512m
+    cpus: 1.0
     ports:
       - "127.0.0.1:9090:9090"  # ADR-012: localhost only
     healthcheck:
@@ -41,9 +45,11 @@ services:
       - "observability.component=prometheus"
 
   alertmanager:
-    image: prom/alertmanager:latest
+    image: prom/alertmanager:v0.26.0
     container_name: alertmanager
     restart: unless-stopped
+    mem_limit: 128m
+    cpus: 0.25
     ports:
       - "127.0.0.1:9093:9093"  # ADR-012: localhost only
     healthcheck:
@@ -56,11 +62,12 @@ services:
       - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
     volumes:
       - ./config/alertmanager:/etc/alertmanager:ro
+      - alertmanager-data:/alertmanager
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
         sed "s|SLACK_BOT_TOKEN_PLACEHOLDER|$$SLACK_BOT_TOKEN|g" /etc/alertmanager/alertmanager.yml > /tmp/alertmanager.yml
-        /bin/alertmanager --config.file=/tmp/alertmanager.yml
+        /bin/alertmanager --config.file=/tmp/alertmanager.yml --storage.path=/alertmanager
     networks:
       - observability-network
     labels:
@@ -70,6 +77,8 @@ services:
     image: grafana/grafana:10.1.0
     container_name: grafana
     restart: unless-stopped
+    mem_limit: 384m
+    cpus: 1.0
     ports:
       - "127.0.0.1:3100:3000"  # ADR-012: localhost only
     healthcheck:
@@ -101,6 +110,8 @@ services:
     image: grafana/loki:2.9.2
     container_name: loki
     restart: unless-stopped
+    mem_limit: 512m
+    cpus: 1.0
     ports:
       - "127.0.0.1:3102:3100"  # ADR-012: localhost only
     healthcheck:
@@ -122,6 +133,8 @@ services:
     image: grafana/promtail:2.9.2
     container_name: promtail
     restart: unless-stopped
+    mem_limit: 256m
+    cpus: 0.5
     ports:
       - "127.0.0.1:9080:9080"  # ADR-012: localhost only
     healthcheck:
@@ -135,6 +148,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - ../messages/logs:/host-logs:ro
+      - promtail-positions:/tmp
     command: -config.file=/etc/promtail/promtail-config.yaml
     networks:
       - observability-network
@@ -147,6 +161,8 @@ services:
     image: prom/blackbox-exporter:v0.24.0
     container_name: blackbox-exporter
     restart: unless-stopped
+    mem_limit: 64m
+    cpus: 0.25
     cap_add:
       - NET_RAW
     healthcheck:
@@ -166,6 +182,8 @@ services:
     image: prom/mysqld-exporter:v0.15.0
     container_name: mysqld-exporter
     restart: unless-stopped
+    mem_limit: 64m
+    cpus: 0.25
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://localhost:9104/metrics"]
       interval: 30s
@@ -186,6 +204,8 @@ services:
     image: prom/node-exporter:v1.6.0
     container_name: node-exporter
     restart: unless-stopped
+    mem_limit: 64m
+    cpus: 0.25
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://localhost:9100/metrics"]
       interval: 30s

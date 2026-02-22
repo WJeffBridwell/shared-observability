@@ -170,6 +170,30 @@ scrape_configs:
       - target_label: __address__
         replacement: blackbox-exporter:9115
 
+  # Cloudflare Tunnel metrics (cloudflared runs on host, exposes Prometheus metrics)
+  - job_name: 'cloudflared'
+    static_configs:
+      - targets: ['host.docker.internal:20241']
+        labels:
+          tunnel: 'lightlifeurbangardens'
+
+  # Blackbox HTTPS probe for public site (catches tunnel-down while internal stays green)
+  - job_name: 'blackbox-external'
+    metrics_path: /probe
+    params:
+      module: [http_2xx_tls]
+    scrape_interval: 60s
+    static_configs:
+      - targets:
+        - https://lightlifeurbangardens.com/health
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+
   # MySQL exporter
   - job_name: 'mysqld-exporter'
     static_configs:

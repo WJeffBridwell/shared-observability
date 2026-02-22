@@ -90,106 +90,30 @@ groups:
 2. Navigate to Alerting > Alert rules
 3. View all configured rules and their state
 
-## Alert Notification (Future)
+## Alert Notification (LIVE)
 
-The current setup includes alert rules but no notification channels. To add notifications:
+Alertmanager is deployed and routing to Slack. Config at `config/alertmanager/alertmanager.yml`.
 
-### 1. Add Alertmanager
+### Current Routing
 
-Update `docker-compose.yml`:
+| Severity | Channel | Repeat |
+|----------|---------|--------|
+| critical | #all-gathering | 3h |
+| warning (external traffic) | #silas | 3h |
+| warning (default) | #all-gathering | 3h |
 
-```yaml
-services:
-  alertmanager:
-    image: prom/alertmanager:v0.26.0
-    container_name: alertmanager
-    ports:
-      - "9093:9093"
-    volumes:
-      - ./config/alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
-    networks:
-      - observability-network
-```
+### How It Works
 
-### 2. Create Alertmanager Config
+1. Prometheus evaluates rules every 15s
+2. Firing alerts are sent to Alertmanager (port 9093)
+3. Alertmanager groups by `alertname` + `severity`, waits 10s, then routes to Slack
+4. Resolved notifications are sent when the condition clears
 
-Create `config/alertmanager/alertmanager.yml`:
+The `SLACK_BOT_TOKEN` env var is injected at runtime via `sed` in the entrypoint (token never written to config files on disk).
 
-```yaml
-global:
-  resolve_timeout: 5m
+### Alertmanager Persistence
 
-route:
-  group_by: ['alertname', 'severity']
-  group_wait: 10s
-  group_interval: 5m
-  repeat_interval: 3h
-  receiver: 'default'
-  routes:
-    - match:
-        severity: critical
-      receiver: 'critical'
-
-receivers:
-  - name: 'default'
-    # Add Slack, email, etc.
-
-  - name: 'critical'
-    # Add PagerDuty, etc.
-```
-
-### 3. Connect Prometheus to Alertmanager
-
-Update `config/prometheus/prometheus.yml`:
-
-```yaml
-alerting:
-  alertmanagers:
-    - static_configs:
-        - targets:
-            - alertmanager:9093
-```
-
-## Common Notification Channels
-
-### Slack
-
-```yaml
-receivers:
-  - name: 'slack'
-    slack_configs:
-      - api_url: 'https://hooks.slack.com/services/...'
-        channel: '#alerts'
-        send_resolved: true
-        title: '{{ .Status | toUpper }}: {{ .CommonAnnotations.summary }}'
-        text: '{{ .CommonAnnotations.description }}'
-```
-
-### Email
-
-```yaml
-global:
-  smtp_smarthost: 'smtp.gmail.com:587'
-  smtp_from: 'alerts@example.com'
-  smtp_auth_username: 'alerts@example.com'
-  smtp_auth_password: 'password'
-
-receivers:
-  - name: 'email'
-    email_configs:
-      - to: 'team@example.com'
-        send_resolved: true
-```
-
-### PagerDuty
-
-```yaml
-receivers:
-  - name: 'pagerduty'
-    pagerduty_configs:
-      - service_key: '<integration_key>'
-        severity: '{{ .CommonLabels.severity }}'
-```
+Silence state and notification history are stored in the `alertmanager-data` named volume at `/alertmanager`. Survives restarts.
 
 ## Silencing Alerts
 

@@ -1,0 +1,48 @@
+groups:
+  - name: external-traffic
+    rules:
+      # Cloudflare tunnel is down (external site unreachable while internal is fine)
+      - alert: CloudflareTunnelDown
+        expr: probe_success{job="blackbox-external"} == 0
+        for: 3m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Cloudflare tunnel down — lightlifeurbangardens.com unreachable"
+          description: "External blackbox probe failed for 3+ minutes. Tunnel may be crashed or disconnected."
+
+      # External request rate spike — sudden 5x increase over 1h baseline
+      - alert: ExternalTrafficSpike
+        expr: >
+          rate(http_request_duration_seconds_count{instance="jeff-bridwell-personal-site-app"}[5m])
+          > 5 * avg_over_time(rate(http_request_duration_seconds_count{instance="jeff-bridwell-personal-site-app"}[5m])[1h:5m])
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "External traffic spike — 5x above hourly baseline"
+          description: "Request rate is {{ $value | humanize }} req/s, significantly above the 1h average. Possible scan or bot."
+
+      # High error rate on external-facing paths
+      - alert: HighExternalErrorRate
+        expr: >
+          sum(rate(http_request_duration_seconds_count{instance="jeff-bridwell-personal-site-app",status_code=~"4..|5.."}[5m]))
+          /
+          sum(rate(http_request_duration_seconds_count{instance="jeff-bridwell-personal-site-app"}[5m]))
+          > 0.25
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High error rate — >25% of requests returning 4xx/5xx"
+          description: "Error rate is {{ $value | humanizePercentage }}. Could indicate scanning, brute force, or app issue."
+
+      # Cloudflared process metrics missing (process crashed or not running)
+      - alert: CloudflaredMetricsMissing
+        expr: absent(up{job="cloudflared"}) or up{job="cloudflared"} == 0
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "cloudflared metrics endpoint unreachable"
+          description: "Cannot scrape cloudflared metrics at host:20241. Process may have crashed."
