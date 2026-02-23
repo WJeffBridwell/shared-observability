@@ -60,6 +60,8 @@ def scan_claude_sessions():
         "input": 0, "output": 0, "cache_read": 0, "cache_create": 0, "msgs": 0
     })
     hourly = defaultdict(int)
+    jeff_prompts_hourly = defaultdict(int)  # key: "YYYY-MM-DD:HH"
+    jeff_prompts_daily = defaultdict(int)   # key: "YYYY-MM-DD"
     total_sessions = set()
 
     patterns = [
@@ -80,6 +82,14 @@ def scan_claude_sessions():
                             ts = obj.get("timestamp", "")
                             if not ts or ts[:10] < billing_start:
                                 continue
+
+                            # Count Jeff's prompts (type: "user")
+                            entry_type = obj.get("type", "")
+                            if entry_type == "user":
+                                day = ts[:10]
+                                hour = ts[11:13] if len(ts) > 13 else "00"
+                                jeff_prompts_hourly[f"{day}:{hour}"] += 1
+                                jeff_prompts_daily[day] += 1
 
                             msg = obj.get("message", {})
                             usage = msg.get("usage", {})
@@ -116,7 +126,7 @@ def scan_claude_sessions():
             except Exception:
                 pass
 
-    return daily, by_role, hourly, total_sessions, today
+    return daily, by_role, hourly, jeff_prompts_hourly, jeff_prompts_daily, total_sessions, today
 
 
 def scan_clearing_sessions():
@@ -215,7 +225,7 @@ def compute_burn_rate(daily, today):
 
 def write_metrics():
     """Generate Prometheus metrics and write to stdout."""
-    daily, by_role, hourly, sessions, today = scan_claude_sessions()
+    daily, by_role, hourly, jeff_prompts_hourly, jeff_prompts_daily, sessions, today = scan_claude_sessions()
     clearing_cost, clearing_count = scan_clearing_sessions()
 
     # Twilio — only fetch if env vars present
@@ -290,6 +300,18 @@ def write_metrics():
     for hour in range(24):
         if hourly[hour] > 0:
             lines.append(f'claude_hourly_messages{{hour="{hour:02d}"}} {hourly[hour]}')
+
+    # Jeff's prompts per hour (activity trend)
+    lines.append("# HELP claude_jeff_prompts_hourly Jeff's prompts per hour")
+    lines.append("# TYPE claude_jeff_prompts_hourly gauge")
+    for key in sorted(jeff_prompts_hourly.keys())[-168:]:  # Last 7 days of hours
+        day, hour = key.split(":")
+        lines.append(f'claude_jeff_prompts_hourly{{date="{day}",hour="{hour}"}} {jeff_prompts_hourly[key]}')
+
+    lines.append("# HELP claude_jeff_prompts_daily Jeff's prompts per day")
+    lines.append("# TYPE claude_jeff_prompts_daily gauge")
+    for day in sorted(jeff_prompts_daily.keys())[-7:]:
+        lines.append(f'claude_jeff_prompts_daily{{date="{day}"}} {jeff_prompts_daily[day]}')
 
     # Today's metrics
     if today in daily:
