@@ -1,0 +1,44 @@
+groups:
+  - name: fuseki-performance
+    rules:
+      # Page-load queries should stay under 2s
+      # Scoped to node-exporter job only — textfile collector is scraped by both
+      # node-exporter and docker-services, causing duplicate alerts.
+      - alert: FusekiQuerySlow
+        expr: fuseki_query_duration_ms{job="node-exporter",query=~"music_albums|photo_listing|notes_listing|music_genres"} > 2000
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "SPARQL query {{ $labels.query }} took {{ $value }}ms (SLA: 2000ms)"
+          description: "Page-load query exceeding 2s threshold. Check Fuseki memory, dataset size, or query complexity."
+
+      # Aggregation queries should stay under 8s (triple_count floor ~6s at 12.5M triples)
+      - alert: FusekiAggregationSlow
+        expr: fuseki_query_duration_ms{job="node-exporter",query=~"triple_count|graph_count|collection_sizes|cross_graph_join"} > 8000
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "SPARQL aggregation {{ $labels.query }} took {{ $value }}ms (SLA: 5000ms)"
+          description: "Full-dataset aggregation exceeding 5s threshold. Dataset may be growing beyond Fuseki capacity."
+
+      # Critical: any query over 10s
+      - alert: FusekiQueryCritical
+        expr: fuseki_query_duration_ms{job="node-exporter"} > 10000
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "SPARQL query {{ $labels.query }} took {{ $value }}ms (>10s)"
+          description: "Query response time critical. Fuseki may be under memory pressure or dataset needs optimization."
+
+      # Stale benchmark (no run in 24h)
+      - alert: FusekiBenchmarkStale
+        expr: (time() - fuseki_perf_last_run_timestamp{job="node-exporter"}) > 86400
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Fuseki benchmark hasn't run in 24+ hours"
+          description: "Last run was {{ $value | humanizeDuration }} ago. Check launchd job."
