@@ -20,7 +20,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 
 PORT = int(os.environ.get("ALERT_NOTIFIER_PORT", "9095"))
 CHORUS_LOG = os.path.expanduser("~/CascadeProjects/messages/scripts/chorus-log.sh")
-GRAFANA_ALERTS_URL = "http://localhost:3100/alerting/list"
+GRAFANA_ALERTS_URL = "http://localhost:3100/d/alerts-overview"
 
 
 def macos_notify(title: str, message: str, severity: str = "warning"):
