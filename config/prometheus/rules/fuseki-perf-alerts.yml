@@ -9,26 +9,41 @@ groups:
         for: 0m
         labels:
           severity: warning
+          domain: app
         annotations:
           summary: "SPARQL query {{ $labels.query }} took {{ $value }}ms (SLA: 2000ms)"
           description: "Page-load query exceeding 2s threshold. Check Fuseki memory, dataset size, or query complexity."
 
       # Aggregation queries should stay under 8s (triple_count floor ~6s at 12.5M triples)
+      # type_counts_full scans all graphs incl 1.7M media — expected slow, 15s threshold
       - alert: FusekiAggregationSlow
         expr: fuseki_query_duration_ms{job="node-exporter",query=~"triple_count|graph_count|collection_sizes|cross_graph_join"} > 8000
         for: 0m
         labels:
           severity: warning
+          domain: app
         annotations:
           summary: "SPARQL aggregation {{ $labels.query }} took {{ $value }}ms (SLA: 5000ms)"
           description: "Full-dataset aggregation exceeding 5s threshold. Dataset may be growing beyond Fuseki capacity."
 
-      # Critical: any query over 10s
+      # Full-dataset type scan (incl 1.7M media) — separate threshold
+      - alert: FusekiFullScanSlow
+        expr: fuseki_query_duration_ms{job="node-exporter",query="type_counts_full"} > 20000
+        for: 0m
+        labels:
+          severity: warning
+          domain: app
+        annotations:
+          summary: "Full type scan took {{ $value }}ms (>20s) — dataset may need partitioning"
+          description: "type_counts_full scans all graphs including media. Expected 10-15s at current scale."
+
+      # Critical: any query over 10s (excluding known-slow full scans)
       - alert: FusekiQueryCritical
-        expr: fuseki_query_duration_ms{job="node-exporter"} > 10000
+        expr: fuseki_query_duration_ms{job="node-exporter",query!="type_counts_full"} > 10000
         for: 0m
         labels:
           severity: critical
+          domain: app
         annotations:
           summary: "SPARQL query {{ $labels.query }} took {{ $value }}ms (>10s)"
           description: "Query response time critical. Fuseki may be under memory pressure or dataset needs optimization."
@@ -39,6 +54,7 @@ groups:
         for: 0m
         labels:
           severity: warning
+          domain: app
         annotations:
           summary: "Fuseki benchmark hasn't run in 24+ hours"
           description: "Last run was {{ $value | humanizeDuration }} ago. Check launchd job."
