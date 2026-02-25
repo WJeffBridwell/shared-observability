@@ -42,15 +42,14 @@ def esc(s: str) -> str:
     return s.replace('"', '\\"').replace('\n', ' ')
 
 
-def chorus_log(event: str, message: str):
-    """Log to chorus-log if available."""
+def chorus_log(event: str, role: str = "system", **kwargs):
+    """Log to chorus-log if available. Args become key=value pairs."""
     if os.path.isfile(CHORUS_LOG):
         try:
-            subprocess.run(
-                [CHORUS_LOG, event, message],
-                timeout=5,
-                capture_output=True,
-            )
+            args = [CHORUS_LOG, event, role]
+            for k, v in kwargs.items():
+                args.append(f"{k}={v}")
+            subprocess.run(args, timeout=5, capture_output=True)
         except Exception:
             pass
 
@@ -89,7 +88,7 @@ class AlertHandler(BaseHTTPRequestHandler):
                 name = labels.get("alertname", "Unknown")
                 summary = annotations.get("summary", name)
                 names.append(name)
-                chorus_log("alert_firing", f"{labels.get('severity', 'warning')}: {name} — {summary}")
+                chorus_log("alert_firing", "system", alertname=name, severity=labels.get('severity', 'warning'), summary=summary)
 
             if len(firing) == 1:
                 title = f"{icon} {names[0]}"
@@ -109,7 +108,7 @@ class AlertHandler(BaseHTTPRequestHandler):
         for alert in resolved:
             labels = alert.get("labels", {})
             name = labels.get("alertname", "Unknown")
-            chorus_log("alert_resolved", f"resolved: {name}")
+            chorus_log("alert_resolved", "system", alertname=name)
 
         self.send_response(200)
         self.end_headers()
