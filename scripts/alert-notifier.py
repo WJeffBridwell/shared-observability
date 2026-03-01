@@ -67,6 +67,28 @@ class AlertHandler(BaseHTTPRequestHandler):
             self.wfile.write(b"invalid json")
             return
 
+        # --- Brief delivery notifications (#616) ---
+        if self.path == "/brief":
+            sender = payload.get("from", "unknown")
+            recipient = payload.get("to", "unknown")
+            artifact = payload.get("artifact", "brief")
+            # Strip date prefix and .md for cleaner display
+            display = artifact
+            if display.endswith(".md"):
+                display = display[:-3]
+            # Remove leading date if present (YYYY-MM-DD-)
+            if len(display) > 11 and display[10] == "-":
+                display = display[11:]
+            title = f"Brief for {recipient.capitalize()}"
+            body_text = f"From {sender.capitalize()}: {display}"
+            macos_notify(title, body_text, "warning")
+            chorus_log("brief.notify.sent", "system",
+                       **{"from": sender, "to": recipient, "artifact": artifact})
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"ok")
+            return
+
         alerts = payload.get("alerts", [])
         firing = [a for a in alerts if a.get("status") == "firing"]
         resolved = [a for a in alerts if a.get("status") == "resolved"]
@@ -88,7 +110,7 @@ class AlertHandler(BaseHTTPRequestHandler):
                 name = labels.get("alertname", "Unknown")
                 summary = annotations.get("summary", name)
                 names.append(name)
-                chorus_log("alert_firing", "system", alertname=name, severity=labels.get('severity', 'warning'), summary=summary)
+                chorus_log("ops.alert.fired", "system", alertname=name, severity=labels.get('severity', 'warning'), summary=summary)
 
             if len(firing) == 1:
                 title = f"{icon} {names[0]}"
@@ -108,7 +130,7 @@ class AlertHandler(BaseHTTPRequestHandler):
         for alert in resolved:
             labels = alert.get("labels", {})
             name = labels.get("alertname", "Unknown")
-            chorus_log("alert_resolved", "system", alertname=name)
+            chorus_log("ops.alert.resolved", "system", alertname=name)
 
         self.send_response(200)
         self.end_headers()
