@@ -1,0 +1,219 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "links": [],
+  "panels": [
+    {
+      "title": "RAM — Library (16 GB)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "min": 0,
+          "custom": { "fillOpacity": 20, "lineWidth": 2, "stacking": { "mode": "normal" } }
+        },
+        "overrides": [
+          { "matcher": { "id": "byName", "options": "Active" }, "properties": [{ "id": "color", "value": { "fixedColor": "red", "mode": "fixed" } }] },
+          { "matcher": { "id": "byName", "options": "Wired" }, "properties": [{ "id": "color", "value": { "fixedColor": "orange", "mode": "fixed" } }] },
+          { "matcher": { "id": "byName", "options": "Inactive" }, "properties": [{ "id": "color", "value": { "fixedColor": "yellow", "mode": "fixed" } }] },
+          { "matcher": { "id": "byName", "options": "Free" }, "properties": [{ "id": "color", "value": { "fixedColor": "green", "mode": "fixed" } }] }
+        ]
+      },
+      "targets": [
+        { "expr": "node_memory_active_bytes{job=\"node-exporter-host\",machine=\"library\"}", "legendFormat": "Active", "refId": "A" },
+        { "expr": "node_memory_wired_bytes{job=\"node-exporter-host\",machine=\"library\"}", "legendFormat": "Wired", "refId": "B" },
+        { "expr": "node_memory_inactive_bytes{job=\"node-exporter-host\",machine=\"library\"}", "legendFormat": "Inactive", "refId": "C" },
+        { "expr": "node_memory_free_bytes{job=\"node-exporter-host\",machine=\"library\"}", "legendFormat": "Free", "refId": "D" }
+      ]
+    },
+    {
+      "title": "RAM — Bedroom (32 GB)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "min": 0,
+          "custom": { "fillOpacity": 20, "lineWidth": 2, "stacking": { "mode": "normal" } }
+        },
+        "overrides": [
+          { "matcher": { "id": "byName", "options": "Active" }, "properties": [{ "id": "color", "value": { "fixedColor": "red", "mode": "fixed" } }] },
+          { "matcher": { "id": "byName", "options": "Wired" }, "properties": [{ "id": "color", "value": { "fixedColor": "orange", "mode": "fixed" } }] },
+          { "matcher": { "id": "byName", "options": "Inactive" }, "properties": [{ "id": "color", "value": { "fixedColor": "yellow", "mode": "fixed" } }] },
+          { "matcher": { "id": "byName", "options": "Free" }, "properties": [{ "id": "color", "value": { "fixedColor": "green", "mode": "fixed" } }] }
+        ]
+      },
+      "targets": [
+        { "expr": "node_memory_active_bytes{job=\"node-exporter-host\",machine=\"bedroom\"}", "legendFormat": "Active", "refId": "A" },
+        { "expr": "node_memory_wired_bytes{job=\"node-exporter-host\",machine=\"bedroom\"}", "legendFormat": "Wired", "refId": "B" },
+        { "expr": "node_memory_inactive_bytes{job=\"node-exporter-host\",machine=\"bedroom\"}", "legendFormat": "Inactive", "refId": "C" },
+        { "expr": "node_memory_free_bytes{job=\"node-exporter-host\",machine=\"bedroom\"}", "legendFormat": "Free", "refId": "D" }
+      ]
+    },
+    {
+      "title": "CPU — Library",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "percentunit", "min": 0, "max": 1, "custom": { "fillOpacity": 10, "lineWidth": 2 } } },
+      "targets": [
+        { "expr": "1 - avg(rate(node_cpu_seconds_total{mode=\"idle\",job=\"node-exporter-host\",machine=\"library\"}[5m]))", "legendFormat": "CPU %", "refId": "A" }
+      ]
+    },
+    {
+      "title": "CPU — Bedroom",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "percentunit", "min": 0, "max": 1, "custom": { "fillOpacity": 10, "lineWidth": 2 } } },
+      "targets": [
+        { "expr": "1 - avg(rate(node_cpu_seconds_total{mode=\"idle\",job=\"node-exporter-host\",machine=\"bedroom\"}[5m]))", "legendFormat": "CPU %", "refId": "A" }
+      ]
+    },
+    {
+      "title": "Disk — Library",
+      "type": "gauge",
+      "gridPos": { "h": 6, "w": 6, "x": 0, "y": 16 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "percentunit", "min": 0, "max": 1, "thresholds": { "steps": [{ "color": "green", "value": null }, { "color": "yellow", "value": 0.8 }, { "color": "red", "value": 0.95 }] } } },
+      "targets": [
+        { "expr": "1 - (node_filesystem_free_bytes{job=\"node-exporter-host\",machine=\"library\",mountpoint=\"/\"} / node_filesystem_size_bytes{job=\"node-exporter-host\",machine=\"library\",mountpoint=\"/\"})", "legendFormat": "Used", "refId": "A" }
+      ]
+    },
+    {
+      "title": "Disk — Bedroom (boot)",
+      "type": "gauge",
+      "gridPos": { "h": 6, "w": 6, "x": 6, "y": 16 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "percentunit", "min": 0, "max": 1, "thresholds": { "steps": [{ "color": "green", "value": null }, { "color": "yellow", "value": 0.8 }, { "color": "red", "value": 0.95 }] } } },
+      "targets": [
+        { "expr": "1 - (node_filesystem_free_bytes{job=\"node-exporter-host\",machine=\"bedroom\",mountpoint=\"/\"} / node_filesystem_size_bytes{job=\"node-exporter-host\",machine=\"bedroom\",mountpoint=\"/\"})", "legendFormat": "Used", "refId": "A" }
+      ]
+    },
+    {
+      "title": "Capacity",
+      "type": "table",
+      "gridPos": { "h": 6, "w": 12, "x": 12, "y": 16 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": [
+          { "matcher": { "id": "byName", "options": "Value #A" }, "properties": [{ "id": "displayName", "value": "Total RAM" }, { "id": "unit", "value": "bytes" }] },
+          { "matcher": { "id": "byName", "options": "Value #B" }, "properties": [{ "id": "displayName", "value": "Committed (Active+Wired)" }, { "id": "unit", "value": "bytes" }] },
+          { "matcher": { "id": "byName", "options": "Value #C" }, "properties": [{ "id": "displayName", "value": "Disk Free" }, { "id": "unit", "value": "bytes" }] },
+          { "matcher": { "id": "byName", "options": "machine" }, "properties": [{ "id": "displayName", "value": "Machine" }] }
+        ]
+      },
+      "transformations": [
+        { "id": "merge", "options": {} },
+        { "id": "organize", "options": { "excludeByName": { "Time": true, "__name__": true, "instance": true, "job": true, "mountpoint": true, "device": true, "fstype": true }, "indexByName": {}, "renameByName": {} } }
+      ],
+      "targets": [
+        { "expr": "node_memory_total_bytes{job=\"node-exporter-host\"}", "legendFormat": "", "refId": "A", "format": "table", "instant": true },
+        { "expr": "(node_memory_active_bytes{job=\"node-exporter-host\"} + node_memory_wired_bytes{job=\"node-exporter-host\"})", "legendFormat": "", "refId": "B", "format": "table", "instant": true },
+        { "expr": "node_filesystem_free_bytes{job=\"node-exporter-host\",mountpoint=\"/\"}", "legendFormat": "", "refId": "C", "format": "table", "instant": true }
+      ]
+    },
+    {
+      "title": "Bedroom External Drives — Usage",
+      "type": "bargauge",
+      "gridPos": { "h": 12, "w": 24, "x": 0, "y": 22 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "min": 0,
+          "max": 1,
+          "thresholds": {
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 0.9 },
+              { "color": "orange", "value": 0.95 },
+              { "color": "red", "value": 0.99 }
+            ]
+          }
+        }
+      },
+      "options": {
+        "orientation": "horizontal",
+        "displayMode": "gradient",
+        "showUnfilled": true,
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
+      },
+      "targets": [
+        { "expr": "1 - (node_filesystem_free_bytes{job=\"node-exporter-host\",machine=\"bedroom\",mountpoint=~\"/Volumes/Videos.*|/Volumes/Photos.*\"} / node_filesystem_size_bytes{job=\"node-exporter-host\",machine=\"bedroom\",mountpoint=~\"/Volumes/Videos.*|/Volumes/Photos.*\"})", "legendFormat": "{{mountpoint}}", "refId": "A", "instant": true }
+      ],
+      "transformations": [
+        { "id": "renameByRegex", "options": { "regex": "/Volumes/(.*)", "renamePattern": "$1" } }
+      ]
+    },
+    {
+      "title": "Bedroom Drives — Free Space",
+      "type": "table",
+      "gridPos": { "h": 12, "w": 12, "x": 0, "y": 34 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": [
+          { "matcher": { "id": "byName", "options": "Value #A" }, "properties": [{ "id": "displayName", "value": "Total" }, { "id": "unit", "value": "bytes" }] },
+          { "matcher": { "id": "byName", "options": "Value #B" }, "properties": [{ "id": "displayName", "value": "Free" }, { "id": "unit", "value": "bytes" }] },
+          { "matcher": { "id": "byName", "options": "Value #C" }, "properties": [{ "id": "displayName", "value": "Used %" }, { "id": "unit", "value": "percentunit" }, { "id": "thresholds", "value": { "mode": "absolute", "steps": [{ "color": "green", "value": null }, { "color": "yellow", "value": 0.95 }, { "color": "red", "value": 0.99 }] } }, { "id": "custom.displayMode", "value": "color-background" }] },
+          { "matcher": { "id": "byName", "options": "mountpoint" }, "properties": [{ "id": "displayName", "value": "Volume" }] }
+        ]
+      },
+      "options": {
+        "sortBy": [{ "displayName": "Used %", "desc": true }]
+      },
+      "transformations": [
+        { "id": "merge", "options": {} },
+        { "id": "organize", "options": { "excludeByName": { "Time": true, "__name__": true, "instance": true, "job": true, "machine": true, "device": true, "fstype": true }, "indexByName": {}, "renameByName": {} } },
+        { "id": "renameByRegex", "options": { "regex": "/Volumes/(.*)", "renamePattern": "$1" } }
+      ],
+      "targets": [
+        { "expr": "node_filesystem_size_bytes{job=\"node-exporter-host\",machine=\"bedroom\",mountpoint=~\"/Volumes/Videos.*|/Volumes/Photos.*\"}", "legendFormat": "", "refId": "A", "format": "table", "instant": true },
+        { "expr": "node_filesystem_free_bytes{job=\"node-exporter-host\",machine=\"bedroom\",mountpoint=~\"/Volumes/Videos.*|/Volumes/Photos.*\"}", "legendFormat": "", "refId": "B", "format": "table", "instant": true },
+        { "expr": "1 - (node_filesystem_free_bytes{job=\"node-exporter-host\",machine=\"bedroom\",mountpoint=~\"/Volumes/Videos.*|/Volumes/Photos.*\"} / node_filesystem_size_bytes{job=\"node-exporter-host\",machine=\"bedroom\",mountpoint=~\"/Volumes/Videos.*|/Volumes/Photos.*\"})", "legendFormat": "", "refId": "C", "format": "table", "instant": true }
+      ]
+    },
+    {
+      "title": "Bedroom — Drive Health",
+      "type": "text",
+      "gridPos": { "h": 12, "w": 12, "x": 12, "y": 34 },
+      "options": {
+        "mode": "markdown",
+        "content": "### 18 Physical Drives — 178 TB Total\n\n**SMART Status:**\n| Status | Count | Drives |\n|--------|-------|--------|\n| Verified | 14 | disk4,6,21,23,24,27,29,30,33,36,39,40,41,44 |\n| Not Supported | 4 | disk8,11,12,19 (54 TB blind) |\n\n**Risk Assessment:**\n- 20 of 25 volumes at **>95% full**\n- 4 drives (54 TB) have **no SMART visibility** over USB\n- All drives on USB — no hot-swap, no redundancy\n- `volume-keepalive` LaunchAgent prevents idle disconnect\n- I/O errors observed 2026-03-01 across 3 different paths\n\n**Strategy (Jeff, 2026-03-01):**\n1. **Reduce** — Jeff curates, deletes ~10-20%\n2. **Consolidate** — Buy 1x 20TB+ drive, migrate off oldest\n3. **Maintain** — Monitor SMART, I/O errors, disk trends\n\n**Card:** #406 (Bedroom storage audit)"
+      }
+    },
+    {
+      "title": "Library — Services (16 Docker + 12 LaunchAgents)",
+      "type": "text",
+      "gridPos": { "h": 10, "w": 12, "x": 0, "y": 46 },
+      "options": {
+        "mode": "markdown",
+        "content": "### Docker Containers (16)\n| Service | Role |\n|---------|------|\n| jeff-bridwell-personal-site-app | Express app |\n| jeff-bridwell-personal-site-fuseki | RDF triplestore |\n| jeff-bridwell-personal-site-webvowl | Ontology visualizer |\n| jeff-bridwell-personal-site-navidrome | Music streaming |\n| grafana | Dashboards |\n| prometheus | Metrics collection |\n| loki | Log aggregation |\n| promtail | Log shipping |\n| alertmanager | Alert routing |\n| node-exporter | Container metrics (Linux VM) |\n| blackbox-exporter | HTTP/ICMP probes |\n| mysqld-exporter | MySQL metrics |\n| vikunja | Kanban board |\n| wordpress-blog | Blog |\n| wordpress-mysql | Blog database |\n| wordpress-mailhog | Mail testing |\n\n### LaunchAgents (12)\n| Service | Function |\n|---------|----------|\n| com.chorus.api | Chorus context index API |\n| com.chorus.session-watcher | Ambient index daemon |\n| com.chorus.alert-notifier | Alert notifications |\n| com.chorus.andon-light | Jeff activity signal |\n| com.chorus.jeff-input-monitor | Input tracking |\n| com.chorus.ops-agent | Operational health |\n| com.chorus.defect-poller | Error detection |\n| com.chorus.fuseki-perf | RDF monitoring |\n| com.chorus.fuseki-compact | TDB2 weekly compact |\n| com.chorus.docker-services | Boot orchestration |\n| com.chorus.andon-enrich | Andon enrichment |\n| com.gathering.node-exporter | Host metrics (port 9101) |"
+      }
+    },
+    {
+      "title": "Bedroom — Services (4 LaunchAgents)",
+      "type": "text",
+      "gridPos": { "h": 10, "w": 12, "x": 12, "y": 46 },
+      "options": {
+        "mode": "markdown",
+        "content": "### LaunchAgents (4)\n| Service | Function | Port |\n|---------|----------|------|\n| com.gathering.images-api-server | Gallery UI | 3001 |\n| com.gathering.images-api-video | Media serving | 8082 |\n| com.gathering.volume-keepalive | USB idle prevention | — |\n| com.gathering.node-exporter | Host metrics | 9100 |\n\n### Capacity Available\n- **RAM**: ~15 GB free of 32 GB\n- **Disk (boot)**: 1.5 TB free of 1.8 TB\n- **CPU**: 12-core M2 Pro, <5% utilization\n- **Docker**: Not installed"
+      }
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": ["infrastructure", "capacity"],
+  "templating": { "list": [] },
+  "time": { "from": "now-1h", "to": "now" },
+  "timepicker": {},
+  "timezone": "America/New_York",
+  "title": "Data Center",
+  "uid": "data-center"
+}

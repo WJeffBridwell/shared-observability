@@ -19,10 +19,20 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
-  # Node Exporter for host metrics
+  # Node Exporter — Docker container (Linux VM metrics, legacy)
   - job_name: 'node-exporter'
     static_configs:
       - targets: ['node-exporter:9100']
+
+  # Node Exporter — native macOS host metrics (both machines)
+  - job_name: 'node-exporter-host'
+    static_configs:
+      - targets: ['host.docker.internal:9101']
+        labels:
+          machine: 'library'
+      - targets: ['192.168.86.242:9100']
+        labels:
+          machine: 'bedroom'
 
   # Docker service discovery for containers with metrics.enabled=true label
   - job_name: 'docker-services'
