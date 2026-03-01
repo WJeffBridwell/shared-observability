@@ -82,3 +82,116 @@ scrape_configs:
 
       - output:
           source: message
+
+  # Command error logs (Bash failure introspection from command-outcome-hook.sh)
+  - job_name: command-errors
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: command-errors
+          __path__: /host-logs/command-errors.log
+
+    pipeline_stages:
+      - json:
+          expressions:
+            ts: ts
+            role: role
+            severity: severity
+            cmd: cmd
+            error: error
+            fingerprint: fingerprint
+
+      - labels:
+          role:
+          severity:
+          fingerprint:
+
+      - timestamp:
+          source: ts
+          format: '2006-01-02T15:04:05.000Z'
+
+  # Handoff logs (role-to-role brief exchange tracking)
+  - job_name: handoffs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: handoffs
+          __path__: /host-logs/handoffs.log
+
+    pipeline_stages:
+      - json:
+          expressions:
+            timestamp: timestamp
+            type: type
+            from: from
+            to: to
+            status: status
+
+      - labels:
+          from:
+          to:
+          type:
+          status:
+
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05Z'
+
+  # Permission prompt logs (tool call tracking from permission-logger-hook.sh)
+  - job_name: permission-prompts
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: permission-prompts
+          __path__: /host-logs/permission-prompts.log
+
+    pipeline_stages:
+      - json:
+          expressions:
+            timestamp: timestamp
+            appName: appName
+            component: component
+            event: event
+            role: role
+            tool: tool
+
+      - labels:
+          role:
+          appName:
+          tool:
+
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05.000Z'
+
+  # SOLID audit logs (user access events from the app)
+  - job_name: audit
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: audit
+          __path__: /host-audit/audit-*.jsonl
+
+    pipeline_stages:
+      - json:
+          expressions:
+            timestamp: timestamp
+            eventType: eventType
+            actor: actor
+            podId: podId
+            resource: resource
+            action: action
+            success: success
+
+      - labels:
+          eventType:
+          podId:
+          action:
+
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05.000Z'
