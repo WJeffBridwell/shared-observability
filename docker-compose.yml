@@ -149,6 +149,7 @@ services:
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - ../messages/logs:/host-logs:ro
       - ../jeff-bridwell-personal-site/data/audit:/host-audit:ro
+      - /tmp:/host-tmp:ro              # LaunchAgent daemon logs (#685 log data model)
       - promtail-positions:/tmp
     command: -config.file=/etc/promtail/promtail-config.yaml
     networks:

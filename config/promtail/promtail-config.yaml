@@ -167,6 +167,35 @@ scrape_configs:
           source: timestamp
           format: '2006-01-02T15:04:05.000Z'
 
+  # LaunchAgent daemon logs (ops-agent, defect-poller, fuseki-perf)
+  # These are the operational pollers that produce findings but had no readers.
+  - job_name: daemon-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: daemon-logs
+          daemon: ops-agent
+          __path__: /host-tmp/ops-agent.log
+      - targets:
+          - localhost
+        labels:
+          job: daemon-logs
+          daemon: defect-poller
+          __path__: /host-tmp/defect-poller.log
+      - targets:
+          - localhost
+        labels:
+          job: daemon-logs
+          daemon: fuseki-perf
+          __path__: /host-tmp/fuseki-perf.log
+
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
   # SOLID audit logs (user access events from the app)
   - job_name: audit
     static_configs:
