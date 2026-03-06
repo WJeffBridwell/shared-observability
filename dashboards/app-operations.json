@@ -2191,11 +2191,6 @@
           },
           {
             "selected": false,
-            "text": "Slack Bridge",
-            "value": "slack-bridge"
-          },
-          {
-            "selected": false,
             "text": "Prometheus",
             "value": "localhost:9090"
           },
@@ -2220,7 +2215,7 @@
             "value": "node-exporter:9100"
           }
         ],
-        "query": "jeff-bridwell-personal-site-app : App,jeff-bridwell-personal-site-fuseki : Fuseki,wordpress-blog : WordPress,wordpress-mysql : MySQL,jeff-bridwell-personal-site-webvowl : WebVOWL,vikunja : Vikunja,slack-bridge : Slack Bridge,localhost:9090 : Prometheus,grafana:3000 : Grafana,loki:3100 : Loki,promtail:9080 : Promtail,node-exporter:9100 : Node Exporter",
+        "query": "jeff-bridwell-personal-site-app : App,jeff-bridwell-personal-site-fuseki : Fuseki,wordpress-blog : WordPress,wordpress-mysql : MySQL,jeff-bridwell-personal-site-webvowl : WebVOWL,vikunja : Vikunja,localhost:9090 : Prometheus,grafana:3000 : Grafana,loki:3100 : Loki,promtail:9080 : Promtail,node-exporter:9100 : Node Exporter",
         "skipUrlSync": false,
         "type": "custom"
       },
