@@ -1,0 +1,28 @@
+groups:
+  - name: uptime_recording
+    interval: 1m
+    rules:
+      # Rolling uptime % per HTTP service (1h, 24h, 7d)
+      - record: service:uptime_1h:ratio
+        expr: avg_over_time(probe_success{job=~"blackbox-(app|fuseki|wordpress|vikunja|navidrome|css|webvowl|alertmanager|mailhog|images-api|video-server|ollama|external)"}[1h])
+
+      - record: service:uptime_24h:ratio
+        expr: avg_over_time(probe_success{job=~"blackbox-(app|fuseki|wordpress|vikunja|navidrome|css|webvowl|alertmanager|mailhog|images-api|video-server|ollama|external)"}[24h])
+
+      - record: service:uptime_7d:ratio
+        expr: avg_over_time(probe_success{job=~"blackbox-(app|fuseki|wordpress|vikunja|navidrome|css|webvowl|alertmanager|mailhog|images-api|video-server|ollama|external)"}[7d])
+
+      # Network device uptime (ICMP)
+      - record: device:uptime_1h:ratio
+        expr: avg_over_time(probe_success{job="blackbox-icmp"}[1h])
+
+      - record: device:uptime_24h:ratio
+        expr: avg_over_time(probe_success{job="blackbox-icmp"}[24h])
+
+      # Fleet-wide aggregate — percentage of all HTTP services up
+      - record: fleet:services_up:ratio
+        expr: avg(probe_success{job=~"blackbox-(app|fuseki|wordpress|vikunja|navidrome|css|webvowl|alertmanager|images-api|video-server|ollama)"})
+
+      # Count of probe failures in last hour
+      - record: service:probe_failures_1h:count
+        expr: count_over_time((probe_success{job=~"blackbox-.*"} == 0)[1h:])

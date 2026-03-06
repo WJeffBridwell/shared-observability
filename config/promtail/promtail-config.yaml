@@ -43,6 +43,16 @@ scrape_configs:
     pipeline_stages:
       # Parse Docker JSON log wrapper
       - docker: {}
+      # Extract structured fields from app JSON logs
+      - json:
+          expressions:
+            level: level
+            appName: appName
+            component: component
+      - labels:
+          level:
+          appName:
+          component:
       # Drop internal observability container logs (relabel drop doesn't work in Docker SD)
       - match:
           selector: '{container_name=~"prometheus|grafana|loki|promtail|node-exporter|alertmanager|blackbox-exporter|mysqld-exporter"}'
@@ -189,6 +199,134 @@ scrape_configs:
           job: daemon-logs
           daemon: fuseki-perf
           __path__: /host-tmp/fuseki-perf.log
+
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Performance baseline measurements (test/build/deploy/login/search)
+  - job_name: perf-baseline
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: perf-baseline
+          __path__: /host-tmp/perf-baseline.log
+
+    pipeline_stages:
+      - json:
+          expressions:
+            timestamp: timestamp
+            function: function
+            durationMs: durationMs
+            status: status
+            detail: detail
+      - labels:
+          function:
+          status:
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05.000Z'
+
+  # Team activity log (role actions, brief exchanges, decisions)
+  - job_name: activity
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: activity
+          __path__: /host-messages/activity.md
+
+    pipeline_stages:
+      - regex:
+          expression: '^- \[(?P<role>[^\]]+)\] → (?P<action>.+)$'
+      - labels:
+          role:
+      - output:
+          source: action
+
+  # Session watcher log (ambient indexing daemon)
+  - job_name: session-watcher
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: session-watcher
+          daemon: session-watcher
+          __path__: /host-chorus/watcher.log
+
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Chorus API log (context index HTTP service)
+  - job_name: chorus-api
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: chorus-api
+          daemon: chorus-api
+          __path__: /host-tmp/chorus-api.log
+
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Board snapshot logs (Vikunja board state captures)
+  - job_name: board-snapshots
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: board-snapshots
+          __path__: /host-logs/board-snapshot-*.json
+
+    pipeline_stages:
+      - json:
+          expressions:
+            timestamp: timestamp
+            role: role
+            event: event
+            cards_total: cards_total
+      - labels:
+          role:
+          event:
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05.000Z'
+
+  # Fuseki compaction log (weekly TDB2 maintenance)
+  - job_name: fuseki-compact
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: fuseki-compact
+          daemon: fuseki-compact
+          __path__: /host-tmp/fuseki-compact.log
+
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Alert notifier log (banner notification delivery)
+  - job_name: alert-notifier
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: alert-notifier
+          daemon: alert-notifier
+          __path__: /host-tmp/alert-notifier.log
 
     pipeline_stages:
       - regex:
