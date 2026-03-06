@@ -41,7 +41,7 @@
         "uid": "prometheus"
       },
       "gridPos": {
-        "h": 10,
+        "h": 13,
         "w": 24,
         "x": 0,
         "y": 1
@@ -53,7 +53,7 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<img src=\"data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTAwMCAyNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3R5bGU9ImJhY2tncm91bmQ6IzE4MUIxRjsiPgogIDxkZWZzPgogICAgPG1hcmtlciBpZD0iYWgiIG1hcmtlcldpZHRoPSI4IiBtYXJrZXJIZWlnaHQ9IjYiIHJlZlg9IjgiIHJlZlk9IjMiIG9yaWVudD0iYXV0byI+CiAgICAgIDxwYXRoIGQ9Ik0wLDAgTDgsMyBMMCw2IiBmaWxsPSIjNzE4MDk2Ii8+CiAgICA8L21hcmtlcj4KICAgIDxtYXJrZXIgaWQ9ImFoZyIgbWFya2VyV2lkdGg9IjgiIG1hcmtlckhlaWdodD0iNiIgcmVmWD0iOCIgcmVmWT0iMyIgb3JpZW50PSJhdXRvIj4KICAgICAgPHBhdGggZD0iTTAsMCBMOCwzIEwwLDYiIGZpbGw9IiMxMEI5ODEiLz4KICAgIDwvbWFya2VyPgogIDwvZGVmcz4KICA8c3R5bGU+CiAgICAuYm94IHsgZmlsbDojMUUyOTNCOyBzdHJva2Utd2lkdGg6MS41OyB9CiAgICAubGJsIHsgZmlsbDojRTJFOEYwOyBmb250LWZhbWlseTpJbnRlcixzeXN0ZW0tdWksc2Fucy1zZXJpZjsgZm9udC1zaXplOjExcHg7IGZvbnQtd2VpZ2h0OjYwMDsgdGV4dC1hbmNob3I6bWlkZGxlOyB9CiAgICAuc3ViIHsgZmlsbDojNzE4MDk2OyBmb250LWZhbWlseTpJbnRlcixzeXN0ZW0tdWksc2Fucy1zZXJpZjsgZm9udC1zaXplOjguNXB4OyB0ZXh0LWFuY2hvcjptaWRkbGU7IH0KICAgIC5ncnAgeyBmaWxsOiM2MzY2RjE7IGZvbnQtZmFtaWx5OkludGVyLHN5c3RlbS11aSxzYW5zLXNlcmlmOyBmb250LXNpemU6MTBweDsgZm9udC13ZWlnaHQ6NzAwOyBsZXR0ZXItc3BhY2luZzoxcHg7IH0KICAgIC5hcnIgeyBzdHJva2U6IzcxODA5Njsgc3Ryb2tlLXdpZHRoOjEuNTsgbWFya2VyLWVuZDp1cmwoI2FoKTsgfQogICAgLm1vbiB7IHN0cm9rZTojMTBCOTgxOyBzdHJva2Utd2lkdGg6MTsgc3Ryb2tlLWRhc2hhcnJheTo0LDM7IG1hcmtlci1lbmQ6dXJsKCNhaGcpOyBvcGFjaXR5OjAuNjsgfQogIDwvc3R5bGU+CgogIDwhLS0gQVBQTElDQVRJT04gR1JPVVAgLS0+CiAgPHRleHQgeD0iMTUiIHk9IjE0IiBjbGFzcz0iZ3JwIj5BUFBMSUNBVElPTjwvdGV4dD4KICA8cmVjdCB4PSIxNSIgeT0iMjIiIHdpZHRoPSI5MCIgaGVpZ2h0PSI0MCIgcng9IjYiIGNsYXNzPSJib3giIHN0cm9rZT0iIzYzNjZGMSIvPgogIDx0ZXh0IHg9IjYwIiB5PSIzOSIgY2xhc3M9ImxibCI+SmVmZjwvdGV4dD4KICA8dGV4dCB4PSI2MCIgeT0iNTIiIGNsYXNzPSJzdWIiPkJyb3dzZXIgLyBTTVM8L3RleHQ+CiAgPGxpbmUgeDE9IjEwNSIgeTE9IjQyIiB4Mj0iMTI1IiB5Mj0iNDIiIGNsYXNzPSJhcnIiLz4KCiAgPHJlY3QgeD0iMTI3IiB5PSIyMiIgd2lkdGg9IjkwIiBoZWlnaHQ9IjQwIiByeD0iNiIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iMTcyIiB5PSIzOSIgY2xhc3M9ImxibCI+QXBwPC90ZXh0PgogIDx0ZXh0IHg9IjE3MiIgeT0iNTIiIGNsYXNzPSJzdWIiPkV4cHJlc3MgOjMwMDA8L3RleHQ+CiAgPGxpbmUgeDE9IjIxNyIgeTE9IjQyIiB4Mj0iMjM3IiB5Mj0iNDIiIGNsYXNzPSJhcnIiLz4KCiAgPHJlY3QgeD0iMjM5IiB5PSIyMiIgd2lkdGg9IjkwIiBoZWlnaHQ9IjQwIiByeD0iNiIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iMjg0IiB5PSIzOSIgY2xhc3M9ImxibCI+RnVzZWtpPC90ZXh0PgogIDx0ZXh0IHg9IjI4NCIgeT0iNTIiIGNsYXNzPSJzdWIiPlNQQVJRTCA6MzAzMDwvdGV4dD4KCiAgPGxpbmUgeDE9IjE3MiIgeTE9IjYyIiB4Mj0iMTcyIiB5Mj0iNzIiIGNsYXNzPSJhcnIiLz4KICA8cmVjdCB4PSIxMjciIHk9Ijc0IiB3aWR0aD0iOTAiIGhlaWdodD0iNDAiIHJ4PSI2IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSIxNzIiIHk9IjkxIiBjbGFzcz0ibGJsIj5Xb3JkUHJlc3M8L3RleHQ+CiAgPHRleHQgeD0iMTcyIiB5PSIxMDQiIGNsYXNzPSJzdWIiPkJsb2cgOjgwPC90ZXh0PgogIDxsaW5lIHgxPSIyMTciIHkxPSI5NCIgeDI9IjIzNyIgeTI9Ijk0IiBjbGFzcz0iYXJyIi8+CgogIDxyZWN0IHg9IjIzOSIgeT0iNzQiIHdpZHRoPSI5MCIgaGVpZ2h0PSI0MCIgcng9IjYiIGNsYXNzPSJib3giIHN0cm9rZT0iIzcxODA5NiIvPgogIDx0ZXh0IHg9IjI4NCIgeT0iOTEiIGNsYXNzPSJsYmwiPk15U1FMPC90ZXh0PgogIDx0ZXh0IHg9IjI4NCIgeT0iMTA0IiBjbGFzcz0ic3ViIj5EYXRhIDozMzA2PC90ZXh0PgoKICA8IS0tIENPTU1VTklDQVRJT04gR1JPVVAgLS0+CiAgPHRleHQgeD0iMzkwIiB5PSIxNCIgY2xhc3M9ImdycCI+Q09NTVVOSUNBVElPTjwvdGV4dD4KICA8cmVjdCB4PSIzOTAiIHk9IjIyIiB3aWR0aD0iOTAiIGhlaWdodD0iNDAiIHJ4PSI2IiBjbGFzcz0iYm94IiBzdHJva2U9IiM2MzY2RjEiLz4KICA8dGV4dCB4PSI0MzUiIHk9IjM5IiBjbGFzcz0ibGJsIj5TbGFjazwvdGV4dD4KICA8dGV4dCB4PSI0MzUiIHk9IjUyIiBjbGFzcz0ic3ViIj5Xb3Jrc3BhY2U8L3RleHQ+CiAgPGxpbmUgeDE9IjQ4MCIgeTE9IjQyIiB4Mj0iNTAwIiB5Mj0iNDIiIGNsYXNzPSJhcnIiLz4KCiAgPHJlY3QgeD0iNTAyIiB5PSIyMiIgd2lkdGg9IjkwIiBoZWlnaHQ9IjQwIiByeD0iNiIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iNTQ3IiB5PSIzOSIgY2xhc3M9ImxibCI+QnJpZGdlPC90ZXh0PgogIDx0ZXh0IHg9IjU0NyIgeT0iNTIiIGNsYXNzPSJzdWIiPlBvbGxpbmcgOjM0NjA8L3RleHQ+CiAgPGxpbmUgeDE9IjU5MiIgeTE9IjQyIiB4Mj0iNjEyIiB5Mj0iNDIiIGNsYXNzPSJhcnIiLz4KCiAgPHJlY3QgeD0iNjE0IiB5PSIyMiIgd2lkdGg9IjkwIiBoZWlnaHQ9IjQwIiByeD0iNiIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjNjM2NkYxIi8+CiAgPHRleHQgeD0iNjU5IiB5PSIzOSIgY2xhc3M9ImxibCI+Q2xhdWRlIEFQSTwvdGV4dD4KICA8dGV4dCB4PSI2NTkiIHk9IjUyIiBjbGFzcz0ic3ViIj5Tb25uZXQ8L3RleHQ+CgogIDwhLS0gT0JTRVJWQUJJTElUWSBHUk9VUCAtLT4KICA8dGV4dCB4PSIxNSIgeT0iMTQwIiBjbGFzcz0iZ3JwIj5PQlNFUlZBQklMSVRZPC90ZXh0PgogIDxyZWN0IHg9IjE1IiB5PSIxNDgiIHdpZHRoPSI5MCIgaGVpZ2h0PSI0MCIgcng9IjYiIGNsYXNzPSJib3giIHN0cm9rZT0iIzEwQjk4MSIvPgogIDx0ZXh0IHg9IjYwIiB5PSIxNjUiIGNsYXNzPSJsYmwiPlByb21ldGhldXM8L3RleHQ+CiAgPHRleHQgeD0iNjAiIHk9IjE3OCIgY2xhc3M9InN1YiI+TWV0cmljcyA6OTA5MDwvdGV4dD4KICA8bGluZSB4MT0iMTA1IiB5MT0iMTY4IiB4Mj0iMTI1IiB5Mj0iMTY4IiBjbGFzcz0iYXJyIi8+CgogIDxyZWN0IHg9IjEyNyIgeT0iMTQ4IiB3aWR0aD0iOTAiIGhlaWdodD0iNDAiIHJ4PSI2IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSIxNzIiIHk9IjE2NSIgY2xhc3M9ImxibCI+R3JhZmFuYTwvdGV4dD4KICA8dGV4dCB4PSIxNzIiIHk9IjE3OCIgY2xhc3M9InN1YiI+RGFzaGJvYXJkcyA6MzAwMDwvdGV4dD4KCiAgPHJlY3QgeD0iMjM5IiB5PSIxNDgiIHdpZHRoPSI5MCIgaGVpZ2h0PSI0MCIgcng9IjYiIGNsYXNzPSJib3giIHN0cm9rZT0iIzEwQjk4MSIvPgogIDx0ZXh0IHg9IjI4NCIgeT0iMTY1IiBjbGFzcz0ibGJsIj5Mb2tpPC90ZXh0PgogIDx0ZXh0IHg9IjI4NCIgeT0iMTc4IiBjbGFzcz0ic3ViIj5Mb2dzIDozMTAwPC90ZXh0PgogIDxsaW5lIHgxPSIzNTEiIHkxPSIxNjgiIHgyPSIzMzEiIHkyPSIxNjgiIGNsYXNzPSJhcnIiLz4KCiAgPHJlY3QgeD0iMzUzIiB5PSIxNDgiIHdpZHRoPSI5MCIgaGVpZ2h0PSI0MCIgcng9IjYiIGNsYXNzPSJib3giIHN0cm9rZT0iIzcxODA5NiIvPgogIDx0ZXh0IHg9IjM5OCIgeT0iMTY1IiBjbGFzcz0ibGJsIj5Qcm9tdGFpbDwvdGV4dD4KICA8dGV4dCB4PSIzOTgiIHk9IjE3OCIgY2xhc3M9InN1YiI+Q29sbGVjdG9yIDo5MDgwPC90ZXh0PgoKICA8cmVjdCB4PSIxNSIgeT0iMTk4IiB3aWR0aD0iOTAiIGhlaWdodD0iNDAiIHJ4PSI2IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSI2MCIgeT0iMjE1IiBjbGFzcz0ibGJsIj5BbGVydG1hbmFnZXI8L3RleHQ+CiAgPHRleHQgeD0iNjAiIHk9IjIyOCIgY2xhc3M9InN1YiI+QWxlcnRzIDo5MDkzPC90ZXh0PgogIDxsaW5lIHgxPSI2MCIgeTE9IjE4OCIgeDI9IjYwIiB5Mj0iMTk2IiBjbGFzcz0iYXJyIi8+CiAgPGxpbmUgeDE9IjEwNSIgeTE9IjIxOCIgeDI9IjE0MCIgeTI9IjIxOCIgY2xhc3M9ImFyciIvPgogIDx0ZXh0IHg9IjE1MiIgeT0iMjIyIiBjbGFzcz0ic3ViIiB0ZXh0LWFuY2hvcj0ic3RhcnQiIGZpbGw9IiM3MTgwOTYiPlNsYWNrICNhbGwtZ2F0aGVyaW5nPC90ZXh0PgoKICA8IS0tIFRPT0xTIEdST1VQIC0tPgogIDx0ZXh0IHg9IjUwMiIgeT0iMTQwIiBjbGFzcz0iZ3JwIj5UT09MUzwvdGV4dD4KICA8cmVjdCB4PSI1MDIiIHk9IjE0OCIgd2lkdGg9IjkwIiBoZWlnaHQ9IjQwIiByeD0iNiIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iNTQ3IiB5PSIxNjUiIGNsYXNzPSJsYmwiPlZpa3VuamE8L3RleHQ+CiAgPHRleHQgeD0iNTQ3IiB5PSIxNzgiIGNsYXNzPSJzdWIiPkthbmJhbiA6MzQ1NjwvdGV4dD4KCiAgPHJlY3QgeD0iNjE0IiB5PSIxNDgiIHdpZHRoPSI5MCIgaGVpZ2h0PSI0MCIgcng9IjYiIGNsYXNzPSJib3giIHN0cm9rZT0iIzEwQjk4MSIvPgogIDx0ZXh0IHg9IjY1OSIgeT0iMTY1IiBjbGFzcz0ibGJsIj5XZWJWT1dMPC90ZXh0PgogIDx0ZXh0IHg9IjY1OSIgeT0iMTc4IiBjbGFzcz0ic3ViIj5PbnRvbG9neSA6ODA4OTwvdGV4dD4KCiAgPCEtLSBNb25pdG9yaW5nIGNvbm5lY3Rpb25zIChkb3R0ZWQgZ3JlZW4pIGZyb20gUHJvbWV0aGV1cyAtLT4KICA8cGF0aCBkPSJNNjAsMTQ4IEw2MCwxMjUgTDE3Miw2NSIgY2xhc3M9Im1vbiIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik02MCwxMjUgTDI4NCw2NSIgY2xhc3M9Im1vbiIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik02MCwxMjUgTDQzNSw2NSIgY2xhc3M9Im1vbiIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik02MCwxMjUgTDU0Nyw2NSIgY2xhc3M9Im1vbiIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik02MCwxMjUgTDU0NywxNDgiIGNsYXNzPSJtb24iIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNNjAsMTI1IEw2NTksMTQ4IiBjbGFzcz0ibW9uIiBmaWxsPSJub25lIi8+CiAgPHRleHQgeD0iOTUiIHk9IjEyMiIgY2xhc3M9InN1YiIgZmlsbD0iIzEwQjk4MSIgZm9udC1zaXplPSI3LjUiPnNjcmFwZXMgYWxsIHNlcnZpY2VzPC90ZXh0Pgo8L3N2Zz4=\" style=\"width:100%;height:100%;\" alt=\"Infrastructure Context Diagram\"/>",
+        "content": "<img src=\"data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTAwMCAzNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3R5bGU9ImJhY2tncm91bmQ6IzE4MUIxRjsiPgogIDxkZWZzPgogICAgPG1hcmtlciBpZD0iYWgiIG1hcmtlcldpZHRoPSI4IiBtYXJrZXJIZWlnaHQ9IjYiIHJlZlg9IjgiIHJlZlk9IjMiIG9yaWVudD0iYXV0byI+CiAgICAgIDxwYXRoIGQ9Ik0wLDAgTDgsMyBMMCw2IiBmaWxsPSIjNzE4MDk2Ii8+CiAgICA8L21hcmtlcj4KICAgIDxtYXJrZXIgaWQ9ImFoZyIgbWFya2VyV2lkdGg9IjgiIG1hcmtlckhlaWdodD0iNiIgcmVmWD0iOCIgcmVmWT0iMyIgb3JpZW50PSJhdXRvIj4KICAgICAgPHBhdGggZD0iTTAsMCBMOCwzIEwwLDYiIGZpbGw9IiMxMEI5ODEiLz4KICAgIDwvbWFya2VyPgogIDwvZGVmcz4KICA8c3R5bGU+CiAgICAuYm94IHsgZmlsbDojMUUyOTNCOyBzdHJva2Utd2lkdGg6MS41OyB9CiAgICAubGJsIHsgZmlsbDojRTJFOEYwOyBmb250LWZhbWlseTpJbnRlcixzeXN0ZW0tdWksc2Fucy1zZXJpZjsgZm9udC1zaXplOjExcHg7IGZvbnQtd2VpZ2h0OjYwMDsgdGV4dC1hbmNob3I6bWlkZGxlOyB9CiAgICAuc3ViIHsgZmlsbDojNzE4MDk2OyBmb250LWZhbWlseTpJbnRlcixzeXN0ZW0tdWksc2Fucy1zZXJpZjsgZm9udC1zaXplOjguNXB4OyB0ZXh0LWFuY2hvcjptaWRkbGU7IH0KICAgIC5ncnAgeyBmaWxsOiM2MzY2RjE7IGZvbnQtZmFtaWx5OkludGVyLHN5c3RlbS11aSxzYW5zLXNlcmlmOyBmb250LXNpemU6MTBweDsgZm9udC13ZWlnaHQ6NzAwOyBsZXR0ZXItc3BhY2luZzoxcHg7IH0KICAgIC5tYWNoIHsgZmlsbDojRjU5RTBCOyBmb250LWZhbWlseTpJbnRlcixzeXN0ZW0tdWksc2Fucy1zZXJpZjsgZm9udC1zaXplOjlweDsgZm9udC13ZWlnaHQ6NzAwOyBsZXR0ZXItc3BhY2luZzowLjVweDsgfQogICAgLmFyciB7IHN0cm9rZTojNzE4MDk2OyBzdHJva2Utd2lkdGg6MS41OyBtYXJrZXItZW5kOnVybCgjYWgpOyB9CiAgICAubW9uIHsgc3Ryb2tlOiMxMEI5ODE7IHN0cm9rZS13aWR0aDoxOyBzdHJva2UtZGFzaGFycmF5OjQsMzsgbWFya2VyLWVuZDp1cmwoI2FoZyk7IG9wYWNpdHk6MC42OyB9CiAgICAubWJveCB7IGZpbGw6bm9uZTsgc3Ryb2tlOiNGNTlFMEI7IHN0cm9rZS13aWR0aDoxOyBzdHJva2UtZGFzaGFycmF5OjYsMzsgcng6ODsgb3BhY2l0eTowLjQ7IH0KICA8L3N0eWxlPgoKICA8IS0tIOKVkOKVkOKVkCBMSUJSQVJZIE1BQyDilZDilZDilZAgLS0+CiAgPHJlY3QgeD0iNSIgeT0iNSIgd2lkdGg9IjcwMCIgaGVpZ2h0PSIzNTAiIGNsYXNzPSJtYm94Ii8+CiAgPHRleHQgeD0iMTIiIHk9IjE4IiBjbGFzcz0ibWFjaCI+TElCUkFSWSBNQUMgKE0xIDE2R0IpIOKAlCAxOTIuMTY4Ljg2LjM2PC90ZXh0PgoKICA8IS0tIEFQUExJQ0FUSU9OIC0tPgogIDx0ZXh0IHg9IjE1IiB5PSIzOCIgY2xhc3M9ImdycCI+QVBQTElDQVRJT048L3RleHQ+CiAgPHJlY3QgeD0iMTUiIHk9IjQ0IiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiM2MzY2RjEiLz4KICA8dGV4dCB4PSI1NyIgeT0iNTkiIGNsYXNzPSJsYmwiPkplZmY8L3RleHQ+CiAgPHRleHQgeD0iNTciIHk9IjcxIiBjbGFzcz0ic3ViIj5Ccm93c2VyIC8gVm9pY2U8L3RleHQ+CiAgPGxpbmUgeDE9IjEwMCIgeTE9IjYyIiB4Mj0iMTEyIiB5Mj0iNjIiIGNsYXNzPSJhcnIiLz4KCiAgPHJlY3QgeD0iMTE0IiB5PSI0NCIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iMTU2IiB5PSI1OSIgY2xhc3M9ImxibCI+QXBwPC90ZXh0PgogIDx0ZXh0IHg9IjE1NiIgeT0iNzEiIGNsYXNzPSJzdWIiPkV4cHJlc3MgOjMwMDA8L3RleHQ+CiAgPGxpbmUgeDE9IjE5OSIgeTE9IjYyIiB4Mj0iMjExIiB5Mj0iNjIiIGNsYXNzPSJhcnIiLz4KCiAgPHJlY3QgeD0iMjEzIiB5PSI0NCIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iMjU1IiB5PSI1OSIgY2xhc3M9ImxibCI+RnVzZWtpPC90ZXh0PgogIDx0ZXh0IHg9IjI1NSIgeT0iNzEiIGNsYXNzPSJzdWIiPlNQQVJRTCA6MzAzMDwvdGV4dD4KCiAgPHJlY3QgeD0iMzEyIiB5PSI0NCIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iMzU0IiB5PSI1OSIgY2xhc3M9ImxibCI+TmF2aWRyb21lPC90ZXh0PgogIDx0ZXh0IHg9IjM1NCIgeT0iNzEiIGNsYXNzPSJzdWIiPk11c2ljIDo0NTMzPC90ZXh0PgoKICA8cmVjdCB4PSIxMTQiIHk9Ijg2IiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSIxNTYiIHk9IjEwMSIgY2xhc3M9ImxibCI+V29yZFByZXNzPC90ZXh0PgogIDx0ZXh0IHg9IjE1NiIgeT0iMTEzIiBjbGFzcz0ic3ViIj5CbG9nIDo4MDgxPC90ZXh0PgogIDxsaW5lIHgxPSIxNTYiIHkxPSI4MCIgeDI9IjE1NiIgeTI9Ijg2IiBjbGFzcz0iYXJyIi8+CiAgPGxpbmUgeDE9IjE5OSIgeTE9IjEwNCIgeDI9IjIxMSIgeTI9IjEwNCIgY2xhc3M9ImFyciIvPgoKICA8cmVjdCB4PSIyMTMiIHk9Ijg2IiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiM3MTgwOTYiLz4KICA8dGV4dCB4PSIyNTUiIHk9IjEwMSIgY2xhc3M9ImxibCI+TXlTUUw8L3RleHQ+CiAgPHRleHQgeD0iMjU1IiB5PSIxMTMiIGNsYXNzPSJzdWIiPkRhdGEgOjMzMDY8L3RleHQ+CgogIDxyZWN0IHg9IjMxMiIgeT0iODYiIHdpZHRoPSI4NSIgaGVpZ2h0PSIzNiIgcng9IjUiIGNsYXNzPSJib3giIHN0cm9rZT0iIzEwQjk4MSIvPgogIDx0ZXh0IHg9IjM1NCIgeT0iMTAxIiBjbGFzcz0ibGJsIj5TT0xJRCBDU1M8L3RleHQ+CiAgPHRleHQgeD0iMzU0IiB5PSIxMTMiIGNsYXNzPSJzdWIiPk9JREMgOjMwMDE8L3RleHQ+CgogIDxyZWN0IHg9IjE1IiB5PSI4NiIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iNTciIHk9IjEwMSIgY2xhc3M9ImxibCI+TWFpbEhvZzwvdGV4dD4KICA8dGV4dCB4PSI1NyIgeT0iMTEzIiBjbGFzcz0ic3ViIj5TTVRQIDo4MDI1PC90ZXh0PgoKICA8IS0tIENPT1JESU5BVElPTiAtLT4KICA8dGV4dCB4PSI0NDAiIHk9IjM4IiBjbGFzcz0iZ3JwIj5DT09SRElOQVRJT048L3RleHQ+CiAgPHJlY3QgeD0iNDQwIiB5PSI0NCIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjNjM2NkYxIi8+CiAgPHRleHQgeD0iNDgyIiB5PSI1OSIgY2xhc3M9ImxibCI+Q2hvcnVzIEFQSTwvdGV4dD4KICA8dGV4dCB4PSI0ODIiIHk9IjcxIiBjbGFzcz0ic3ViIj5JbmRleCA6MzM0MDwvdGV4dD4KCiAgPHJlY3QgeD0iNTM5IiB5PSI0NCIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjNjM2NkYxIi8+CiAgPHRleHQgeD0iNTgxIiB5PSI1OSIgY2xhc3M9ImxibCI+Q2xhdWRlIEFQSTwvdGV4dD4KICA8dGV4dCB4PSI1ODEiIHk9IjcxIiBjbGFzcz0ic3ViIj5PcHVzIC8gU29ubmV0PC90ZXh0PgoKICA8cmVjdCB4PSI0NDAiIHk9Ijg2IiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiNGNTlFMEIiLz4KICA8dGV4dCB4PSI0ODIiIHk9IjEwMSIgY2xhc3M9ImxibCI+Q2xvdWRmbGFyZWQ8L3RleHQ+CiAgPHRleHQgeD0iNDgyIiB5PSIxMTMiIGNsYXNzPSJzdWIiPlR1bm5lbCA6MjAyNDE8L3RleHQ+CgogIDxyZWN0IHg9IjUzOSIgeT0iODYiIHdpZHRoPSI4NSIgaGVpZ2h0PSIzNiIgcng9IjUiIGNsYXNzPSJib3giIHN0cm9rZT0iIzYzNjZGMSIvPgogIDx0ZXh0IHg9IjU4MSIgeT0iMTAxIiBjbGFzcz0ibGJsIj5Ud2lsaW88L3RleHQ+CiAgPHRleHQgeD0iNTgxIiB5PSIxMTMiIGNsYXNzPSJzdWIiPlNNUyBBUEk8L3RleHQ+CgogIDwhLS0gVE9PTFMgLS0+CiAgPHRleHQgeD0iNjM4IiB5PSIzOCIgY2xhc3M9ImdycCI+VE9PTFM8L3RleHQ+CiAgPHJlY3QgeD0iNjM4IiB5PSI0NCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iNjY4IiB5PSI1OSIgY2xhc3M9ImxibCI+VmlrdW5qYTwvdGV4dD4KICA8dGV4dCB4PSI2NjgiIHk9IjcxIiBjbGFzcz0ic3ViIj46MzQ1NjwvdGV4dD4KCiAgPHJlY3QgeD0iNjM4IiB5PSI4NiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iNjY4IiB5PSIxMDEiIGNsYXNzPSJsYmwiPldlYlZPV0w8L3RleHQ+CiAgPHRleHQgeD0iNjY4IiB5PSIxMTMiIGNsYXNzPSJzdWIiPjo4MDg5PC90ZXh0PgoKICA8IS0tIE9CU0VSVkFCSUxJVFkgLS0+CiAgPHRleHQgeD0iMTUiIHk9IjE0NSIgY2xhc3M9ImdycCI+T0JTRVJWQUJJTElUWTwvdGV4dD4KICA8cmVjdCB4PSIxNSIgeT0iMTUyIiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSI1NyIgeT0iMTY3IiBjbGFzcz0ibGJsIj5Qcm9tZXRoZXVzPC90ZXh0PgogIDx0ZXh0IHg9IjU3IiB5PSIxNzkiIGNsYXNzPSJzdWIiPk1ldHJpY3MgOjkwOTA8L3RleHQ+CiAgPGxpbmUgeDE9IjEwMCIgeTE9IjE3MCIgeDI9IjExMiIgeTI9IjE3MCIgY2xhc3M9ImFyciIvPgoKICA8cmVjdCB4PSIxMTQiIHk9IjE1MiIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iMTU2IiB5PSIxNjciIGNsYXNzPSJsYmwiPkdyYWZhbmE8L3RleHQ+CiAgPHRleHQgeD0iMTU2IiB5PSIxNzkiIGNsYXNzPSJzdWIiPkRhc2hib2FyZHMgOjMxMDA8L3RleHQ+CgogIDxyZWN0IHg9IjIxMyIgeT0iMTUyIiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSIyNTUiIHk9IjE2NyIgY2xhc3M9ImxibCI+TG9raTwvdGV4dD4KICA8dGV4dCB4PSIyNTUiIHk9IjE3OSIgY2xhc3M9InN1YiI+TG9ncyA6MzEwMjwvdGV4dD4KICA8bGluZSB4MT0iMzEyIiB5MT0iMTcwIiB4Mj0iMzAwIiB5Mj0iMTcwIiBjbGFzcz0iYXJyIi8+CgogIDxyZWN0IHg9IjMxMiIgeT0iMTUyIiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSIzNTQiIHk9IjE2NyIgY2xhc3M9ImxibCI+UHJvbXRhaWw8L3RleHQ+CiAgPHRleHQgeD0iMzU0IiB5PSIxNzkiIGNsYXNzPSJzdWIiPkNvbGxlY3RvciA6OTA4MDwvdGV4dD4KCiAgPHJlY3QgeD0iMTUiIHk9IjE5NiIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iNTciIHk9IjIxMSIgY2xhc3M9ImxibCI+QWxlcnRtYW5hZ2VyPC90ZXh0PgogIDx0ZXh0IHg9IjU3IiB5PSIyMjMiIGNsYXNzPSJzdWIiPkFsZXJ0cyA6OTA5MzwvdGV4dD4KICA8bGluZSB4MT0iNTciIHkxPSIxODgiIHgyPSI1NyIgeTI9IjE5NiIgY2xhc3M9ImFyciIvPgoKICA8cmVjdCB4PSIxMTQiIHk9IjE5NiIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjNzE4MDk2Ii8+CiAgPHRleHQgeD0iMTU2IiB5PSIyMTEiIGNsYXNzPSJsYmwiPkJsYWNrYm94PC90ZXh0PgogIDx0ZXh0IHg9IjE1NiIgeT0iMjIzIiBjbGFzcz0ic3ViIj5Qcm9iZXMgOjkxMTU8L3RleHQ+CgogIDxyZWN0IHg9IjIxMyIgeT0iMTk2IiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiM3MTgwOTYiLz4KICA8dGV4dCB4PSIyNTUiIHk9IjIxMSIgY2xhc3M9ImxibCI+Tm9kZSBFeHAuPC90ZXh0PgogIDx0ZXh0IHg9IjI1NSIgeT0iMjIzIiBjbGFzcz0ic3ViIj5Ib3N0IDo5MTAxPC90ZXh0PgoKICA8cmVjdCB4PSIzMTIiIHk9IjE5NiIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjNzE4MDk2Ii8+CiAgPHRleHQgeD0iMzU0IiB5PSIyMTEiIGNsYXNzPSJsYmwiPk15U1FMIEV4cC48L3RleHQ+CiAgPHRleHQgeD0iMzU0IiB5PSIyMjMiIGNsYXNzPSJzdWIiPk1ldHJpY3MgOjkxMDQ8L3RleHQ+CgogIDwhLS0gSE9TVCBEQUVNT05TIC0tPgogIDx0ZXh0IHg9IjQ0MCIgeT0iMTQ1IiBjbGFzcz0iZ3JwIj5IT1NUIERBRU1PTlM8L3RleHQ+CiAgPHJlY3QgeD0iNDQwIiB5PSIxNTIiIHdpZHRoPSI4NSIgaGVpZ2h0PSIzNiIgcng9IjUiIGNsYXNzPSJib3giIHN0cm9rZT0iI0Y1OUUwQiIvPgogIDx0ZXh0IHg9IjQ4MiIgeT0iMTY3IiBjbGFzcz0ibGJsIj5PcHMgQWdlbnQ8L3RleHQ+CiAgPHRleHQgeD0iNDgyIiB5PSIxNzkiIGNsYXNzPSJzdWIiPkxhdW5jaEFnZW50PC90ZXh0PgoKICA8cmVjdCB4PSI1MzkiIHk9IjE1MiIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjRjU5RTBCIi8+CiAgPHRleHQgeD0iNTgxIiB5PSIxNjciIGNsYXNzPSJsYmwiPlNlc3Npb24gV2F0Y2g8L3RleHQ+CiAgPHRleHQgeD0iNTgxIiB5PSIxNzkiIGNsYXNzPSJzdWIiPkxhdW5jaEFnZW50PC90ZXh0PgoKICA8cmVjdCB4PSI2MzgiIHk9IjE1MiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjRjU5RTBCIi8+CiAgPHRleHQgeD0iNjY4IiB5PSIxNjciIGNsYXNzPSJsYmwiPkdyYXBoIFdhdGNoPC90ZXh0PgogIDx0ZXh0IHg9IjY2OCIgeT0iMTc5IiBjbGFzcz0ic3ViIj5MYXVuY2hBZ2VudDwvdGV4dD4KCiAgPHJlY3QgeD0iNDQwIiB5PSIxOTYiIHdpZHRoPSI4NSIgaGVpZ2h0PSIzNiIgcng9IjUiIGNsYXNzPSJib3giIHN0cm9rZT0iI0Y1OUUwQiIvPgogIDx0ZXh0IHg9IjQ4MiIgeT0iMjExIiBjbGFzcz0ibGJsIj5BbGVydCBOb3RpZmllcjwvdGV4dD4KICA8dGV4dCB4PSI0ODIiIHk9IjIyMyIgY2xhc3M9InN1YiI+TGF1bmNoQWdlbnQ8L3RleHQ+CgogIDxyZWN0IHg9IjUzOSIgeT0iMTk2IiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiNGNTlFMEIiLz4KICA8dGV4dCB4PSI1ODEiIHk9IjIxMSIgY2xhc3M9ImxibCI+RnVzZWtpIFBlcmY8L3RleHQ+CiAgPHRleHQgeD0iNTgxIiB5PSIyMjMiIGNsYXNzPSJzdWIiPkxhdW5jaEFnZW50PC90ZXh0PgoKICA8IS0tIOKVkOKVkOKVkCBCRURST09NIE1BQyDilZDilZDilZAgLS0+CiAgPHJlY3QgeD0iNzE1IiB5PSI1IiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjI1MCIgY2xhc3M9Im1ib3giLz4KICA8dGV4dCB4PSI3MjIiIHk9IjE4IiBjbGFzcz0ibWFjaCI+QkVEUk9PTSBNQUMgKE0yIFBybyAzMkdCKSDigJQgMTkyLjE2OC44Ni4yNDI8L3RleHQ+CgogIDx0ZXh0IHg9IjcyNSIgeT0iMzgiIGNsYXNzPSJncnAiPk1FRElBPC90ZXh0PgogIDxyZWN0IHg9IjcyNSIgeT0iNDQiIHdpZHRoPSIxMjAiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSI3ODUiIHk9IjU5IiBjbGFzcz0ibGJsIj5JbWFnZXMgQVBJPC90ZXh0PgogIDx0ZXh0IHg9Ijc4NSIgeT0iNzEiIGNsYXNzPSJzdWIiPkdhbGxlcnkgOjMwMDE8L3RleHQ+CgogIDxyZWN0IHg9Ijg2MCIgeT0iNDQiIHdpZHRoPSIxMjAiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSI5MjAiIHk9IjU5IiBjbGFzcz0ibGJsIj5WaWRlbyBTZXJ2ZXI8L3RleHQ+CiAgPHRleHQgeD0iOTIwIiB5PSI3MSIgY2xhc3M9InN1YiI+U3RyZWFtaW5nIDo4MDgyPC90ZXh0PgoKICA8dGV4dCB4PSI3MjUiIHk9Ijk4IiBjbGFzcz0iZ3JwIj5BSSAvIEVNQkVERElOR1M8L3RleHQ+CiAgPHJlY3QgeD0iNzI1IiB5PSIxMDQiIHdpZHRoPSIxMjAiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSI3ODUiIHk9IjExOSIgY2xhc3M9ImxibCI+T2xsYW1hPC90ZXh0PgogIDx0ZXh0IHg9Ijc4NSIgeT0iMTMxIiBjbGFzcz0ic3ViIj5MTGFWQSArIE5vbWljIDoxMTQzNDwvdGV4dD4KCiAgPHRleHQgeD0iNzI1IiB5PSIxNTgiIGNsYXNzPSJncnAiPk9CU0VSVkFCSUxJVFk8L3RleHQ+CiAgPHJlY3QgeD0iNzI1IiB5PSIxNjQiIHdpZHRoPSIxMjAiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiM3MTgwOTYiLz4KICA8dGV4dCB4PSI3ODUiIHk9IjE3OSIgY2xhc3M9ImxibCI+Tm9kZSBFeHAuPC90ZXh0PgogIDx0ZXh0IHg9Ijc4NSIgeT0iMTkxIiBjbGFzcz0ic3ViIj5Ib3N0IDo5MTAwPC90ZXh0PgoKICA8dGV4dCB4PSI3MjUiIHk9IjIxOCIgY2xhc3M9ImdycCI+U1RPUkFHRTwvdGV4dD4KICA8cmVjdCB4PSI3MjUiIHk9IjIyNCIgd2lkdGg9IjI1NSIgaGVpZ2h0PSIyNCIgcng9IjUiIGNsYXNzPSJib3giIHN0cm9rZT0iIzcxODA5NiIvPgogIDx0ZXh0IHg9Ijg1MiIgeT0iMjQwIiBjbGFzcz0ic3ViIj5+MTc4VEIgRXh0ZXJuYWwgKFZpZGVvIC8gUGhvdG9zIC8gTXVzaWMgTkZTKTwvdGV4dD4KCiAgPCEtLSBDcm9zcy1tYWNoaW5lIGxpbmtzIC0tPgogIDxsaW5lIHgxPSI3MDAiIHkxPSI2MiIgeDI9IjcyMyIgeTI9IjYyIiBjbGFzcz0iYXJyIiBzdHJva2U9IiNGNTlFMEIiIHN0cm9rZS1kYXNoYXJyYXk9IjQsMyIvPgogIDxsaW5lIHgxPSI3MDAiIHkxPSIxNzAiIHgyPSI3MjMiIHkyPSIxNzkiIGNsYXNzPSJtb24iLz4KPC9zdmc+\" />",
         "mode": "html"
       },
       "pluginVersion": "10.1.0",
@@ -67,7 +67,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 11
+        "y": 14
       },
       "id": 1,
       "panels": [],
@@ -118,10 +118,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 3,
+        "h": 3,
+        "w": 4,
         "x": 0,
-        "y": 12
+        "y": 15
       },
       "id": 20,
       "options": {
@@ -198,10 +198,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 3,
-        "x": 3,
-        "y": 12
+        "x": 4,
+        "y": 15
       },
       "id": 21,
       "options": {
@@ -278,10 +278,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 3,
-        "x": 6,
-        "y": 12
+        "x": 7,
+        "y": 15
       },
       "id": 22,
       "options": {
@@ -358,10 +358,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 2,
-        "x": 9,
-        "y": 12
+        "h": 3,
+        "w": 4,
+        "x": 20,
+        "y": 18
       },
       "id": 23,
       "options": {
@@ -438,10 +438,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 2,
-        "x": 11,
-        "y": 12
+        "h": 3,
+        "w": 4,
+        "x": 16,
+        "y": 18
       },
       "id": 24,
       "options": {
@@ -475,57 +475,402 @@
       "type": "stat"
     },
     {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "mappings": [{ "options": { "0": { "color": "#EF4444", "index": 0, "text": "DOWN" }, "1": { "color": "#10B981", "index": 1, "text": "UP" } }, "type": "value" }], "thresholds": { "mode": "absolute", "steps": [{ "color": "#EF4444", "value": null }, { "color": "#10B981", "value": 1 }] } }, "overrides": [] },
-      "gridPos": { "h": 4, "w": 2, "x": 13, "y": 12 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "#EF4444",
+                  "index": 0,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "color": "#10B981",
+                  "index": 1,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#EF4444",
+                "value": null
+              },
+              {
+                "color": "#10B981",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 10,
+        "y": 15
+      },
       "id": 50,
-      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
       "pluginVersion": "10.1.0",
-      "targets": [{ "datasource": { "type": "prometheus", "uid": "prometheus" }, "expr": "probe_success{job=\"blackbox-navidrome\"}", "legendFormat": "Navidrome", "instant": true, "refId": "A" }],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "expr": "probe_success{job=\"blackbox-navidrome\"}",
+          "legendFormat": "Navidrome",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
       "title": "Navidrome",
       "type": "stat"
     },
     {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "mappings": [{ "options": { "0": { "color": "#EF4444", "index": 0, "text": "DOWN" }, "1": { "color": "#10B981", "index": 1, "text": "UP" } }, "type": "value" }], "thresholds": { "mode": "absolute", "steps": [{ "color": "#EF4444", "value": null }, { "color": "#10B981", "value": 1 }] } }, "overrides": [] },
-      "gridPos": { "h": 4, "w": 2, "x": 15, "y": 12 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "#EF4444",
+                  "index": 0,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "color": "#10B981",
+                  "index": 1,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#EF4444",
+                "value": null
+              },
+              {
+                "color": "#10B981",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 13,
+        "y": 15
+      },
       "id": 51,
-      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
       "pluginVersion": "10.1.0",
-      "targets": [{ "datasource": { "type": "prometheus", "uid": "prometheus" }, "expr": "probe_success{job=\"blackbox-css\"}", "legendFormat": "SOLID", "instant": true, "refId": "A" }],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "expr": "probe_success{job=\"blackbox-css\"}",
+          "legendFormat": "SOLID",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
       "title": "SOLID",
       "type": "stat"
     },
     {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "mappings": [{ "options": { "0": { "color": "#EF4444", "index": 0, "text": "DOWN" }, "1": { "color": "#10B981", "index": 1, "text": "UP" } }, "type": "value" }], "thresholds": { "mode": "absolute", "steps": [{ "color": "#EF4444", "value": null }, { "color": "#10B981", "value": 1 }] } }, "overrides": [] },
-      "gridPos": { "h": 4, "w": 2, "x": 17, "y": 12 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "#EF4444",
+                  "index": 0,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "color": "#10B981",
+                  "index": 1,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#EF4444",
+                "value": null
+              },
+              {
+                "color": "#10B981",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 8,
+        "y": 18
+      },
       "id": 52,
-      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
       "pluginVersion": "10.1.0",
-      "targets": [{ "datasource": { "type": "prometheus", "uid": "prometheus" }, "expr": "probe_success{job=\"blackbox-alertmanager\"}", "legendFormat": "Alertmanager", "instant": true, "refId": "A" }],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "expr": "probe_success{job=\"blackbox-alertmanager\"}",
+          "legendFormat": "Alertmanager",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
       "title": "Alertmanager",
       "type": "stat"
     },
     {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "mappings": [{ "options": { "0": { "color": "#EF4444", "index": 0, "text": "DOWN" }, "1": { "color": "#10B981", "index": 1, "text": "UP" } }, "type": "value" }], "thresholds": { "mode": "absolute", "steps": [{ "color": "#EF4444", "value": null }, { "color": "#10B981", "value": 1 }] } }, "overrides": [] },
-      "gridPos": { "h": 4, "w": 2, "x": 19, "y": 12 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "#EF4444",
+                  "index": 0,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "color": "#10B981",
+                  "index": 1,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#EF4444",
+                "value": null
+              },
+              {
+                "color": "#10B981",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 16,
+        "y": 15
+      },
       "id": 53,
-      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
       "pluginVersion": "10.1.0",
-      "targets": [{ "datasource": { "type": "prometheus", "uid": "prometheus" }, "expr": "probe_success{job=\"blackbox-mailhog\"}", "legendFormat": "MailHog", "instant": true, "refId": "A" }],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "expr": "probe_success{job=\"blackbox-mailhog\"}",
+          "legendFormat": "MailHog",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
       "title": "MailHog",
       "type": "stat"
     },
     {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "mappings": [{ "options": { "0": { "color": "#EF4444", "index": 0, "text": "DOWN" }, "1": { "color": "#10B981", "index": 1, "text": "UP" } }, "type": "value" }], "thresholds": { "mode": "absolute", "steps": [{ "color": "#EF4444", "value": null }, { "color": "#10B981", "value": 1 }] } }, "overrides": [] },
-      "gridPos": { "h": 4, "w": 2, "x": 21, "y": 12 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "#EF4444",
+                  "index": 0,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "color": "#10B981",
+                  "index": 1,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#EF4444",
+                "value": null
+              },
+              {
+                "color": "#10B981",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 19,
+        "y": 15
+      },
       "id": 54,
-      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
       "pluginVersion": "10.1.0",
-      "targets": [{ "datasource": { "type": "prometheus", "uid": "prometheus" }, "expr": "up{job=\"mysqld-exporter\"}", "legendFormat": "MySQL", "instant": true, "refId": "A" }],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "expr": "up{job=\"mysqld-exporter\"}",
+          "legendFormat": "MySQL",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
       "title": "MySQL",
       "type": "stat"
     },
@@ -573,10 +918,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 15,
-        "y": 12
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 18
       },
       "id": 25,
       "options": {
@@ -653,10 +998,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 18,
-        "y": 12
+        "h": 3,
+        "w": 4,
+        "x": 12,
+        "y": 18
       },
       "id": 26,
       "options": {
@@ -733,10 +1078,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 21,
-        "y": 12
+        "h": 3,
+        "w": 4,
+        "x": 4,
+        "y": 18
       },
       "id": 27,
       "options": {
@@ -775,7 +1120,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 25
       },
       "id": 2,
       "panels": [],
@@ -849,7 +1194,7 @@
         "h": 6,
         "w": 8,
         "x": 0,
-        "y": 17
+        "y": 26
       },
       "id": 30,
       "options": {
@@ -910,7 +1255,7 @@
         "h": 6,
         "w": 4,
         "x": 8,
-        "y": 17
+        "y": 26
       },
       "id": 31,
       "options": {
@@ -978,7 +1323,7 @@
         "h": 6,
         "w": 4,
         "x": 12,
-        "y": 17
+        "y": 26
       },
       "id": 32,
       "options": {
@@ -1046,7 +1391,7 @@
         "h": 6,
         "w": 4,
         "x": 16,
-        "y": 17
+        "y": 26
       },
       "id": 33,
       "options": {
@@ -1105,7 +1450,7 @@
         "h": 6,
         "w": 4,
         "x": 20,
-        "y": 17
+        "y": 26
       },
       "id": 34,
       "options": {
@@ -1143,7 +1488,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 23
+        "y": 32
       },
       "id": 9,
       "panels": [],
@@ -1178,7 +1523,7 @@
         "h": 5,
         "w": 6,
         "x": 0,
-        "y": 24
+        "y": 33
       },
       "id": 10,
       "options": {
@@ -1239,7 +1584,7 @@
         "h": 5,
         "w": 6,
         "x": 6,
-        "y": 24
+        "y": 33
       },
       "id": 11,
       "options": {
@@ -1308,7 +1653,7 @@
         "h": 5,
         "w": 6,
         "x": 12,
-        "y": 24
+        "y": 33
       },
       "id": 12,
       "options": {
@@ -1376,7 +1721,7 @@
         "h": 5,
         "w": 6,
         "x": 18,
-        "y": 24
+        "y": 33
       },
       "id": 13,
       "options": {
@@ -1466,7 +1811,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 29
+        "y": 38
       },
       "id": 14,
       "options": {
@@ -1557,7 +1902,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 29
+        "y": 38
       },
       "id": 15,
       "options": {
@@ -1716,7 +2061,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 37
+        "y": 46
       },
       "id": 16,
       "options": {
@@ -1828,7 +2173,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 45
+        "y": 54
       },
       "id": 17,
       "panels": [],
@@ -1954,7 +2299,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 46
+        "y": 55
       },
       "id": 18,
       "options": {
@@ -2045,7 +2390,7 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 46
+        "y": 55
       },
       "id": 19,
       "options": {
@@ -2079,39 +2424,243 @@
     },
     {
       "datasource": {
-        "type": "loki",
-        "uid": "loki"
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "#EF4444",
+                  "index": 0,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "color": "#10B981",
+                  "index": 1,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#EF4444",
+                "value": null
+              },
+              {
+                "color": "#10B981",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
       },
       "gridPos": {
-        "h": 16,
-        "w": 24,
+        "h": 3,
+        "w": 4,
         "x": 0,
-        "y": 52
+        "y": 21
       },
-      "id": 20,
+      "id": 60,
       "options": {
-        "dedupStrategy": "none",
-        "enableLogDetails": true,
-        "prettifyLogMessage": true,
-        "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": true,
-        "sortOrder": "Descending",
-        "wrapLogMessage": true
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
       },
       "pluginVersion": "10.1.0",
       "targets": [
         {
           "datasource": {
-            "type": "loki",
-            "uid": "loki"
+            "type": "prometheus",
+            "uid": "prometheus"
           },
-          "expr": "{appName=\"jeff-bridwell-personal-site\", level=~\"$level\"} |= `$search` | json",
+          "expr": "probe_success{job=\"blackbox-images-api\"}",
+          "legendFormat": "Navidrome",
+          "instant": true,
           "refId": "A"
         }
       ],
-      "title": "Log Stream",
-      "type": "logs"
+      "title": "Images API",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "#EF4444",
+                  "index": 0,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "color": "#10B981",
+                  "index": 1,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#EF4444",
+                "value": null
+              },
+              {
+                "color": "#10B981",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 4,
+        "y": 21
+      },
+      "id": 61,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "expr": "probe_success{job=\"blackbox-video-server\"}",
+          "legendFormat": "Navidrome",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Video Server",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "#EF4444",
+                  "index": 0,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "color": "#10B981",
+                  "index": 1,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#EF4444",
+                "value": null
+              },
+              {
+                "color": "#10B981",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 8,
+        "y": 21
+      },
+      "id": 62,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "expr": "probe_success{job=\"blackbox-ollama\"}",
+          "legendFormat": "Navidrome",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Ollama",
+      "type": "stat"
     }
   ],
   "refresh": "30s",
