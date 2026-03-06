@@ -165,6 +165,70 @@ scrape_configs:
         replacement: blackbox-exporter:9115
 
 
+  # Blackbox HTTP probe for Navidrome (music server)
+  - job_name: 'blackbox-navidrome'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - http://jeff-bridwell-personal-site-navidrome:4533/
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+
+  # Blackbox HTTP probe for CSS (Community Solid Server)
+  - job_name: 'blackbox-css'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - http://jeff-bridwell-personal-site-css:3000/
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+
+  # Blackbox HTTP probe for Alertmanager
+  - job_name: 'blackbox-alertmanager'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - http://alertmanager:9093/-/healthy
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+
+  # Blackbox HTTP probe for MailHog
+  - job_name: 'blackbox-mailhog'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - http://wordpress-mailhog:8025/
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+
   # Cloudflare Tunnel metrics (cloudflared runs on host, exposes Prometheus metrics)
   - job_name: 'cloudflared'
     static_configs:

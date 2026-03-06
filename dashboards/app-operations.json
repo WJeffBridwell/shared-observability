@@ -475,6 +475,61 @@
       "type": "stat"
     },
     {
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "mappings": [{ "options": { "0": { "color": "#EF4444", "index": 0, "text": "DOWN" }, "1": { "color": "#10B981", "index": 1, "text": "UP" } }, "type": "value" }], "thresholds": { "mode": "absolute", "steps": [{ "color": "#EF4444", "value": null }, { "color": "#10B981", "value": 1 }] } }, "overrides": [] },
+      "gridPos": { "h": 4, "w": 2, "x": 13, "y": 12 },
+      "id": 50,
+      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "pluginVersion": "10.1.0",
+      "targets": [{ "datasource": { "type": "prometheus", "uid": "prometheus" }, "expr": "probe_success{job=\"blackbox-navidrome\"}", "legendFormat": "Navidrome", "instant": true, "refId": "A" }],
+      "title": "Navidrome",
+      "type": "stat"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "mappings": [{ "options": { "0": { "color": "#EF4444", "index": 0, "text": "DOWN" }, "1": { "color": "#10B981", "index": 1, "text": "UP" } }, "type": "value" }], "thresholds": { "mode": "absolute", "steps": [{ "color": "#EF4444", "value": null }, { "color": "#10B981", "value": 1 }] } }, "overrides": [] },
+      "gridPos": { "h": 4, "w": 2, "x": 15, "y": 12 },
+      "id": 51,
+      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "pluginVersion": "10.1.0",
+      "targets": [{ "datasource": { "type": "prometheus", "uid": "prometheus" }, "expr": "probe_success{job=\"blackbox-css\"}", "legendFormat": "SOLID", "instant": true, "refId": "A" }],
+      "title": "SOLID",
+      "type": "stat"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "mappings": [{ "options": { "0": { "color": "#EF4444", "index": 0, "text": "DOWN" }, "1": { "color": "#10B981", "index": 1, "text": "UP" } }, "type": "value" }], "thresholds": { "mode": "absolute", "steps": [{ "color": "#EF4444", "value": null }, { "color": "#10B981", "value": 1 }] } }, "overrides": [] },
+      "gridPos": { "h": 4, "w": 2, "x": 17, "y": 12 },
+      "id": 52,
+      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "pluginVersion": "10.1.0",
+      "targets": [{ "datasource": { "type": "prometheus", "uid": "prometheus" }, "expr": "probe_success{job=\"blackbox-alertmanager\"}", "legendFormat": "Alertmanager", "instant": true, "refId": "A" }],
+      "title": "Alertmanager",
+      "type": "stat"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "mappings": [{ "options": { "0": { "color": "#EF4444", "index": 0, "text": "DOWN" }, "1": { "color": "#10B981", "index": 1, "text": "UP" } }, "type": "value" }], "thresholds": { "mode": "absolute", "steps": [{ "color": "#EF4444", "value": null }, { "color": "#10B981", "value": 1 }] } }, "overrides": [] },
+      "gridPos": { "h": 4, "w": 2, "x": 19, "y": 12 },
+      "id": 53,
+      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "pluginVersion": "10.1.0",
+      "targets": [{ "datasource": { "type": "prometheus", "uid": "prometheus" }, "expr": "probe_success{job=\"blackbox-mailhog\"}", "legendFormat": "MailHog", "instant": true, "refId": "A" }],
+      "title": "MailHog",
+      "type": "stat"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "mappings": [{ "options": { "0": { "color": "#EF4444", "index": 0, "text": "DOWN" }, "1": { "color": "#10B981", "index": 1, "text": "UP" } }, "type": "value" }], "thresholds": { "mode": "absolute", "steps": [{ "color": "#EF4444", "value": null }, { "color": "#10B981", "value": 1 }] } }, "overrides": [] },
+      "gridPos": { "h": 4, "w": 2, "x": 21, "y": 12 },
+      "id": 54,
+      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "pluginVersion": "10.1.0",
+      "targets": [{ "datasource": { "type": "prometheus", "uid": "prometheus" }, "expr": "up{job=\"mysqld-exporter\"}", "legendFormat": "MySQL", "instant": true, "refId": "A" }],
+      "title": "MySQL",
+      "type": "stat"
+    },
+    {
       "datasource": {
         "type": "prometheus",
         "uid": "prometheus"
@@ -2135,7 +2190,7 @@
             "value": "node-exporter:9100"
           }
         ],
-        "query": "jeff-bridwell-personal-site-app : App,jeff-bridwell-personal-site-fuseki : Fuseki,wordpress-blog : WordPress,wordpress-mysql : MySQL,jeff-bridwell-personal-site-webvowl : WebVOWL,vikunja : Vikunja,localhost:9090 : Prometheus,grafana:3000 : Grafana,loki:3100 : Loki,promtail:9080 : Promtail,node-exporter:9100 : Node Exporter",
+        "query": "jeff-bridwell-personal-site-app : App,jeff-bridwell-personal-site-fuseki : Fuseki,jeff-bridwell-personal-site-navidrome : Navidrome,jeff-bridwell-personal-site-css : SOLID,wordpress-blog : WordPress,wordpress-mysql : MySQL,wordpress-mailhog : MailHog,jeff-bridwell-personal-site-webvowl : WebVOWL,vikunja : Vikunja,alertmanager : Alertmanager,localhost:9090 : Prometheus,grafana:3000 : Grafana,loki:3100 : Loki,promtail:9080 : Promtail,node-exporter:9100 : Node Exporter",
         "skipUrlSync": false,
         "type": "custom"
       },
