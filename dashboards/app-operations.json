@@ -2977,7 +2977,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
+        "h": 14,
         "w": 24,
         "x": 0,
         "y": 66
@@ -2995,7 +2995,7 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "textMode": "value_and_name"
       },
       "pluginVersion": "10.1.0",
       "targets": [
@@ -3018,7 +3018,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 70
+        "y": 80
       },
       "id": 76,
       "panels": [],
@@ -3069,10 +3069,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
+        "h": 6,
         "w": 24,
         "x": 0,
-        "y": 71
+        "y": 81
       },
       "id": 77,
       "options": {
@@ -3087,7 +3087,7 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "textMode": "value_and_name"
       },
       "pluginVersion": "10.1.0",
       "targets": [
@@ -3110,7 +3110,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 78
+        "y": 90
       },
       "id": 17,
       "panels": [],
@@ -3236,7 +3236,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 79
+        "y": 91
       },
       "id": 18,
       "options": {
@@ -3328,7 +3328,7 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 79
+        "y": 91
       },
       "id": 19,
       "options": {
