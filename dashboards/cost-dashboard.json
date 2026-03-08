@@ -239,6 +239,8 @@
           "datasource": { "type": "prometheus", "uid": "prometheus" },
           "expr": "max by (role)(claude_role_messages)",
           "legendFormat": "{{role}}",
+          "instant": true,
+          "format": "table",
           "refId": "A"
         }
       ]
@@ -282,6 +284,8 @@
           "datasource": { "type": "prometheus", "uid": "prometheus" },
           "expr": "max by (role)(claude_role_output_tokens)",
           "legendFormat": "{{role}}",
+          "instant": true,
+          "format": "table",
           "refId": "A"
         }
       ]
@@ -315,6 +319,8 @@
           "datasource": { "type": "prometheus", "uid": "prometheus" },
           "expr": "max by (date)(claude_daily_messages)",
           "legendFormat": "{{date}}",
+          "instant": true,
+          "format": "table",
           "refId": "A"
         }
       ]
@@ -348,6 +354,8 @@
           "datasource": { "type": "prometheus", "uid": "prometheus" },
           "expr": "max by (hour)(claude_hourly_messages)",
           "legendFormat": "{{hour}}:00",
+          "instant": true,
+          "format": "table",
           "refId": "A"
         }
       ]
