@@ -11,7 +11,7 @@
       "collapsed": false,
       "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
       "id": 100,
-      "title": "Claude Code ($200/mo flat)",
+      "title": "Claude Code Activity ($200/mo flat rate — rate limits apply)",
       "type": "row"
     },
     {
@@ -40,7 +40,8 @@
         "showThresholdMarkers": true,
         "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
       },
-      "title": "Month Elapsed",
+      "title": "Month Progress",
+      "description": "Calendar progress through billing month — NOT usage consumed. Anthropic rate limits are separate from spend.",
       "type": "gauge",
       "targets": [
         {
@@ -76,12 +77,13 @@
         "showThresholdMarkers": true,
         "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
       },
-      "title": "Usage Intensity",
+      "title": "Burn Pace",
+      "description": "Output token rate vs linear monthly pace. 100% = even burn. >100% = front-loading usage (risk of hitting rate limits). <100% = pacing well.",
       "type": "gauge",
       "targets": [
         {
           "datasource": { "type": "prometheus", "uid": "prometheus" },
-          "expr": "max(claude_billing_usage_intensity_pct)",
+          "expr": "max(claude_billing_burn_pace_pct)",
           "refId": "A"
         }
       ]
@@ -130,7 +132,8 @@
         "textMode": "auto",
         "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
       },
-      "title": "Total Messages",
+      "title": "API Turns",
+      "description": "Total API responses (assistant turns with token usage) this billing period",
       "type": "stat",
       "targets": [
         {
@@ -157,7 +160,8 @@
         "textMode": "auto",
         "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
       },
-      "title": "Output Tokens",
+      "title": "Output Tokens (MTD)",
+      "description": "Total output tokens consumed this billing month",
       "type": "stat",
       "targets": [
         {
@@ -184,12 +188,13 @@
         "textMode": "auto",
         "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
       },
-      "title": "Today Messages",
+      "title": "Avg Daily Output",
+      "description": "Average output tokens per day — the key rate limit signal",
       "type": "stat",
       "targets": [
         {
           "datasource": { "type": "prometheus", "uid": "prometheus" },
-          "expr": "max(claude_today_messages)",
+          "expr": "max(claude_billing_avg_daily_output)",
           "refId": "A"
         }
       ]

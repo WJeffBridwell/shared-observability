@@ -206,7 +206,7 @@ def fetch_twilio_costs():
 
 
 def compute_burn_rate(daily, today):
-    """Compute burn rate: usage intensity vs calendar elapsed."""
+    """Compute burn rate: pacing vs calendar elapsed."""
     today_date = date.fromisoformat(today)
     days_in_month = 28  # Conservative for Feb
     if today_date.month in (1, 3, 5, 7, 8, 10, 12):
@@ -220,7 +220,25 @@ def compute_burn_rate(daily, today):
     active_days = len([d for d in daily.values() if d["msgs"] > 0])
     usage_pct = (active_days / max(today_date.day, 1)) * 100
 
-    return elapsed_pct, usage_pct
+    # Burn pace: is recent usage accelerating or decelerating?
+    # Compare last 2 days avg output tokens vs full-month daily avg
+    # >100 = accelerating (recent days hotter than average)
+    # <100 = decelerating (cooling off)
+    total_output = sum(d["output"] for d in daily.values())
+    avg_daily_output = total_output / max(today_date.day, 1)
+
+    # Recent rate: last 2 days of data
+    sorted_days = sorted(daily.keys())
+    recent_days = sorted_days[-2:] if len(sorted_days) >= 2 else sorted_days
+    recent_output = sum(daily[d]["output"] for d in recent_days)
+    recent_avg = recent_output / max(len(recent_days), 1)
+
+    if avg_daily_output > 0:
+        burn_pace_pct = (recent_avg / avg_daily_output) * 100
+    else:
+        burn_pace_pct = 0
+
+    return elapsed_pct, usage_pct, avg_daily_output, burn_pace_pct
 
 
 def write_metrics():
@@ -231,7 +249,7 @@ def write_metrics():
     # Twilio — only fetch if env vars present
     sms_cost, sms_count, number_cost, number_count = fetch_twilio_costs()
 
-    elapsed_pct, usage_pct = compute_burn_rate(daily, today)
+    elapsed_pct, usage_pct, avg_daily_output, burn_pace_pct = compute_burn_rate(daily, today)
 
     total_msgs = sum(d["msgs"] for d in daily.values())
     total_output = sum(d["output"] for d in daily.values())
@@ -247,7 +265,15 @@ def write_metrics():
     lines.append("# TYPE claude_billing_usage_intensity_pct gauge")
     lines.append(f"claude_billing_usage_intensity_pct {usage_pct:.1f}")
 
-    lines.append("# HELP claude_billing_total_messages Total messages this billing period")
+    lines.append("# HELP claude_billing_avg_daily_output Average output tokens per day this billing period")
+    lines.append("# TYPE claude_billing_avg_daily_output gauge")
+    lines.append(f"claude_billing_avg_daily_output {avg_daily_output:.0f}")
+
+    lines.append("# HELP claude_billing_burn_pace_pct Burn pace vs linear monthly rate (100=on pace, >100=front-loading)")
+    lines.append("# TYPE claude_billing_burn_pace_pct gauge")
+    lines.append(f"claude_billing_burn_pace_pct {burn_pace_pct:.1f}")
+
+    lines.append("# HELP claude_billing_total_messages Total API responses this billing period")
     lines.append("# TYPE claude_billing_total_messages gauge")
     lines.append(f"claude_billing_total_messages {total_msgs}")
 
