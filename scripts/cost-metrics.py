@@ -15,8 +15,12 @@ import json
 import os
 import glob
 import sys
-from datetime import datetime, date
+from datetime import datetime, date, timezone, timedelta
 from collections import defaultdict
+
+# Boston (Eastern Time) — UTC-5 standard, UTC-4 DST
+# Use fixed offset; Python zoneinfo requires 3.9+ and tzdata package
+EASTERN = timezone(timedelta(hours=-4))  # EDT (March-November)
 
 # --- Configuration ---
 CLAUDE_PROJECTS_DIR = os.path.expanduser("~/.claude/projects")
@@ -83,11 +87,19 @@ def scan_claude_sessions():
                             if not ts or ts[:10] < billing_start:
                                 continue
 
+                            # Convert UTC timestamp to Eastern
+                            try:
+                                utc_dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+                                eastern_dt = utc_dt.astimezone(EASTERN)
+                                day = eastern_dt.strftime("%Y-%m-%d")
+                                hour = eastern_dt.strftime("%H")
+                            except (ValueError, AttributeError):
+                                day = ts[:10]
+                                hour = ts[11:13] if len(ts) > 13 else "00"
+
                             # Count Jeff's prompts (type: "user")
                             entry_type = obj.get("type", "")
                             if entry_type == "user":
-                                day = ts[:10]
-                                hour = ts[11:13] if len(ts) > 13 else "00"
                                 jeff_prompts_hourly[f"{day}:{hour}"] += 1
                                 jeff_prompts_daily[day] += 1
 
@@ -95,9 +107,6 @@ def scan_claude_sessions():
                             usage = msg.get("usage", {})
                             if not usage:
                                 continue
-
-                            day = ts[:10]
-                            hour = ts[11:13] if len(ts) > 13 else "00"
                             sid = obj.get("sessionId", "")
 
                             inp = usage.get("input_tokens", 0)
