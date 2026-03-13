@@ -3,7 +3,7 @@
 alert-notifier.py — macOS native notification receiver for Alertmanager webhooks.
 
 Listens on HTTP port 9095 for Alertmanager webhook POSTs.
-Fires macOS banner notifications via osascript — never modal dialogs.
+Fires macOS banner notifications via terminal-notifier — no TCC prompts.
 Multiple alerts in a batch are grouped into a single notification.
 
 Also logs every alert to chorus-log.
@@ -13,6 +13,7 @@ Card #202. Silas owns.
 
 import json
 import os
+import shutil
 import subprocess
 import sys
 from datetime import datetime
@@ -21,20 +22,34 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 PORT = int(os.environ.get("ALERT_NOTIFIER_PORT", "9095"))
 CHORUS_LOG = os.path.expanduser("~/CascadeProjects/messages/scripts/chorus-log.sh")
 GRAFANA_ALERTS_URL = "http://localhost:3100/d/alerts-overview"
+TERMINAL_NOTIFIER = shutil.which("terminal-notifier")
 
 
 def macos_notify(title: str, message: str, severity: str = "warning"):
     """Fire a macOS banner notification. Never modal — never steals focus."""
     sound = "Ping" if severity == "critical" else "Sosumi"
-    script = (
-        f'display notification "{esc(message)}" '
-        f'with title "{esc(title)}" '
-        f'sound name "{sound}"'
-    )
-    try:
-        subprocess.run(["osascript", "-e", script], timeout=10)
-    except Exception as e:
-        print(f"[alert-notifier] osascript failed: {e}", file=sys.stderr)
+    if TERMINAL_NOTIFIER:
+        try:
+            subprocess.run([
+                TERMINAL_NOTIFIER,
+                "-title", title,
+                "-message", message,
+                "-sound", sound,
+                "-group", "chorus-alert",
+            ], timeout=10)
+        except Exception as e:
+            print(f"[alert-notifier] terminal-notifier failed: {e}", file=sys.stderr)
+    else:
+        # Fallback to osascript if terminal-notifier not installed
+        script = (
+            f'display notification "{esc(message)}" '
+            f'with title "{esc(title)}" '
+            f'sound name "{sound}"'
+        )
+        try:
+            subprocess.run(["osascript", "-e", script], timeout=10)
+        except Exception as e:
+            print(f"[alert-notifier] osascript failed: {e}", file=sys.stderr)
 
 
 def esc(s: str) -> str:
@@ -65,6 +80,31 @@ class AlertHandler(BaseHTTPRequestHandler):
             self.send_response(400)
             self.end_headers()
             self.wfile.write(b"invalid json")
+            return
+
+        # --- Harvest completion/failure notifications (#1346) ---
+        if self.path == "/harvest":
+            domain = payload.get("domain", "unknown")
+            result = payload.get("result", "unknown")  # "completed" or "failed"
+            items = payload.get("items", 0)
+            duration = payload.get("duration", "")
+            error = payload.get("error", "")
+
+            if result == "failed":
+                title = f"🔴 Harvest failed: {domain}"
+                body_text = error[:120] if error else "No error details"
+                severity = "critical"
+            else:
+                title = f"✅ Harvest done: {domain}"
+                body_text = f"{items} items in {duration}" if duration else f"{items} items"
+                severity = "warning"
+
+            macos_notify(title, body_text, severity)
+            chorus_log("harvest.notify.sent", "system",
+                       domain=domain, result=result, items=str(items))
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"ok")
             return
 
         # --- Brief delivery notifications (#616) ---
