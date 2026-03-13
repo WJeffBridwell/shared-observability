@@ -75,6 +75,7 @@ groups:
       # /Volumes/VideosNew (Gathering) and /Volumes/PhotosNew still monitored.
       # macOS system volumes (Hardware, iSCPreboot, xarts, autofs) excluded — always tiny.
       - alert: DiskSpaceWarning
+        # #1378: Host-level node-exporter on Library now provides accurate APFS metrics
         expr: |
           (1 - node_filesystem_avail_bytes{
             fstype!~"tmpfs|overlay|erofs|fakeowner|virtiofs|fuse.grpcfuse|virtiofs\\..*|autofs",
@@ -92,8 +93,10 @@ groups:
           description: "Disk {{ $labels.mountpoint }} on {{ $labels.instance }} is at {{ $value | humanizePercentage }} usage."
 
       - alert: DiskSpaceLow
+        # #1376: Exclude Docker's node-exporter — APFS purgeable space misreported as used
         expr: |
           (node_filesystem_avail_bytes{
+            instance!="host.docker.internal:9101",
             fstype!~"tmpfs|overlay|erofs|fakeowner|virtiofs|fuse.grpcfuse|virtiofs\\..*|autofs",
             mountpoint!~"/oldroot.*|/host_mnt.*|/run/host.*|/run/rosetta.*|/run/grpcfuse.*|/Volumes/Videos[A-Z].*-.*|/Volumes/VideosMulti|/System/Volumes/(Hardware|iSCPreboot|xarts|Preboot|Update|VM|Data)"
           } / node_filesystem_size_bytes{

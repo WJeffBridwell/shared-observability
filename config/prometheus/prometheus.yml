@@ -27,7 +27,7 @@ scrape_configs:
   # Node Exporter — native macOS host metrics (both machines)
   - job_name: 'node-exporter-host'
     static_configs:
-      - targets: ['host.docker.internal:9101']
+      - targets: ['host.docker.internal:9102']  # #1378: host-level node-exporter (accurate APFS metrics)
         labels:
           machine: 'library'
       - targets: ['192.168.86.242:9100']
@@ -132,21 +132,7 @@ scrape_configs:
       - target_label: __address__
         replacement: blackbox-exporter:9115
 
-  # Blackbox HTTP probe for WebVOWL (ADR-004, Layer 2)
-  - job_name: 'blackbox-webvowl'
-    metrics_path: /probe
-    params:
-      module: [http_2xx]
-    static_configs:
-      - targets:
-        - http://jeff-bridwell-personal-site-webvowl:8080/
-    relabel_configs:
-      - source_labels: [__address__]
-        target_label: __param_target
-      - source_labels: [__param_target]
-        target_label: instance
-      - target_label: __address__
-        replacement: blackbox-exporter:9115
+  # #1376: WebVOWL + mailhog probes removed — moved to on-demand profile
 
   # Blackbox HTTP probe for Vikunja (kanban board)
   - job_name: 'blackbox-vikunja'
@@ -213,21 +199,7 @@ scrape_configs:
       - target_label: __address__
         replacement: blackbox-exporter:9115
 
-  # Blackbox HTTP probe for MailHog
-  - job_name: 'blackbox-mailhog'
-    metrics_path: /probe
-    params:
-      module: [http_2xx]
-    static_configs:
-      - targets:
-        - http://wordpress-mailhog:8025/
-    relabel_configs:
-      - source_labels: [__address__]
-        target_label: __param_target
-      - source_labels: [__param_target]
-        target_label: instance
-      - target_label: __address__
-        replacement: blackbox-exporter:9115
+  # #1376: mailhog probe removed — see WebVOWL comment above
 
   # Cloudflare Tunnel metrics (cloudflared runs on host, exposes Prometheus metrics)
   - job_name: 'cloudflared'

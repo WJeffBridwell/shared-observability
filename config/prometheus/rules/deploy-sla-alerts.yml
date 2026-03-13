@@ -1,0 +1,80 @@
+groups:
+  - name: deploy-sla
+    rules:
+      # Build time SLA — current baseline ~155s (2026-03-02)
+      # Warn at 180s, critical at 240s — gives 15% headroom over baseline
+      - alert: BuildTimeSlow
+        expr: deploy_build_duration_seconds{app="jeff-bridwell-personal-site"} > 180
+        for: 0m
+        labels:
+          severity: warning
+          domain: app
+        annotations:
+          summary: "Build took {{ $value }}s (SLA: 180s)"
+          description: "Docker image build for {{ $labels.app }} exceeded 180s warning threshold."
+
+      - alert: BuildTimeCritical
+        expr: deploy_build_duration_seconds{app="jeff-bridwell-personal-site"} > 240
+        for: 0m
+        labels:
+          severity: critical
+          domain: app
+        annotations:
+          summary: "Build took {{ $value }}s (SLA: 240s)"
+          description: "Docker image build for {{ $labels.app }} exceeded 240s critical threshold. Check for cache misses or large context."
+
+      # Total deploy time SLA — baseline ~24s post #1371 fix (2026-03-13)
+      # Warn at 60s, critical at 120s. Only fires if deploy happened in last 30m.
+      - alert: DeployTimeSlow
+        expr: (deploy_total_duration_seconds{app="jeff-bridwell-personal-site"} > 60) and ON() (deploy_last_success_timestamp > (time() - 1800))
+        for: 0m
+        labels:
+          severity: warning
+          domain: app
+        annotations:
+          summary: "Deploy took {{ $value }}s (SLA: 220s)"
+          description: "Full deploy cycle for {{ $labels.app }} exceeded 220s warning threshold."
+
+      - alert: DeployTimeCritical
+        expr: (deploy_total_duration_seconds{app="jeff-bridwell-personal-site"} > 120) and ON() (deploy_last_success_timestamp > (time() - 1800))
+        for: 0m
+        labels:
+          severity: critical
+          domain: app
+        annotations:
+          summary: "Deploy took {{ $value }}s (SLA: 300s)"
+          description: "Full deploy cycle for {{ $labels.app }} exceeded 300s critical threshold. Investigate build context size, cache state, or health gate delays."
+
+      # Deploy failure
+      - alert: DeployFailed
+        expr: deploy_result{app="jeff-bridwell-personal-site"} == 0
+        for: 0m
+        labels:
+          severity: critical
+          domain: app
+        annotations:
+          summary: "Deploy failed for {{ $labels.app }}"
+          description: "Last deploy for {{ $labels.app }} failed. Check logs/compose-build.log."
+
+      # Deploy window — fires for 3 minutes after each deploy
+      # Used by Alertmanager inhibit_configs to suppress transient alerts during deploy
+      - alert: DeployInProgress
+        expr: (time() - deploy_last_success_timestamp{app="jeff-bridwell-personal-site"}) < 180
+        for: 0m
+        labels:
+          severity: info
+          domain: app
+        annotations:
+          summary: "Deploy completed {{ $value | humanizeDuration }} ago — transient alerts suppressed"
+          description: "Deploy window active. ServiceDown, EndpointDown, HighLatency suppressed for 3 minutes."
+
+      # Stale deploy (no deploy in 7 days — canary for drift)
+      - alert: DeployStale
+        expr: (time() - deploy_last_success_timestamp{app="jeff-bridwell-personal-site"}) > 604800
+        for: 0m
+        labels:
+          severity: warning
+          domain: app
+        annotations:
+          summary: "No deploy in 7+ days for {{ $labels.app }}"
+          description: "Last successful deploy was {{ $value | humanizeDuration }} ago. Code may be drifting from production."

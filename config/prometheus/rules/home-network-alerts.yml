@@ -82,6 +82,7 @@ groups:
   - name: home-network-constraints
     rules:
       - alert: C1DiskThreshold
+        # #1378: Now using host-level node-exporter on Library (port 9102, accurate APFS)
         expr: (1 - node_filesystem_avail_bytes{mountpoint="/"} / node_filesystem_size_bytes{mountpoint="/"}) > 0.90
         for: 5m
         labels:
