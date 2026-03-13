@@ -3,9 +3,10 @@ groups:
     rules:
       - alert: ServiceDown
         expr: up == 0
-        for: 1m
+        for: 5m
         labels:
           severity: critical
+          domain: infra
         annotations:
           summary: "Service {{ $labels.job }} is down"
           description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minute."
@@ -15,6 +16,7 @@ groups:
         for: 5m
         labels:
           severity: warning
+          domain: app
         annotations:
           summary: "Container {{ $labels.name }} is restarting frequently"
           description: "Container {{ $labels.name }} has restarted {{ $value }} times in the last hour."
@@ -29,6 +31,7 @@ groups:
         for: 2m
         labels:
           severity: warning
+          domain: app
         annotations:
           summary: "High error rate for {{ $labels.service }}"
           description: "{{ $labels.service }} has error rate of {{ $value | humanizePercentage }} over the last 2 minutes."
@@ -38,6 +41,7 @@ groups:
         for: 5m
         labels:
           severity: warning
+          domain: app
         annotations:
           summary: "High latency for {{ $labels.service }}"
           description: "{{ $labels.service }} P95 latency is {{ $value | humanizeDuration }}."
@@ -46,9 +50,10 @@ groups:
     rules:
       - alert: HighMemoryUsage
         expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) > 0.9
-        for: 5m
+        for: 15m
         labels:
           severity: warning
+          domain: infra
         annotations:
           summary: "High memory usage on {{ $labels.instance }}"
           description: "Memory usage is {{ $value | humanizePercentage }} on {{ $labels.instance }}."
@@ -58,24 +63,47 @@ groups:
         for: 5m
         labels:
           severity: warning
+          domain: infra
         annotations:
           summary: "High CPU usage on {{ $labels.instance }}"
           description: "CPU usage is {{ $value }}% on {{ $labels.instance }}."
 
+      # Docker Desktop exposes host FS via /host_mnt, /run/host_mark, /run/host_virtiofs,
+      # /run/grpcfuse, /run/rosetta — all duplicates of the same APFS volume.
+      # Bedroom media partition drives (/Volumes/Videos<Name>-<Name>, /Volumes/VideosMulti)
+      # are intentionally full — excluded to prevent 23+ alerts of wallpaper.
+      # /Volumes/VideosNew (Gathering) and /Volumes/PhotosNew still monitored.
+      # macOS system volumes (Hardware, iSCPreboot, xarts, autofs) excluded — always tiny.
       - alert: DiskSpaceWarning
-        expr: (1 - node_filesystem_avail_bytes{fstype!~"tmpfs|overlay|erofs",mountpoint!~"/oldroot.*"} / node_filesystem_size_bytes{fstype!~"tmpfs|overlay|erofs",mountpoint!~"/oldroot.*"}) > 0.85
+        expr: |
+          (1 - node_filesystem_avail_bytes{
+            fstype!~"tmpfs|overlay|erofs|fakeowner|virtiofs|fuse.grpcfuse|virtiofs\\..*|autofs",
+            mountpoint!~"/oldroot.*|/host_mnt.*|/run/host.*|/run/rosetta.*|/run/grpcfuse.*|/Volumes/Videos[A-Z].*-.*|/Volumes/VideosMulti|/System/Volumes/(Hardware|iSCPreboot|xarts|Preboot|Update|VM|Data)"
+          } / node_filesystem_size_bytes{
+            fstype!~"tmpfs|overlay|erofs|fakeowner|virtiofs|fuse.grpcfuse|virtiofs\\..*|autofs",
+            mountpoint!~"/oldroot.*|/host_mnt.*|/run/host.*|/run/rosetta.*|/run/grpcfuse.*|/Volumes/Videos[A-Z].*-.*|/Volumes/VideosMulti|/System/Volumes/(Hardware|iSCPreboot|xarts|Preboot|Update|VM|Data)"
+          }) > 0.85
         for: 5m
         labels:
           severity: warning
+          domain: infra
         annotations:
           summary: "Disk usage above 85% on {{ $labels.instance }}"
           description: "Disk {{ $labels.mountpoint }} on {{ $labels.instance }} is at {{ $value | humanizePercentage }} usage."
 
       - alert: DiskSpaceLow
-        expr: (node_filesystem_avail_bytes{fstype!~"tmpfs|overlay|erofs",mountpoint!~"/oldroot.*"} / node_filesystem_size_bytes{fstype!~"tmpfs|overlay|erofs",mountpoint!~"/oldroot.*"}) < 0.1
+        expr: |
+          (node_filesystem_avail_bytes{
+            fstype!~"tmpfs|overlay|erofs|fakeowner|virtiofs|fuse.grpcfuse|virtiofs\\..*|autofs",
+            mountpoint!~"/oldroot.*|/host_mnt.*|/run/host.*|/run/rosetta.*|/run/grpcfuse.*|/Volumes/Videos[A-Z].*-.*|/Volumes/VideosMulti|/System/Volumes/(Hardware|iSCPreboot|xarts|Preboot|Update|VM|Data)"
+          } / node_filesystem_size_bytes{
+            fstype!~"tmpfs|overlay|erofs|fakeowner|virtiofs|fuse.grpcfuse|virtiofs\\..*|autofs",
+            mountpoint!~"/oldroot.*|/host_mnt.*|/run/host.*|/run/rosetta.*|/run/grpcfuse.*|/Volumes/Videos[A-Z].*-.*|/Volumes/VideosMulti|/System/Volumes/(Hardware|iSCPreboot|xarts|Preboot|Update|VM|Data)"
+          }) < 0.1
         for: 5m
         labels:
           severity: critical
+          domain: infra
         annotations:
           summary: "Low disk space on {{ $labels.instance }}"
           description: "Disk {{ $labels.mountpoint }} on {{ $labels.instance }} has only {{ $value | humanizePercentage }} free."
@@ -84,9 +112,10 @@ groups:
     rules:
       - alert: EndpointDown
         expr: probe_success{job!="blackbox-icmp"} == 0
-        for: 2m
+        for: 5m
         labels:
           severity: critical
+          domain: app
         annotations:
           summary: "Endpoint {{ $labels.instance }} is down"
           description: "Blackbox probe for {{ $labels.instance }} (job {{ $labels.job }}) has been failing for 2 minutes."

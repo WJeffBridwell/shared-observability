@@ -7,6 +7,7 @@ groups:
         labels:
           severity: critical
           category: compute
+          domain: infra
         annotations:
           summary: "Secondary Mac (3rd floor) is offline"
           description: "Mac Mini Secondary (192.168.86.242) has been unreachable for 5 minutes. Backup destination and media server are down."
@@ -17,6 +18,7 @@ groups:
         labels:
           severity: critical
           category: compute
+          domain: infra
         annotations:
           summary: "Primary Mac is unreachable via ICMP"
           description: "Mac Mini Primary (192.168.86.36) is not responding to ping. All services are likely down."
@@ -29,6 +31,7 @@ groups:
         labels:
           severity: warning
           category: network
+          domain: infra
         annotations:
           summary: "WiFi mesh degraded — {{ $value }}/3 nodes online"
           description: "One or more Nest WiFi mesh nodes are offline. WiFi coverage may be reduced in parts of the house."
@@ -39,6 +42,7 @@ groups:
         labels:
           severity: critical
           category: network
+          domain: infra
         annotations:
           summary: "Nest WiFi Router is down"
           description: "The primary router (192.168.86.1) is unreachable. All network connectivity is likely affected."
@@ -50,6 +54,7 @@ groups:
         for: 5m
         labels:
           severity: critical
+          domain: infra
         annotations:
           summary: "Infrastructure device {{ $labels.device }} ({{ $labels.room }}) is down"
           description: "{{ $labels.device }} at {{ $labels.instance }} has been unreachable for 5 minutes."
@@ -59,6 +64,7 @@ groups:
         for: 10m
         labels:
           severity: warning
+          domain: home
         annotations:
           summary: "{{ $labels.device }} ({{ $labels.room }}) is offline"
           description: "{{ $labels.device }} at {{ $labels.instance }} has been unreachable for 10 minutes. May be powered off."
@@ -68,6 +74,7 @@ groups:
         for: 5m
         labels:
           severity: warning
+          domain: infra
         annotations:
           summary: "High latency to {{ $labels.device }} ({{ $labels.room }})"
           description: "Ping latency to {{ $labels.device }} is {{ $value | humanizeDuration }}. Expected <50ms for infrastructure devices."
@@ -80,36 +87,40 @@ groups:
         labels:
           severity: critical
           constraint: C1
+          domain: infra
         annotations:
           summary: "C1 VIOLATION: Disk usage above 90%"
           description: "Primary disk is at {{ $value | humanizePercentage }} usage. APFS degrades sharply above 90%. At 100%, Docker metadata DB corrupts."
 
       - alert: C3MemoryHeadroom
         expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) > 0.85
-        for: 5m
+        for: 15m
         labels:
           severity: warning
           constraint: C3
+          domain: infra
         annotations:
           summary: "C3 WARNING: Memory usage above 85%"
           description: "Memory at {{ $value | humanizePercentage }}. 16 containers on 16GB RAM — approaching headroom limit."
 
       - alert: C4AppUnreachable
         expr: probe_success{job="blackbox-app"} == 0
-        for: 2m
+        for: 5m
         labels:
           severity: critical
           constraint: C4
+          domain: app
         annotations:
           summary: "C4 VIOLATION: Gathering app is unreachable"
           description: "The main app health endpoint is not responding. User-facing service is down."
 
       - alert: C5FusekiUnreachable
         expr: probe_success{job="blackbox-fuseki"} == 0
-        for: 2m
+        for: 5m
         labels:
           severity: critical
           constraint: C5
+          domain: app
         annotations:
           summary: "C5 VIOLATION: Fuseki SPARQL is unreachable"
           description: "Fuseki is not responding. Knowledge graph queries will fail."

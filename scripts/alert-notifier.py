@@ -25,18 +25,20 @@ GRAFANA_ALERTS_URL = "http://localhost:3100/d/alerts-overview"
 TERMINAL_NOTIFIER = shutil.which("terminal-notifier")
 
 
-def macos_notify(title: str, message: str, severity: str = "warning"):
+def macos_notify(title: str, message: str, severity: str = "warning", silent: bool = False):
     """Fire a macOS banner notification. Never modal — never steals focus."""
     sound = "Ping" if severity == "critical" else "Sosumi"
     if TERMINAL_NOTIFIER:
         try:
-            subprocess.run([
+            args = [
                 TERMINAL_NOTIFIER,
                 "-title", title,
                 "-message", message,
-                "-sound", sound,
                 "-group", "chorus-alert",
-            ], timeout=10)
+            ]
+            if not silent:
+                args.extend(["-sound", sound])
+            subprocess.run(args, timeout=10)
         except Exception as e:
             print(f"[alert-notifier] terminal-notifier failed: {e}", file=sys.stderr)
     else:
@@ -93,13 +95,11 @@ class AlertHandler(BaseHTTPRequestHandler):
             if result == "failed":
                 title = f"🔴 Harvest failed: {domain}"
                 body_text = error[:120] if error else "No error details"
-                severity = "critical"
+                macos_notify(title, body_text, "critical")
             else:
                 title = f"✅ Harvest done: {domain}"
                 body_text = f"{items} items in {duration}" if duration else f"{items} items"
-                severity = "warning"
-
-            macos_notify(title, body_text, severity)
+                macos_notify(title, body_text, "warning", silent=True)
             chorus_log("harvest.notify.sent", "system",
                        domain=domain, result=result, items=str(items))
             self.send_response(200)

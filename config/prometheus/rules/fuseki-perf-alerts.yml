@@ -1,52 +1,58 @@
 groups:
   - name: fuseki-performance
     rules:
-      # Page-load queries should stay under 2s
+      # Page-load queries — music_albums ~3.7s, photo_listing ~2.7s at current scale (2026-03-02)
+      # Threshold at 5s gives headroom; fire only if sustained 5min (not transient spikes)
       # Scoped to node-exporter job only — textfile collector is scraped by both
       # node-exporter and docker-services, causing duplicate alerts.
       - alert: FusekiQuerySlow
-        expr: fuseki_query_duration_ms{job="node-exporter",query=~"music_albums|photo_listing|notes_listing|music_genres"} > 2000
-        for: 0m
+        expr: fuseki_query_duration_ms{job="node-exporter",query=~"music_albums|photo_listing|notes_listing|music_genres"} > 5000
+        for: 15m
         labels:
           severity: warning
           domain: app
         annotations:
-          summary: "SPARQL query {{ $labels.query }} took {{ $value }}ms (SLA: 2000ms)"
-          description: "Page-load query exceeding 2s threshold. Check Fuseki memory, dataset size, or query complexity."
+          summary: "SPARQL query {{ $labels.query }} took {{ $value }}ms (SLA: 5s)"
+          description: "Page-load query exceeding 5s threshold for 5+ minutes. Check Fuseki memory or dataset size."
 
-      # Aggregation queries should stay under 8s (triple_count floor ~6s at 12.5M triples)
-      # type_counts_full scans all graphs incl 1.7M media — expected slow, 15s threshold
+      # Aggregation queries — triple_count ~12s, graph_count ~4.5s at current scale
+      # type_counts handled separately below. Threshold at 20s, sustained 5min.
       - alert: FusekiAggregationSlow
-        expr: fuseki_query_duration_ms{job="node-exporter",query=~"triple_count|graph_count|collection_sizes|cross_graph_join"} > 8000
-        for: 0m
+        expr: fuseki_query_duration_ms{job="node-exporter",query=~"triple_count|graph_count|collection_sizes|cross_graph_join"} > 20000
+        for: 5m
         labels:
           severity: warning
           domain: app
         annotations:
-          summary: "SPARQL aggregation {{ $labels.query }} took {{ $value }}ms (SLA: 5000ms)"
-          description: "Full-dataset aggregation exceeding 5s threshold. Dataset may be growing beyond Fuseki capacity."
+          summary: "SPARQL aggregation {{ $labels.query }} took {{ $value }}ms (SLA: 20s)"
+          description: "Full-dataset aggregation exceeding 20s threshold. Dataset may be growing beyond Fuseki capacity."
 
-      # Full-dataset type scan (incl 1.7M media) — separate threshold
+      # Full-dataset type scan (incl 1.7M media) — type_counts ~29s at current scale
+      # Threshold at 45s — only fires if Fuseki is truly struggling
       - alert: FusekiFullScanSlow
-        expr: fuseki_query_duration_ms{job="node-exporter",query="type_counts_full"} > 20000
-        for: 0m
+        expr: fuseki_query_duration_ms{job="node-exporter",query="type_counts_full"} > 45000
+        for: 5m
         labels:
           severity: warning
           domain: app
         annotations:
-          summary: "Full type scan took {{ $value }}ms (>20s) — dataset may need partitioning"
-          description: "type_counts_full scans all graphs including media. Expected 10-15s at current scale."
+          summary: "Full type scan took {{ $value }}ms (>45s) — dataset may need partitioning"
+          description: "type_counts_full scans all graphs including media. Expected 25-35s at current scale."
 
-      # Critical: any query over 10s (excluding known-slow full scans)
+      # Critical: page-load over 10s or aggregation over 35s (excluding full scans)
+      # Must sustain 5min to fire — single slow query doesn't trigger
       - alert: FusekiQueryCritical
-        expr: fuseki_query_duration_ms{job="node-exporter",query!="type_counts_full"} > 10000
-        for: 0m
+        expr: |
+          (fuseki_query_duration_ms{job="node-exporter",query=~"music_albums|photo_listing|notes_listing|music_genres"} > 10000)
+          or
+          (fuseki_query_duration_ms{job="node-exporter",query=~"triple_count|graph_count|collection_sizes|cross_graph_join"} > 35000)
+        for: 5m
         labels:
           severity: critical
           domain: app
         annotations:
-          summary: "SPARQL query {{ $labels.query }} took {{ $value }}ms (>10s)"
-          description: "Query response time critical. Fuseki may be under memory pressure or dataset needs optimization."
+          summary: "SPARQL query {{ $labels.query }} took {{ $value }}ms — critical"
+          description: "Query response time critical for 5+ minutes. Fuseki may be under memory pressure."
 
       # Stale benchmark (no run in 24h)
       - alert: FusekiBenchmarkStale
