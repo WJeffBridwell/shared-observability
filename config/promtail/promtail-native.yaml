@@ -1,0 +1,361 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+  log_level: info
+
+positions:
+  filename: /Users/jeffbridwell/Library/Logs/Gathering/promtail-positions.yaml
+
+clients:
+  - url: http://localhost:3102/loki/api/v1/push
+    tenant_id: default
+    batchwait: 1s
+    batchsize: 1048576
+    timeout: 10s
+
+scrape_configs:
+  # Docker container logs — read directly from host filesystem
+  # Remaining Docker containers: Fuseki, CSS, WordPress, MySQL
+  - job_name: docker-files
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: docker
+          __path__: /var/lib/docker/containers/**/*.log
+    pipeline_stages:
+      - json:
+          expressions:
+            log: log
+            stream: stream
+            time: time
+      - output:
+          source: log
+
+  # Host-level operational logs (Chorus audit, guardrails, deploy events)
+  - job_name: chorus-operations
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: chorus-operations
+          __path__: /Users/jeffbridwell/CascadeProjects/messages/logs/chorus.log
+
+    pipeline_stages:
+      - json:
+          expressions:
+            timestamp: timestamp
+            level: level
+            appName: appName
+            component: component
+            role: role
+            message: message
+      - labels:
+          level:
+          appName:
+          component:
+          role:
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05.000Z'
+      - output:
+          source: message
+
+  # Command error logs
+  - job_name: command-errors
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: command-errors
+          __path__: /Users/jeffbridwell/CascadeProjects/messages/logs/command-errors.log
+    pipeline_stages:
+      - json:
+          expressions:
+            ts: ts
+            role: role
+            severity: severity
+            cmd: cmd
+            error: error
+            fingerprint: fingerprint
+      - labels:
+          role:
+          severity:
+          fingerprint:
+      - timestamp:
+          source: ts
+          format: '2006-01-02T15:04:05.000Z'
+
+  # Handoff logs
+  - job_name: handoffs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: handoffs
+          __path__: /Users/jeffbridwell/CascadeProjects/messages/logs/handoffs.log
+    pipeline_stages:
+      - json:
+          expressions:
+            timestamp: timestamp
+            type: type
+            from: from
+            to: to
+            status: status
+      - labels:
+          from:
+          to:
+          type:
+          status:
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05Z'
+
+  # Permission prompt logs
+  - job_name: permission-prompts
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: permission-prompts
+          __path__: /Users/jeffbridwell/CascadeProjects/messages/logs/permission-prompts.log
+    pipeline_stages:
+      - json:
+          expressions:
+            timestamp: timestamp
+            appName: appName
+            component: component
+            event: event
+            role: role
+            tool: tool
+      - labels:
+          role:
+          appName:
+          tool:
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05.000Z'
+
+  # LaunchAgent daemon logs
+  - job_name: daemon-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: daemon-logs
+          daemon: ops-agent
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/ops-agent.log
+      - targets:
+          - localhost
+        labels:
+          job: daemon-logs
+          daemon: defect-poller
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/defect-poller.log
+      - targets:
+          - localhost
+        labels:
+          job: daemon-logs
+          daemon: fuseki-perf
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/fuseki-perf.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Performance baseline
+  - job_name: perf-baseline
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: perf-baseline
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/perf-baseline.log
+    pipeline_stages:
+      - json:
+          expressions:
+            timestamp: timestamp
+            function: function
+            durationMs: durationMs
+            status: status
+            detail: detail
+      - labels:
+          function:
+          status:
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05.000Z'
+
+  # Team activity log
+  - job_name: activity
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: activity
+          __path__: /Users/jeffbridwell/CascadeProjects/messages/activity.md
+    pipeline_stages:
+      - regex:
+          expression: '^- \[(?P<role>[^\]]+)\] → (?P<action>.+)$'
+      - labels:
+          role:
+      - output:
+          source: action
+
+  # Session watcher log
+  - job_name: session-watcher
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: session-watcher
+          daemon: session-watcher
+          __path__: /Users/jeffbridwell/.chorus/watcher.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Chorus API log
+  - job_name: chorus-api
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: chorus-api
+          daemon: chorus-api
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/chorus-api.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Board snapshot logs
+  - job_name: board-snapshots
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: board-snapshots
+          __path__: /Users/jeffbridwell/CascadeProjects/messages/logs/board-snapshot-*.json
+    pipeline_stages:
+      - json:
+          expressions:
+            timestamp: timestamp
+            role: role
+            event: event
+            cards_total: cards_total
+      - labels:
+          role:
+          event:
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05.000Z'
+
+  # Fuseki compaction log
+  - job_name: fuseki-compact
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: fuseki-compact
+          daemon: fuseki-compact
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/fuseki-compact.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Alert notifier log
+  - job_name: alert-notifier
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: alert-notifier
+          daemon: alert-notifier
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/alert-notifier.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Session tempo metrics
+  - job_name: tempo
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: tempo
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/tempo.log
+    pipeline_stages:
+      - json:
+          expressions:
+            timestamp: timestamp
+            participant: participant
+            sentiment: sentiment
+            behavior: behavior
+            composite: composite
+            prompts_1h: prompts_1h
+            turn_rate_min: turn_rate_min
+      - labels:
+          participant:
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05.000Z'
+
+  # SOLID audit logs
+  - job_name: audit
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: audit
+          __path__: /Users/jeffbridwell/CascadeProjects/jeff-bridwell-personal-site/data/audit/audit-*.jsonl
+    pipeline_stages:
+      - json:
+          expressions:
+            timestamp: timestamp
+            eventType: eventType
+            actor: actor
+            podId: podId
+            resource: resource
+            action: action
+            success: success
+      - labels:
+          eventType:
+          podId:
+          action:
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05.000Z'
+
+  # Native app log (LaunchAgent output)
+  - job_name: gathering-app
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: gathering-app
+          container_name: gathering-app
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/gathering-app.log
+    pipeline_stages:
+      - json:
+          expressions:
+            timestamp: timestamp
+            level: level
+            appName: appName
+            component: component
+      - labels:
+          level:
+          appName:
+          component:
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05.000Z'
+      - output:
+          source: message
