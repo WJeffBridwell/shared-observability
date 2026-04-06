@@ -21,6 +21,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 
 PORT = int(os.environ.get("ALERT_NOTIFIER_PORT", "9095"))
 CHORUS_LOG = os.path.expanduser("~/CascadeProjects/messages/scripts/chorus-log.sh")
+NUDGE_SH = os.path.expanduser("~/CascadeProjects/messages/scripts/nudge.sh")
 GRAFANA_ALERTS_URL = "http://localhost:3100/d/alerts-overview"
 TERMINAL_NOTIFIER = shutil.which("terminal-notifier")
 
@@ -91,17 +92,49 @@ class AlertHandler(BaseHTTPRequestHandler):
             items = payload.get("items", 0)
             duration = payload.get("duration", "")
             error = payload.get("error", "")
+            is_test = payload.get("test", False)
 
-            if result == "failed":
-                title = f"🔴 Harvest failed: {domain}"
-                body_text = error[:120] if error else "No error details"
-                macos_notify(title, body_text, "critical")
-            else:
-                title = f"✅ Harvest done: {domain}"
-                body_text = f"{items} items in {duration}" if duration else f"{items} items"
-                macos_notify(title, body_text, "warning", silent=True)
+            if not is_test:
+                if result == "failed":
+                    title = f"🔴 Harvest failed: {domain}"
+                    body_text = error[:120] if error else "No error details"
+                    macos_notify(title, body_text, "critical")
+                else:
+                    title = f"✅ Harvest done: {domain}"
+                    body_text = f"{items} items in {duration}" if duration else f"{items} items"
+                    macos_notify(title, body_text, "warning", silent=True)
             chorus_log("harvest.notify.sent", "system",
-                       domain=domain, result=result, items=str(items))
+                       domain=domain, result=result, items=str(items),
+                       test=str(is_test).lower())
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"ok")
+            return
+
+        # --- Nudge a role (#1352) ---
+        if self.path == "/nudge":
+            role = payload.get("role", "")
+            message = payload.get("message", "")
+            sender = payload.get("from", "jeff")
+            if not role or not message:
+                self.send_response(400)
+                self.end_headers()
+                self.wfile.write(b"missing role or message")
+                return
+            valid_roles = ("wren", "kade", "silas")
+            if role not in valid_roles:
+                self.send_response(400)
+                self.end_headers()
+                self.wfile.write(f"invalid role: {role}".encode())
+                return
+            if os.path.isfile(NUDGE_SH):
+                try:
+                    subprocess.run(
+                        [NUDGE_SH, role, message, "--from", sender],
+                        timeout=10, capture_output=True
+                    )
+                except Exception as e:
+                    print(f"[alert-notifier] nudge failed: {e}", file=sys.stderr)
             self.send_response(200)
             self.end_headers()
             self.wfile.write(b"ok")

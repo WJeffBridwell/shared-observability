@@ -39,7 +39,7 @@ scrape_configs:
           - localhost
         labels:
           job: chorus-operations
-          __path__: /Users/jeffbridwell/CascadeProjects/messages/logs/chorus.log
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/chorus.log
 
     pipeline_stages:
       - json:
@@ -333,6 +333,23 @@ scrape_configs:
       - timestamp:
           source: timestamp
           format: '2006-01-02T15:04:05.000Z'
+
+  # Cloudflare tunnel log
+  - job_name: cloudflared
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: cloudflared
+          daemon: cloudflared
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/cloudflared.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<ts>\S+)\s+(?P<level>\S+)\s+(?P<content>.+)$'
+      - labels:
+          level:
+      - output:
+          source: content
 
   # Native app log (LaunchAgent output)
   - job_name: gathering-app

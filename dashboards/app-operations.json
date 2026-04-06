@@ -41,7 +41,7 @@
         "uid": "prometheus"
       },
       "gridPos": {
-        "h": 15,
+        "h": 12,
         "w": 24,
         "x": 0,
         "y": 1
@@ -53,7 +53,7 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<img src=\"data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTAwMCAyNzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3R5bGU9ImJhY2tncm91bmQ6IzE4MUIxRjsiPgogIDxkZWZzPgogICAgPG1hcmtlciBpZD0iYWgiIG1hcmtlcldpZHRoPSI4IiBtYXJrZXJIZWlnaHQ9IjYiIHJlZlg9IjgiIHJlZlk9IjMiIG9yaWVudD0iYXV0byI+CiAgICAgIDxwYXRoIGQ9Ik0wLDAgTDgsMyBMMCw2IiBmaWxsPSIjNzE4MDk2Ii8+CiAgICA8L21hcmtlcj4KICAgIDxtYXJrZXIgaWQ9ImFoZyIgbWFya2VyV2lkdGg9IjgiIG1hcmtlckhlaWdodD0iNiIgcmVmWD0iOCIgcmVmWT0iMyIgb3JpZW50PSJhdXRvIj4KICAgICAgPHBhdGggZD0iTTAsMCBMOCwzIEwwLDYiIGZpbGw9IiMxMEI5ODEiLz4KICAgIDwvbWFya2VyPgogIDwvZGVmcz4KICA8c3R5bGU+CiAgICAuYm94IHsgZmlsbDojMUUyOTNCOyBzdHJva2Utd2lkdGg6MS41OyB9CiAgICAubGJsIHsgZmlsbDojRTJFOEYwOyBmb250LWZhbWlseTpJbnRlcixzeXN0ZW0tdWksc2Fucy1zZXJpZjsgZm9udC1zaXplOjExcHg7IGZvbnQtd2VpZ2h0OjYwMDsgdGV4dC1hbmNob3I6bWlkZGxlOyB9CiAgICAuc3ViIHsgZmlsbDojNzE4MDk2OyBmb250LWZhbWlseTpJbnRlcixzeXN0ZW0tdWksc2Fucy1zZXJpZjsgZm9udC1zaXplOjguNXB4OyB0ZXh0LWFuY2hvcjptaWRkbGU7IH0KICAgIC5ncnAgeyBmaWxsOiM2MzY2RjE7IGZvbnQtZmFtaWx5OkludGVyLHN5c3RlbS11aSxzYW5zLXNlcmlmOyBmb250LXNpemU6MTBweDsgZm9udC13ZWlnaHQ6NzAwOyBsZXR0ZXItc3BhY2luZzoxcHg7IH0KICAgIC5tYWNoIHsgZmlsbDojRjU5RTBCOyBmb250LWZhbWlseTpJbnRlcixzeXN0ZW0tdWksc2Fucy1zZXJpZjsgZm9udC1zaXplOjlweDsgZm9udC13ZWlnaHQ6NzAwOyBsZXR0ZXItc3BhY2luZzowLjVweDsgfQogICAgLmFyciB7IHN0cm9rZTojNzE4MDk2OyBzdHJva2Utd2lkdGg6MS41OyBtYXJrZXItZW5kOnVybCgjYWgpOyB9CiAgICAubW9uIHsgc3Ryb2tlOiMxMEI5ODE7IHN0cm9rZS13aWR0aDoxOyBzdHJva2UtZGFzaGFycmF5OjQsMzsgbWFya2VyLWVuZDp1cmwoI2FoZyk7IG9wYWNpdHk6MC42OyB9CiAgICAubWJveCB7IGZpbGw6bm9uZTsgc3Ryb2tlOiNGNTlFMEI7IHN0cm9rZS13aWR0aDoxOyBzdHJva2UtZGFzaGFycmF5OjYsMzsgcng6ODsgb3BhY2l0eTowLjQ7IH0KICA8L3N0eWxlPgoKICA8IS0tIOKVkOKVkOKVkCBMSUJSQVJZIE1BQyDilZDilZDilZAgLS0+CiAgPHJlY3QgeD0iNSIgeT0iNSIgd2lkdGg9IjcwMCIgaGVpZ2h0PSIyNTAiIGNsYXNzPSJtYm94Ii8+CiAgPHRleHQgeD0iMTIiIHk9IjE4IiBjbGFzcz0ibWFjaCI+TElCUkFSWSBNQUMgKE0xIDE2R0IpIOKAlCAxOTIuMTY4Ljg2LjM2PC90ZXh0PgoKICA8IS0tIEFQUExJQ0FUSU9OIC0tPgogIDx0ZXh0IHg9IjE1IiB5PSIzOCIgY2xhc3M9ImdycCI+QVBQTElDQVRJT048L3RleHQ+CiAgPHJlY3QgeD0iMTUiIHk9IjQ0IiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiM2MzY2RjEiLz4KICA8dGV4dCB4PSI1NyIgeT0iNTkiIGNsYXNzPSJsYmwiPkplZmY8L3RleHQ+CiAgPHRleHQgeD0iNTciIHk9IjcxIiBjbGFzcz0ic3ViIj5Ccm93c2VyIC8gVm9pY2U8L3RleHQ+CiAgPGxpbmUgeDE9IjEwMCIgeTE9IjYyIiB4Mj0iMTEyIiB5Mj0iNjIiIGNsYXNzPSJhcnIiLz4KCiAgPHJlY3QgeD0iMTE0IiB5PSI0NCIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iMTU2IiB5PSI1OSIgY2xhc3M9ImxibCI+R2F0aGVyaW5nPC90ZXh0PgogIDx0ZXh0IHg9IjE1NiIgeT0iNzEiIGNsYXNzPSJzdWIiPkV4cHJlc3MgOjMwMDA8L3RleHQ+CiAgPGxpbmUgeDE9IjE5OSIgeTE9IjYyIiB4Mj0iMjExIiB5Mj0iNjIiIGNsYXNzPSJhcnIiLz4KCiAgPHJlY3QgeD0iMjEzIiB5PSI0NCIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iMjU1IiB5PSI1OSIgY2xhc3M9ImxibCI+RnVzZWtpPC90ZXh0PgogIDx0ZXh0IHg9IjI1NSIgeT0iNzEiIGNsYXNzPSJzdWIiPlNQQVJRTCA6MzAzMDwvdGV4dD4KCiAgPHJlY3QgeD0iMzEyIiB5PSI0NCIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iMzU0IiB5PSI1OSIgY2xhc3M9ImxibCI+TmF2aWRyb21lPC90ZXh0PgogIDx0ZXh0IHg9IjM1NCIgeT0iNzEiIGNsYXNzPSJzdWIiPk11c2ljIDo0NTMzPC90ZXh0PgoKICA8cmVjdCB4PSIxMTQiIHk9Ijg2IiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSIxNTYiIHk9IjEwMSIgY2xhc3M9ImxibCI+V29yZFByZXNzPC90ZXh0PgogIDx0ZXh0IHg9IjE1NiIgeT0iMTEzIiBjbGFzcz0ic3ViIj5CbG9nIDo4MDgxPC90ZXh0PgogIDxsaW5lIHgxPSIxNTYiIHkxPSI4MCIgeDI9IjE1NiIgeTI9Ijg2IiBjbGFzcz0iYXJyIi8+CiAgPGxpbmUgeDE9IjE5OSIgeTE9IjEwNCIgeDI9IjIxMSIgeTI9IjEwNCIgY2xhc3M9ImFyciIvPgoKICA8cmVjdCB4PSIyMTMiIHk9Ijg2IiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiM3MTgwOTYiLz4KICA8dGV4dCB4PSIyNTUiIHk9IjEwMSIgY2xhc3M9ImxibCI+TXlTUUw8L3RleHQ+CiAgPHRleHQgeD0iMjU1IiB5PSIxMTMiIGNsYXNzPSJzdWIiPkRhdGEgOjMzMDY8L3RleHQ+CgogIDxyZWN0IHg9IjMxMiIgeT0iODYiIHdpZHRoPSI4NSIgaGVpZ2h0PSIzNiIgcng9IjUiIGNsYXNzPSJib3giIHN0cm9rZT0iIzEwQjk4MSIvPgogIDx0ZXh0IHg9IjM1NCIgeT0iMTAxIiBjbGFzcz0ibGJsIj5TT0xJRCBDU1M8L3RleHQ+CiAgPHRleHQgeD0iMzU0IiB5PSIxMTMiIGNsYXNzPSJzdWIiPk9JREMgOjMwMDE8L3RleHQ+CgogIDxyZWN0IHg9IjE1IiB5PSI4NiIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iNTciIHk9IjEwMSIgY2xhc3M9ImxibCI+TWFpbEhvZzwvdGV4dD4KICA8dGV4dCB4PSI1NyIgeT0iMTEzIiBjbGFzcz0ic3ViIj5TTVRQIDo4MDI1PC90ZXh0PgoKICA8IS0tIENPT1JESU5BVElPTiAtLT4KICA8dGV4dCB4PSI0NDAiIHk9IjM4IiBjbGFzcz0iZ3JwIj5DT09SRElOQVRJT048L3RleHQ+CiAgPHJlY3QgeD0iNDQwIiB5PSI0NCIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjNjM2NkYxIi8+CiAgPHRleHQgeD0iNDgyIiB5PSI1OSIgY2xhc3M9ImxibCI+Q2hvcnVzIEFQSTwvdGV4dD4KICA8dGV4dCB4PSI0ODIiIHk9IjcxIiBjbGFzcz0ic3ViIj5JbmRleCA6MzM0MDwvdGV4dD4KCiAgPHJlY3QgeD0iNTM5IiB5PSI0NCIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjNjM2NkYxIi8+CiAgPHRleHQgeD0iNTgxIiB5PSI1OSIgY2xhc3M9ImxibCI+Q2xhdWRlIEFQSTwvdGV4dD4KICA8dGV4dCB4PSI1ODEiIHk9IjcxIiBjbGFzcz0ic3ViIj5PcHVzIC8gU29ubmV0PC90ZXh0PgoKICA8cmVjdCB4PSI0NDAiIHk9Ijg2IiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiNGNTlFMEIiLz4KICA8dGV4dCB4PSI0ODIiIHk9IjEwMSIgY2xhc3M9ImxibCI+Q2xvdWRmbGFyZWQ8L3RleHQ+CiAgPHRleHQgeD0iNDgyIiB5PSIxMTMiIGNsYXNzPSJzdWIiPlR1bm5lbCA6MjAyNDE8L3RleHQ+CgogIDxyZWN0IHg9IjUzOSIgeT0iODYiIHdpZHRoPSI4NSIgaGVpZ2h0PSIzNiIgcng9IjUiIGNsYXNzPSJib3giIHN0cm9rZT0iIzYzNjZGMSIvPgogIDx0ZXh0IHg9IjU4MSIgeT0iMTAxIiBjbGFzcz0ibGJsIj5Ud2lsaW88L3RleHQ+CiAgPHRleHQgeD0iNTgxIiB5PSIxMTMiIGNsYXNzPSJzdWIiPlNNUyBBUEk8L3RleHQ+CgogIDwhLS0gVE9PTFMgLS0+CiAgPHRleHQgeD0iNjM4IiB5PSIzOCIgY2xhc3M9ImdycCI+VE9PTFM8L3RleHQ+CiAgPHJlY3QgeD0iNjM4IiB5PSI0NCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iNjY4IiB5PSI1OSIgY2xhc3M9ImxibCI+VmlrdW5qYTwvdGV4dD4KICA8dGV4dCB4PSI2NjgiIHk9IjcxIiBjbGFzcz0ic3ViIj46MzQ1NjwvdGV4dD4KCiAgPHJlY3QgeD0iNjM4IiB5PSI4NiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iNjY4IiB5PSIxMDEiIGNsYXNzPSJsYmwiPldlYlZPV0w8L3RleHQ+CiAgPHRleHQgeD0iNjY4IiB5PSIxMTMiIGNsYXNzPSJzdWIiPjo4MDg5PC90ZXh0PgoKICA8IS0tIE9CU0VSVkFCSUxJVFkgLS0+CiAgPHRleHQgeD0iMTUiIHk9IjE0NSIgY2xhc3M9ImdycCI+T0JTRVJWQUJJTElUWTwvdGV4dD4KICA8cmVjdCB4PSIxNSIgeT0iMTUyIiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSI1NyIgeT0iMTY3IiBjbGFzcz0ibGJsIj5Qcm9tZXRoZXVzPC90ZXh0PgogIDx0ZXh0IHg9IjU3IiB5PSIxNzkiIGNsYXNzPSJzdWIiPk1ldHJpY3MgOjkwOTA8L3RleHQ+CiAgPGxpbmUgeDE9IjEwMCIgeTE9IjE3MCIgeDI9IjExMiIgeTI9IjE3MCIgY2xhc3M9ImFyciIvPgoKICA8cmVjdCB4PSIxMTQiIHk9IjE1MiIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iMTU2IiB5PSIxNjciIGNsYXNzPSJsYmwiPkdyYWZhbmE8L3RleHQ+CiAgPHRleHQgeD0iMTU2IiB5PSIxNzkiIGNsYXNzPSJzdWIiPkRhc2hib2FyZHMgOjMxMDA8L3RleHQ+CgogIDxyZWN0IHg9IjIxMyIgeT0iMTUyIiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSIyNTUiIHk9IjE2NyIgY2xhc3M9ImxibCI+TG9raTwvdGV4dD4KICA8dGV4dCB4PSIyNTUiIHk9IjE3OSIgY2xhc3M9InN1YiI+TG9ncyA6MzEwMjwvdGV4dD4KICA8bGluZSB4MT0iMzEyIiB5MT0iMTcwIiB4Mj0iMzAwIiB5Mj0iMTcwIiBjbGFzcz0iYXJyIi8+CgogIDxyZWN0IHg9IjMxMiIgeT0iMTUyIiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSIzNTQiIHk9IjE2NyIgY2xhc3M9ImxibCI+UHJvbXRhaWw8L3RleHQ+CiAgPHRleHQgeD0iMzU0IiB5PSIxNzkiIGNsYXNzPSJzdWIiPkNvbGxlY3RvciA6OTA4MDwvdGV4dD4KCiAgPHJlY3QgeD0iMTUiIHk9IjE5NiIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjMTBCOTgxIi8+CiAgPHRleHQgeD0iNTciIHk9IjIxMSIgY2xhc3M9ImxibCI+QWxlcnRtYW5hZ2VyPC90ZXh0PgogIDx0ZXh0IHg9IjU3IiB5PSIyMjMiIGNsYXNzPSJzdWIiPkFsZXJ0cyA6OTA5MzwvdGV4dD4KICA8bGluZSB4MT0iNTciIHkxPSIxODgiIHgyPSI1NyIgeTI9IjE5NiIgY2xhc3M9ImFyciIvPgoKICA8cmVjdCB4PSIxMTQiIHk9IjE5NiIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjNzE4MDk2Ii8+CiAgPHRleHQgeD0iMTU2IiB5PSIyMTEiIGNsYXNzPSJsYmwiPkJsYWNrYm94PC90ZXh0PgogIDx0ZXh0IHg9IjE1NiIgeT0iMjIzIiBjbGFzcz0ic3ViIj5Qcm9iZXMgOjkxMTU8L3RleHQ+CgogIDxyZWN0IHg9IjIxMyIgeT0iMTk2IiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiM3MTgwOTYiLz4KICA8dGV4dCB4PSIyNTUiIHk9IjIxMSIgY2xhc3M9ImxibCI+Tm9kZSBFeHAuPC90ZXh0PgogIDx0ZXh0IHg9IjI1NSIgeT0iMjIzIiBjbGFzcz0ic3ViIj5Ib3N0IDo5MTAxPC90ZXh0PgoKICA8cmVjdCB4PSIzMTIiIHk9IjE5NiIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjNzE4MDk2Ii8+CiAgPHRleHQgeD0iMzU0IiB5PSIyMTEiIGNsYXNzPSJsYmwiPk15U1FMIEV4cC48L3RleHQ+CiAgPHRleHQgeD0iMzU0IiB5PSIyMjMiIGNsYXNzPSJzdWIiPk1ldHJpY3MgOjkxMDQ8L3RleHQ+CgogIDwhLS0gSE9TVCBEQUVNT05TIC0tPgogIDx0ZXh0IHg9IjQ0MCIgeT0iMTQ1IiBjbGFzcz0iZ3JwIj5IT1NUIERBRU1PTlM8L3RleHQ+CiAgPHJlY3QgeD0iNDQwIiB5PSIxNTIiIHdpZHRoPSI4NSIgaGVpZ2h0PSIzNiIgcng9IjUiIGNsYXNzPSJib3giIHN0cm9rZT0iI0Y1OUUwQiIvPgogIDx0ZXh0IHg9IjQ4MiIgeT0iMTY3IiBjbGFzcz0ibGJsIj5PcHMgQWdlbnQ8L3RleHQ+CiAgPHRleHQgeD0iNDgyIiB5PSIxNzkiIGNsYXNzPSJzdWIiPkxhdW5jaEFnZW50PC90ZXh0PgoKICA8cmVjdCB4PSI1MzkiIHk9IjE1MiIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjRjU5RTBCIi8+CiAgPHRleHQgeD0iNTgxIiB5PSIxNjciIGNsYXNzPSJsYmwiPlNlc3Npb24gV2F0Y2g8L3RleHQ+CiAgPHRleHQgeD0iNTgxIiB5PSIxNzkiIGNsYXNzPSJzdWIiPkxhdW5jaEFnZW50PC90ZXh0PgoKICA8cmVjdCB4PSI2MzgiIHk9IjE1MiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjM2IiByeD0iNSIgY2xhc3M9ImJveCIgc3Ryb2tlPSIjRjU5RTBCIi8+CiAgPHRleHQgeD0iNjY4IiB5PSIxNjciIGNsYXNzPSJsYmwiPkdyYXBoIFdhdGNoPC90ZXh0PgogIDx0ZXh0IHg9IjY2OCIgeT0iMTc5IiBjbGFzcz0ic3ViIj5MYXVuY2hBZ2VudDwvdGV4dD4KCiAgPHJlY3QgeD0iNDQwIiB5PSIxOTYiIHdpZHRoPSI4NSIgaGVpZ2h0PSIzNiIgcng9IjUiIGNsYXNzPSJib3giIHN0cm9rZT0iI0Y1OUUwQiIvPgogIDx0ZXh0IHg9IjQ4MiIgeT0iMjExIiBjbGFzcz0ibGJsIj5BbGVydCBOb3RpZmllcjwvdGV4dD4KICA8dGV4dCB4PSI0ODIiIHk9IjIyMyIgY2xhc3M9InN1YiI+TGF1bmNoQWdlbnQ8L3RleHQ+CgogIDxyZWN0IHg9IjUzOSIgeT0iMTk2IiB3aWR0aD0iODUiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiNGNTlFMEIiLz4KICA8dGV4dCB4PSI1ODEiIHk9IjIxMSIgY2xhc3M9ImxibCI+RnVzZWtpIFBlcmY8L3RleHQ+CiAgPHRleHQgeD0iNTgxIiB5PSIyMjMiIGNsYXNzPSJzdWIiPkxhdW5jaEFnZW50PC90ZXh0PgoKICA8IS0tIOKVkOKVkOKVkCBCRURST09NIE1BQyDilZDilZDilZAgLS0+CiAgPHJlY3QgeD0iNzE1IiB5PSI1IiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjI1MCIgY2xhc3M9Im1ib3giLz4KICA8dGV4dCB4PSI3MjIiIHk9IjE4IiBjbGFzcz0ibWFjaCI+QkVEUk9PTSBNQUMgKE0yIFBybyAzMkdCKSDigJQgMTkyLjE2OC44Ni4yNDI8L3RleHQ+CgogIDx0ZXh0IHg9IjcyNSIgeT0iMzgiIGNsYXNzPSJncnAiPk1FRElBPC90ZXh0PgogIDxyZWN0IHg9IjcyNSIgeT0iNDQiIHdpZHRoPSIxMjAiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSI3ODUiIHk9IjU5IiBjbGFzcz0ibGJsIj5JbWFnZXMgQVBJPC90ZXh0PgogIDx0ZXh0IHg9Ijc4NSIgeT0iNzEiIGNsYXNzPSJzdWIiPkdhbGxlcnkgOjMwMDE8L3RleHQ+CgogIDxyZWN0IHg9Ijg2MCIgeT0iNDQiIHdpZHRoPSIxMjAiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSI5MjAiIHk9IjU5IiBjbGFzcz0ibGJsIj5WaWRlbyBTZXJ2ZXI8L3RleHQ+CiAgPHRleHQgeD0iOTIwIiB5PSI3MSIgY2xhc3M9InN1YiI+U3RyZWFtaW5nIDo4MDgyPC90ZXh0PgoKICA8dGV4dCB4PSI3MjUiIHk9Ijk4IiBjbGFzcz0iZ3JwIj5BSSAvIEVNQkVERElOR1M8L3RleHQ+CiAgPHJlY3QgeD0iNzI1IiB5PSIxMDQiIHdpZHRoPSIxMjAiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiMxMEI5ODEiLz4KICA8dGV4dCB4PSI3ODUiIHk9IjExOSIgY2xhc3M9ImxibCI+T2xsYW1hPC90ZXh0PgogIDx0ZXh0IHg9Ijc4NSIgeT0iMTMxIiBjbGFzcz0ic3ViIj5MTGFWQSArIE5vbWljIDoxMTQzNDwvdGV4dD4KCiAgPHRleHQgeD0iNzI1IiB5PSIxNTgiIGNsYXNzPSJncnAiPk9CU0VSVkFCSUxJVFk8L3RleHQ+CiAgPHJlY3QgeD0iNzI1IiB5PSIxNjQiIHdpZHRoPSIxMjAiIGhlaWdodD0iMzYiIHJ4PSI1IiBjbGFzcz0iYm94IiBzdHJva2U9IiM3MTgwOTYiLz4KICA8dGV4dCB4PSI3ODUiIHk9IjE3OSIgY2xhc3M9ImxibCI+Tm9kZSBFeHAuPC90ZXh0PgogIDx0ZXh0IHg9Ijc4NSIgeT0iMTkxIiBjbGFzcz0ic3ViIj5Ib3N0IDo5MTAwPC90ZXh0PgoKICA8dGV4dCB4PSI3MjUiIHk9IjIxOCIgY2xhc3M9ImdycCI+U1RPUkFHRTwvdGV4dD4KICA8cmVjdCB4PSI3MjUiIHk9IjIyNCIgd2lkdGg9IjI1NSIgaGVpZ2h0PSIyNCIgcng9IjUiIGNsYXNzPSJib3giIHN0cm9rZT0iIzcxODA5NiIvPgogIDx0ZXh0IHg9Ijg1MiIgeT0iMjQwIiBjbGFzcz0ic3ViIj5+MTc4VEIgRXh0ZXJuYWwgKFZpZGVvIC8gUGhvdG9zIC8gTXVzaWMgTkZTKTwvdGV4dD4KCiAgPCEtLSBDcm9zcy1tYWNoaW5lIGxpbmtzIC0tPgogIDxsaW5lIHgxPSI3MDAiIHkxPSI2MiIgeDI9IjcyMyIgeTI9IjYyIiBjbGFzcz0iYXJyIiBzdHJva2U9IiNGNTlFMEIiIHN0cm9rZS1kYXNoYXJyYXk9IjQsMyIvPgogIDxsaW5lIHgxPSI3MDAiIHkxPSIxNzAiIHgyPSI3MjMiIHkyPSIxNzkiIGNsYXNzPSJtb24iLz4KPC9zdmc+\" />",
+        "content": "<img src=\"data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTEwMCAyOTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHN0eWxlPgogICAgLmJveCB7IGZpbGw6I0Y4RkFGQzsgc3Ryb2tlLXdpZHRoOjEuNTsgcng6NDsgfQogICAgLmxibCB7IGZpbGw6IzFFMjkzQjsgZm9udC1mYW1pbHk6SW50ZXIsc3lzdGVtLXVpLHNhbnMtc2VyaWY7IGZvbnQtc2l6ZToxMXB4OyBmb250LXdlaWdodDo2MDA7IHRleHQtYW5jaG9yOm1pZGRsZTsgfQogICAgLnN1YiB7IGZpbGw6IzY0NzQ4QjsgZm9udC1mYW1pbHk6SW50ZXIsc3lzdGVtLXVpLHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTo4LjVweDsgdGV4dC1hbmNob3I6bWlkZGxlOyB9CiAgICAuZ3JwIHsgZmlsbDojNjM2NkYxOyBmb250LWZhbWlseTpJbnRlcixzeXN0ZW0tdWksc2Fucy1zZXJpZjsgZm9udC1zaXplOjEwcHg7IGZvbnQtd2VpZ2h0OjcwMDsgbGV0dGVyLXNwYWNpbmc6MXB4OyB9CiAgICAubWFjaCB7IGZpbGw6I0I0NTMwOTsgZm9udC1mYW1pbHk6SW50ZXIsc3lzdGVtLXVpLHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTo5cHg7IGZvbnQtd2VpZ2h0OjcwMDsgbGV0dGVyLXNwYWNpbmc6MC41cHg7IH0KICAgIC5uYXRpdmUgeyBzdHJva2U6IzEwQjk4MTsgfQogICAgLm1ib3ggeyBmaWxsOiNGRUZDRTg7IHN0cm9rZTojRDk3NzA2OyBzdHJva2Utd2lkdGg6MS41OyBzdHJva2UtZGFzaGFycmF5OjYsMzsgcng6ODsgfQogIDwvc3R5bGU+CgogIDwhLS0gTGlicmFyeSBNYWMgLS0+CiAgPHJlY3QgY2xhc3M9Im1ib3giIHg9IjUiIHk9IjUiIHdpZHRoPSI3NDAiIGhlaWdodD0iMjgwIi8+CiAgPHRleHQgY2xhc3M9Im1hY2giIHg9IjM3MCIgeT0iMjAiPkxJQlJBUlkgTUFDIChNMSAxNkdCKSDigJQgMTkyLjE2OC44Ni4zNiDigJQgTk8gRE9DS0VSPC90ZXh0PgoKICA8IS0tIEFwcGxpY2F0aW9uIC0tPgogIDx0ZXh0IGNsYXNzPSJncnAiIHg9Ijg1IiB5PSI0MCI+QVBQTElDQVRJT048L3RleHQ+CiAgPHJlY3QgY2xhc3M9ImJveCBuYXRpdmUiIHg9IjE1IiB5PSI0NSIgd2lkdGg9Ijk1IiBoZWlnaHQ9IjM1IiByeD0iNCIvPgogIDx0ZXh0IGNsYXNzPSJsYmwiIHg9IjYyIiB5PSI2MCI+SmVmZjwvdGV4dD4KICA8dGV4dCBjbGFzcz0ic3ViIiB4PSI2MiIgeT0iNzIiPkJyb3dzZXIgLyBWb2ljZTwvdGV4dD4KCiAgPHJlY3QgY2xhc3M9ImJveCBuYXRpdmUiIHg9IjExOCIgeT0iNDUiIHdpZHRoPSI5NSIgaGVpZ2h0PSIzNSIgcng9IjQiLz4KICA8dGV4dCBjbGFzcz0ibGJsIiB4PSIxNjUiIHk9IjYwIj5HYXRoZXJpbmc8L3RleHQ+CiAgPHRleHQgY2xhc3M9InN1YiIgeD0iMTY1IiB5PSI3MiI+RXhwcmVzcyA6MzAwMDwvdGV4dD4KCiAgPHJlY3QgY2xhc3M9ImJveCBuYXRpdmUiIHg9IjIyMSIgeT0iNDUiIHdpZHRoPSI5NSIgaGVpZ2h0PSIzNSIgcng9IjQiLz4KICA8dGV4dCBjbGFzcz0ibGJsIiB4PSIyNjgiIHk9IjYwIj5GdXNla2k8L3RleHQ+CiAgPHRleHQgY2xhc3M9InN1YiIgeD0iMjY4IiB5PSI3MiI+U1BBUlFMIDozMDMwPC90ZXh0PgoKICA8cmVjdCBjbGFzcz0iYm94IG5hdGl2ZSIgeD0iMzI0IiB5PSI0NSIgd2lkdGg9Ijk1IiBoZWlnaHQ9IjM1IiByeD0iNCIvPgogIDx0ZXh0IGNsYXNzPSJsYmwiIHg9IjM3MSIgeT0iNjAiPldvcmRQcmVzczwvdGV4dD4KICA8dGV4dCBjbGFzcz0ic3ViIiB4PSIzNzEiIHk9IjcyIj5CbG9nIDo4MDgxPC90ZXh0PgoKICA8cmVjdCBjbGFzcz0iYm94IG5hdGl2ZSIgeD0iNDI3IiB5PSI0NSIgd2lkdGg9Ijk1IiBoZWlnaHQ9IjM1IiByeD0iNCIvPgogIDx0ZXh0IGNsYXNzPSJsYmwiIHg9IjQ3NCIgeT0iNjAiPk15U1FMPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJzdWIiIHg9IjQ3NCIgeT0iNzIiPkRhdGEgOjMzMDY8L3RleHQ+CgogIDxyZWN0IGNsYXNzPSJib3ggbmF0aXZlIiB4PSI1MzAiIHk9IjQ1IiB3aWR0aD0iOTUiIGhlaWdodD0iMzUiIHJ4PSI0Ii8+CiAgPHRleHQgY2xhc3M9ImxibCIgeD0iNTc3IiB5PSI2MCI+U09MSUQgQ1NTPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJzdWIiIHg9IjU3NyIgeT0iNzIiPk9JREMgOjMwMDE8L3RleHQ+CgogIDwhLS0gQ29vcmRpbmF0aW9uIC0tPgogIDx0ZXh0IGNsYXNzPSJncnAiIHg9Ijg1IiB5PSIxMDAiPkNPT1JESU5BVElPTjwvdGV4dD4KICA8cmVjdCBjbGFzcz0iYm94IG5hdGl2ZSIgeD0iMTUiIHk9IjEwNSIgd2lkdGg9Ijk1IiBoZWlnaHQ9IjM1IiByeD0iNCIvPgogIDx0ZXh0IGNsYXNzPSJsYmwiIHg9IjYyIiB5PSIxMjAiPkNob3J1cyBBUEk8L3RleHQ+CiAgPHRleHQgY2xhc3M9InN1YiIgeD0iNjIiIHk9IjEzMiI+SW5kZXggOjMzNDA8L3RleHQ+CgogIDxyZWN0IGNsYXNzPSJib3ggbmF0aXZlIiB4PSIxMTgiIHk9IjEwNSIgd2lkdGg9Ijk1IiBoZWlnaHQ9IjM1IiByeD0iNCIvPgogIDx0ZXh0IGNsYXNzPSJsYmwiIHg9IjE2NSIgeT0iMTIwIj5DbGF1ZGUgQVBJPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJzdWIiIHg9IjE2NSIgeT0iMTMyIj5PcHVzIC8gU29ubmV0PC90ZXh0PgoKICA8cmVjdCBjbGFzcz0iYm94IG5hdGl2ZSIgeD0iMjIxIiB5PSIxMDUiIHdpZHRoPSI5NSIgaGVpZ2h0PSIzNSIgcng9IjQiLz4KICA8dGV4dCBjbGFzcz0ibGJsIiB4PSIyNjgiIHk9IjEyMCI+Q2xvdWRmbGFyZWQ8L3RleHQ+CiAgPHRleHQgY2xhc3M9InN1YiIgeD0iMjY4IiB5PSIxMzIiPlR1bm5lbCA6MjAyNDE8L3RleHQ+CgogIDx0ZXh0IGNsYXNzPSJncnAiIHg9IjQ0MCIgeT0iMTAwIj5UT09MUzwvdGV4dD4KICA8cmVjdCBjbGFzcz0iYm94IG5hdGl2ZSIgeD0iNDI3IiB5PSIxMDUiIHdpZHRoPSI5NSIgaGVpZ2h0PSIzNSIgcng9IjQiLz4KICA8dGV4dCBjbGFzcz0ibGJsIiB4PSI0NzQiIHk9IjEyMCI+VmlrdW5qYTwvdGV4dD4KICA8dGV4dCBjbGFzcz0ic3ViIiB4PSI0NzQiIHk9IjEzMiI+Qm9hcmQgOjM0NTY8L3RleHQ+CgogIDxyZWN0IGNsYXNzPSJib3ggbmF0aXZlIiB4PSI1MzAiIHk9IjEwNSIgd2lkdGg9Ijk1IiBoZWlnaHQ9IjM1IiByeD0iNCIvPgogIDx0ZXh0IGNsYXNzPSJsYmwiIHg9IjU3NyIgeT0iMTIwIj5XZWJWT1dMPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJzdWIiIHg9IjU3NyIgeT0iMTMyIj5Pbi1kZW1hbmQgOjgwODk8L3RleHQ+CgogIDwhLS0gT2JzZXJ2YWJpbGl0eSAtLT4KICA8dGV4dCBjbGFzcz0iZ3JwIiB4PSI4NSIgeT0iMTYwIj5PQlNFUlZBQklMSVRZPC90ZXh0PgogIDxyZWN0IGNsYXNzPSJib3ggbmF0aXZlIiB4PSIxNSIgeT0iMTY1IiB3aWR0aD0iODUiIGhlaWdodD0iMzUiIHJ4PSI0Ii8+CiAgPHRleHQgY2xhc3M9ImxibCIgeD0iNTciIHk9IjE4MCI+UHJvbWV0aGV1czwvdGV4dD4KICA8dGV4dCBjbGFzcz0ic3ViIiB4PSI1NyIgeT0iMTkyIj5NZXRyaWNzIDo5MDkwPC90ZXh0PgoKICA8cmVjdCBjbGFzcz0iYm94IG5hdGl2ZSIgeD0iMTA1IiB5PSIxNjUiIHdpZHRoPSI4NSIgaGVpZ2h0PSIzNSIgcng9IjQiLz4KICA8dGV4dCBjbGFzcz0ibGJsIiB4PSIxNDciIHk9IjE4MCI+R3JhZmFuYTwvdGV4dD4KICA8dGV4dCBjbGFzcz0ic3ViIiB4PSIxNDciIHk9IjE5MiI+RGFzaGJvYXJkcyA6MzEwMDwvdGV4dD4KCiAgPHJlY3QgY2xhc3M9ImJveCBuYXRpdmUiIHg9IjE5NSIgeT0iMTY1IiB3aWR0aD0iODUiIGhlaWdodD0iMzUiIHJ4PSI0Ii8+CiAgPHRleHQgY2xhc3M9ImxibCIgeD0iMjM3IiB5PSIxODAiPkxva2k8L3RleHQ+CiAgPHRleHQgY2xhc3M9InN1YiIgeD0iMjM3IiB5PSIxOTIiPkxvZ3MgOjMxMDI8L3RleHQ+CgogIDxyZWN0IGNsYXNzPSJib3ggbmF0aXZlIiB4PSIyODUiIHk9IjE2NSIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM1IiByeD0iNCIvPgogIDx0ZXh0IGNsYXNzPSJsYmwiIHg9IjMyNyIgeT0iMTgwIj5Qcm9tdGFpbDwvdGV4dD4KICA8dGV4dCBjbGFzcz0ic3ViIiB4PSIzMjciIHk9IjE5MiI+Q29sbGVjdG9yIDo5MDgwPC90ZXh0PgoKICA8cmVjdCBjbGFzcz0iYm94IG5hdGl2ZSIgeD0iMzc1IiB5PSIxNjUiIHdpZHRoPSI4NSIgaGVpZ2h0PSIzNSIgcng9IjQiLz4KICA8dGV4dCBjbGFzcz0ibGJsIiB4PSI0MTciIHk9IjE4MCI+QWxlcnRtYW5hZ2VyPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJzdWIiIHg9IjQxNyIgeT0iMTkyIj5BbGVydHMgOjkwOTM8L3RleHQ+CgogIDxyZWN0IGNsYXNzPSJib3ggbmF0aXZlIiB4PSI0NjUiIHk9IjE2NSIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjM1IiByeD0iNCIvPgogIDx0ZXh0IGNsYXNzPSJsYmwiIHg9IjUwNyIgeT0iMTgwIj5CbGFja2JveDwvdGV4dD4KICA8dGV4dCBjbGFzcz0ic3ViIiB4PSI1MDciIHk9IjE5MiI+UHJvYmVzIDo5MTE1PC90ZXh0PgoKICA8cmVjdCBjbGFzcz0iYm94IG5hdGl2ZSIgeD0iNTU1IiB5PSIxNjUiIHdpZHRoPSI4NSIgaGVpZ2h0PSIzNSIgcng9IjQiLz4KICA8dGV4dCBjbGFzcz0ibGJsIiB4PSI1OTciIHk9IjE4MCI+Tm9kZSBFeHAuPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJzdWIiIHg9IjU5NyIgeT0iMTkyIj5Ib3N0IDo5MTAyPC90ZXh0PgoKICA8cmVjdCBjbGFzcz0iYm94IG5hdGl2ZSIgeD0iNjQ1IiB5PSIxNjUiIHdpZHRoPSI4NSIgaGVpZ2h0PSIzNSIgcng9IjQiLz4KICA8dGV4dCBjbGFzcz0ibGJsIiB4PSI2ODciIHk9IjE4MCI+TXlTUUwgRXhwLjwvdGV4dD4KICA8dGV4dCBjbGFzcz0ic3ViIiB4PSI2ODciIHk9IjE5MiI+TWV0cmljcyA6OTEwNDwvdGV4dD4KCiAgPCEtLSBIb3N0IERhZW1vbnMgLS0+CiAgPHRleHQgY2xhc3M9ImdycCIgeD0iODUiIHk9IjIyMCI+SE9TVCBEQUVNT05TPC90ZXh0PgogIDxyZWN0IGNsYXNzPSJib3ggbmF0aXZlIiB4PSIxNSIgeT0iMjI1IiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjMwIiByeD0iNCIvPgogIDx0ZXh0IGNsYXNzPSJsYmwiIHg9IjY1IiB5PSIyNDAiPk9wcyBBZ2VudDwvdGV4dD4KICA8dGV4dCBjbGFzcz0ic3ViIiB4PSI2NSIgeT0iMjUwIj5MYXVuY2hBZ2VudDwvdGV4dD4KCiAgPHJlY3QgY2xhc3M9ImJveCBuYXRpdmUiIHg9IjEyMCIgeT0iMjI1IiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjMwIiByeD0iNCIvPgogIDx0ZXh0IGNsYXNzPSJsYmwiIHg9IjE3MCIgeT0iMjQwIj5TZXNzaW9uIFdhdGNoPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJzdWIiIHg9IjE3MCIgeT0iMjUwIj5MYXVuY2hBZ2VudDwvdGV4dD4KCiAgPHJlY3QgY2xhc3M9ImJveCBuYXRpdmUiIHg9IjIyNSIgeT0iMjI1IiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjMwIiByeD0iNCIvPgogIDx0ZXh0IGNsYXNzPSJsYmwiIHg9IjI3NSIgeT0iMjQwIj5HcmFwaCBXYXRjaDwvdGV4dD4KICA8dGV4dCBjbGFzcz0ic3ViIiB4PSIyNzUiIHk9IjI1MCI+TGF1bmNoQWdlbnQ8L3RleHQ+CgogIDxyZWN0IGNsYXNzPSJib3ggbmF0aXZlIiB4PSIzMzAiIHk9IjIyNSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIzMCIgcng9IjQiLz4KICA8dGV4dCBjbGFzcz0ibGJsIiB4PSIzODAiIHk9IjI0MCI+QWxlcnQgTm90aWZpZXI8L3RleHQ+CiAgPHRleHQgY2xhc3M9InN1YiIgeD0iMzgwIiB5PSIyNTAiPkxhdW5jaEFnZW50PC90ZXh0PgoKICA8cmVjdCBjbGFzcz0iYm94IG5hdGl2ZSIgeD0iNDM1IiB5PSIyMjUiIHdpZHRoPSIxMDAiIGhlaWdodD0iMzAiIHJ4PSI0Ii8+CiAgPHRleHQgY2xhc3M9ImxibCIgeD0iNDg1IiB5PSIyNDAiPkZ1c2VraSBQZXJmPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJzdWIiIHg9IjQ4NSIgeT0iMjUwIj5MYXVuY2hBZ2VudDwvdGV4dD4KCiAgPCEtLSBCZWRyb29tIE1hYyAtLT4KICA8cmVjdCBjbGFzcz0ibWJveCIgeD0iNzU1IiB5PSI1IiB3aWR0aD0iMzQwIiBoZWlnaHQ9IjI4MCIvPgogIDx0ZXh0IGNsYXNzPSJtYWNoIiB4PSI5MjUiIHk9IjIwIj5CRURST09NIE1BQyAoTTIgUHJvIDMyR0IpIOKAlCAxOTIuMTY4Ljg2LjI0MjwvdGV4dD4KCiAgPHRleHQgY2xhc3M9ImdycCIgeD0iODIwIiB5PSI0MCI+TUVESUE8L3RleHQ+CiAgPHJlY3QgY2xhc3M9ImJveCBuYXRpdmUiIHg9Ijc2NSIgeT0iNDUiIHdpZHRoPSIxNTAiIGhlaWdodD0iMzUiIHJ4PSI0Ii8+CiAgPHRleHQgY2xhc3M9ImxibCIgeD0iODQwIiB5PSI2MCI+SW1hZ2VzIEFQSTwvdGV4dD4KICA8dGV4dCBjbGFzcz0ic3ViIiB4PSI4NDAiIHk9IjcyIj5HYWxsZXJ5IDozMDAxPC90ZXh0PgoKICA8cmVjdCBjbGFzcz0iYm94IG5hdGl2ZSIgeD0iOTI1IiB5PSI0NSIgd2lkdGg9IjE1MCIgaGVpZ2h0PSIzNSIgcng9IjQiLz4KICA8dGV4dCBjbGFzcz0ibGJsIiB4PSIxMDAwIiB5PSI2MCI+VmlkZW8gU2VydmVyPC90ZXh0PgogIDx0ZXh0IGNsYXNzPSJzdWIiIHg9IjEwMDAiIHk9IjcyIj5TdHJlYW1pbmcgOjgwODI8L3RleHQ+CgogIDx0ZXh0IGNsYXNzPSJncnAiIHg9IjgyMCIgeT0iMTAwIj5BSSAvIEVNQkVERElOR1M8L3RleHQ+CiAgPHJlY3QgY2xhc3M9ImJveCBuYXRpdmUiIHg9Ijc2NSIgeT0iMTA1IiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjM1IiByeD0iNCIvPgogIDx0ZXh0IGNsYXNzPSJsYmwiIHg9Ijg0MCIgeT0iMTIwIj5PbGxhbWE8L3RleHQ+CiAgPHRleHQgY2xhc3M9InN1YiIgeD0iODQwIiB5PSIxMzIiPkxMYVZBICsgTm9taWMgOjExNDM0PC90ZXh0PgoKICA8dGV4dCBjbGFzcz0iZ3JwIiB4PSI4MjAiIHk9IjE2MCI+TVVTSUM8L3RleHQ+CiAgPHJlY3QgY2xhc3M9ImJveCBuYXRpdmUiIHg9Ijc2NSIgeT0iMTY1IiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjM1IiByeD0iNCIvPgogIDx0ZXh0IGNsYXNzPSJsYmwiIHg9Ijg0MCIgeT0iMTgwIj5OYXZpZHJvbWU8L3RleHQ+CiAgPHRleHQgY2xhc3M9InN1YiIgeD0iODQwIiB5PSIxOTIiPkxhdW5jaEFnZW50IDo0NTMzPC90ZXh0PgoKICA8dGV4dCBjbGFzcz0iZ3JwIiB4PSI4MjAiIHk9IjIyMCI+T0JTRVJWQUJJTElUWTwvdGV4dD4KICA8cmVjdCBjbGFzcz0iYm94IG5hdGl2ZSIgeD0iNzY1IiB5PSIyMjUiIHdpZHRoPSIxNTAiIGhlaWdodD0iMzAiIHJ4PSI0Ii8+CiAgPHRleHQgY2xhc3M9ImxibCIgeD0iODQwIiB5PSIyNDAiPk5vZGUgRXhwLjwvdGV4dD4KICA8dGV4dCBjbGFzcz0ic3ViIiB4PSI4NDAiIHk9IjI1MCI+SG9zdCA6OTEwMDwvdGV4dD4KCiAgPHRleHQgY2xhc3M9ImdycCIgeD0iODIwIiB5PSIyNjgiPlNUT1JBR0U8L3RleHQ+CiAgPHJlY3QgY2xhc3M9ImJveCIgeD0iNzY1IiB5PSIyNzEiIHdpZHRoPSIzMjAiIGhlaWdodD0iMTIiIHJ4PSI0IiBzdHJva2U9IiM5NEEzQjgiLz4KICA8dGV4dCBjbGFzcz0ic3ViIiB4PSI5MjUiIHk9IjI4MCI+fjE3OFRCIEV4dGVybmFsIChWaWRlbyAvIFBob3RvcyAvIE11c2ljIE5GUyk8L3RleHQ+Cjwvc3ZnPg==\" alt=\"Infrastructure Topology\" style=\"width:100%\"/>",
         "mode": "html"
       },
       "pluginVersion": "10.1.0",
@@ -62,1057 +62,1069 @@
       "type": "text"
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 13
       },
       "id": 1,
-      "panels": [],
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "#EF4444",
+                      "index": 0,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "color": "#10B981",
+                      "index": 1,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#EF4444",
+                    "value": null
+                  },
+                  {
+                    "color": "#10B981",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 0,
+            "y": 14
+          },
+          "id": 20,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "probe_success{job=\"blackbox-app\"}",
+              "legendFormat": "App",
+              "instant": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Gathering",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "#EF4444",
+                      "index": 0,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "color": "#10B981",
+                      "index": 1,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#EF4444",
+                    "value": null
+                  },
+                  {
+                    "color": "#10B981",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 3,
+            "y": 14
+          },
+          "id": 21,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "probe_success{job=\"blackbox-fuseki\"}",
+              "legendFormat": "Fuseki",
+              "instant": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Fuseki",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "#EF4444",
+                      "index": 0,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "color": "#10B981",
+                      "index": 1,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#EF4444",
+                    "value": null
+                  },
+                  {
+                    "color": "#10B981",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 6,
+            "y": 14
+          },
+          "id": 22,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "probe_success{job=\"blackbox-wordpress\"}",
+              "legendFormat": "WordPress",
+              "instant": true,
+              "refId": "A"
+            }
+          ],
+          "title": "WordPress",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "#EF4444",
+                      "index": 0,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "color": "#10B981",
+                      "index": 1,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#EF4444",
+                    "value": null
+                  },
+                  {
+                    "color": "#10B981",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 9,
+            "y": 14
+          },
+          "id": 24,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "probe_success{job=\"blackbox-vikunja\"}",
+              "legendFormat": "Vikunja",
+              "instant": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Vikunja",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "#EF4444",
+                      "index": 0,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "color": "#10B981",
+                      "index": 1,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#EF4444",
+                    "value": null
+                  },
+                  {
+                    "color": "#10B981",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 12,
+            "y": 14
+          },
+          "id": 50,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "probe_success{job=\"blackbox-navidrome\"}",
+              "legendFormat": "Navidrome",
+              "instant": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Navidrome",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "#EF4444",
+                      "index": 0,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "color": "#10B981",
+                      "index": 1,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#EF4444",
+                    "value": null
+                  },
+                  {
+                    "color": "#10B981",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 15,
+            "y": 14
+          },
+          "id": 51,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "probe_success{job=\"blackbox-css\"}",
+              "legendFormat": "SOLID",
+              "instant": true,
+              "refId": "A"
+            }
+          ],
+          "title": "SOLID",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "#EF4444",
+                      "index": 0,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "color": "#10B981",
+                      "index": 1,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#EF4444",
+                    "value": null
+                  },
+                  {
+                    "color": "#10B981",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 18,
+            "y": 14
+          },
+          "id": 52,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "probe_success{job=\"blackbox-alertmanager\"}",
+              "legendFormat": "Alertmanager",
+              "instant": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Alertmanager",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "#EF4444",
+                      "index": 0,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "color": "#10B981",
+                      "index": 1,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#EF4444",
+                    "value": null
+                  },
+                  {
+                    "color": "#10B981",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 21,
+            "y": 14
+          },
+          "id": 54,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "up{job=\"mysqld-exporter\"}",
+              "legendFormat": "MySQL",
+              "instant": true,
+              "refId": "A"
+            }
+          ],
+          "title": "MySQL",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "#EF4444",
+                      "index": 0,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "color": "#10B981",
+                      "index": 1,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#EF4444",
+                    "value": null
+                  },
+                  {
+                    "color": "#10B981",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 0,
+            "y": 17
+          },
+          "id": 25,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "up{job=\"prometheus\"}",
+              "legendFormat": "Prometheus",
+              "instant": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Prometheus",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "#EF4444",
+                      "index": 0,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "color": "#10B981",
+                      "index": 1,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#EF4444",
+                    "value": null
+                  },
+                  {
+                    "color": "#10B981",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 3,
+            "y": 17
+          },
+          "id": 26,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "up{job=\"grafana\"}",
+              "legendFormat": "Grafana",
+              "instant": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Grafana",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "#EF4444",
+                      "index": 0,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "color": "#10B981",
+                      "index": 1,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#EF4444",
+                    "value": null
+                  },
+                  {
+                    "color": "#10B981",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 6,
+            "y": 17
+          },
+          "id": 27,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "up{job=\"loki\"}",
+              "legendFormat": "Loki",
+              "instant": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Loki",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 9,
+            "y": 17
+          },
+          "id": 200,
+          "title": "Images API",
+          "type": "stat",
+          "targets": [
+            {
+              "expr": "probe_success{job=\"blackbox-images-api\"}",
+              "legendFormat": ""
+            }
+          ],
+          "options": {
+            "colorMode": "background",
+            "textMode": "value"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "mappings": [
+                {
+                  "type": "value",
+                  "options": {
+                    "0": {
+                      "text": "DOWN",
+                      "color": "red"
+                    },
+                    "1": {
+                      "text": "UP",
+                      "color": "green"
+                    }
+                  }
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "green",
+                    "value": 1
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 12,
+            "y": 17
+          },
+          "id": 201,
+          "title": "Video Server",
+          "type": "stat",
+          "targets": [
+            {
+              "expr": "probe_success{job=\"blackbox-video-server\"}",
+              "legendFormat": ""
+            }
+          ],
+          "options": {
+            "colorMode": "background",
+            "textMode": "value"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "mappings": [
+                {
+                  "type": "value",
+                  "options": {
+                    "0": {
+                      "text": "DOWN",
+                      "color": "red"
+                    },
+                    "1": {
+                      "text": "UP",
+                      "color": "green"
+                    }
+                  }
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "green",
+                    "value": 1
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 15,
+            "y": 17
+          },
+          "id": 202,
+          "title": "Ollama",
+          "type": "stat",
+          "targets": [
+            {
+              "expr": "probe_success{job=\"blackbox-ollama\"}",
+              "legendFormat": ""
+            }
+          ],
+          "options": {
+            "colorMode": "background",
+            "textMode": "value"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "mappings": [
+                {
+                  "type": "value",
+                  "options": {
+                    "0": {
+                      "text": "DOWN",
+                      "color": "red"
+                    },
+                    "1": {
+                      "text": "UP",
+                      "color": "green"
+                    }
+                  }
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "green",
+                    "value": 1
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
       "title": "Service Health",
       "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 0,
-        "y": 17
-      },
-      "id": 20,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "probe_success{job=\"blackbox-app\"}",
-          "legendFormat": "App",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Gathering",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 4,
-        "y": 17
-      },
-      "id": 21,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "probe_success{job=\"blackbox-fuseki\"}",
-          "legendFormat": "Fuseki",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Fuseki",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 7,
-        "y": 17
-      },
-      "id": 22,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "probe_success{job=\"blackbox-wordpress\"}",
-          "legendFormat": "WordPress",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "WordPress",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 20,
-        "y": 20
-      },
-      "id": 23,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "probe_success{job=\"blackbox-webvowl\"}",
-          "legendFormat": "WebVOWL",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "WebVOWL",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 16,
-        "y": 20
-      },
-      "id": 24,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "probe_success{job=\"blackbox-vikunja\"}",
-          "legendFormat": "Vikunja",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Vikunja",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 10,
-        "y": 17
-      },
-      "id": 50,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "probe_success{job=\"blackbox-navidrome\"}",
-          "legendFormat": "Navidrome",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Navidrome",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 13,
-        "y": 17
-      },
-      "id": 51,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "probe_success{job=\"blackbox-css\"}",
-          "legendFormat": "SOLID",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "SOLID",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 8,
-        "y": 20
-      },
-      "id": 52,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "probe_success{job=\"blackbox-alertmanager\"}",
-          "legendFormat": "Alertmanager",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Alertmanager",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 16,
-        "y": 17
-      },
-      "id": 53,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "probe_success{job=\"blackbox-mailhog\"}",
-          "legendFormat": "MailHog",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "MailHog",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 19,
-        "y": 17
-      },
-      "id": 54,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "up{job=\"mysqld-exporter\"}",
-          "legendFormat": "MySQL",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "MySQL",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 0,
-        "y": 20
-      },
-      "id": 25,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "up{job=\"prometheus\"}",
-          "legendFormat": "Prometheus",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Prometheus",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 12,
-        "y": 20
-      },
-      "id": 26,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "up{job=\"grafana\"}",
-          "legendFormat": "Grafana",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Grafana",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 4,
-        "y": 20
-      },
-      "id": 27,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "up{job=\"loki\"}",
-          "legendFormat": "Loki",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Loki",
-      "type": "stat"
     },
     {
       "collapsed": false,
@@ -1219,7 +1231,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "probe_duration_seconds{instance=~\".*${service:regex}.*\"}",
+          "expr": "probe_duration_seconds{instance=~\".*${service}.*\"}",
           "legendFormat": "Response Time",
           "refId": "A"
         }
@@ -1279,7 +1291,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(rate(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\"}[5m]))",
+          "expr": "sum(rate(http_request_duration_seconds_count{instance=\"localhost:3000\"}[5m]))",
           "legendFormat": "Req/s",
           "refId": "A"
         }
@@ -1347,7 +1359,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "(sum(rate(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\", status_code=~\"5..\"}[5m])) or vector(0)) / sum(rate(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\"}[5m]))",
+          "expr": "(sum(rate(http_request_duration_seconds_count{instance=\"localhost:3000\", status_code=~\"5..\"}[5m])) or vector(0)) / sum(rate(http_request_duration_seconds_count{instance=\"localhost:3000\"}[5m]))",
           "legendFormat": "Error Rate",
           "refId": "A"
         }
@@ -1415,7 +1427,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{instance=\"jeff-bridwell-personal-site-app\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{instance=\"localhost:3000\"}[5m])) by (le))",
           "legendFormat": "P95",
           "refId": "A"
         }
@@ -1474,7 +1486,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "active_sessions{instance=\"jeff-bridwell-personal-site-app\"}",
+          "expr": "active_sessions{instance=\"localhost:3000\"}",
           "legendFormat": "Sessions",
           "refId": "A"
         }
@@ -1547,7 +1559,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(rate(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\"}[5m]))",
+          "expr": "sum(rate(http_request_duration_seconds_count{instance=\"localhost:3000\"}[5m]))",
           "legendFormat": "Req/s",
           "refId": "A"
         }
@@ -1608,7 +1620,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(increase(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\"}[$__range]))",
+          "expr": "sum(increase(http_request_duration_seconds_count{instance=\"localhost:3000\"}[$__range]))",
           "legendFormat": "Total",
           "refId": "A"
         }
@@ -1677,7 +1689,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(increase(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\", status_code=~\"5..\"}[$__range])) OR vector(0)",
+          "expr": "sum(increase(http_request_duration_seconds_count{instance=\"localhost:3000\", status_code=~\"5..\"}[$__range])) OR vector(0)",
           "legendFormat": "Errors",
           "refId": "A"
         }
@@ -1745,7 +1757,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "100 * (1 - (sum(rate(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\", status_code=~\"5..\"}[5m])) or vector(0)) / sum(rate(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\"}[5m])))",
+          "expr": "100 * (1 - (sum(rate(http_request_duration_seconds_count{instance=\"localhost:3000\", status_code=~\"5..\"}[5m])) or vector(0)) / sum(rate(http_request_duration_seconds_count{instance=\"localhost:3000\"}[5m])))",
           "legendFormat": "Success %",
           "refId": "A"
         }
@@ -1836,7 +1848,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(rate(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\"}[5m])) by (path, method)",
+          "expr": "sum(rate(http_request_duration_seconds_count{instance=\"localhost:3000\"}[5m])) by (path, method)",
           "legendFormat": "{{method}} {{path}}",
           "refId": "A"
         }
@@ -1927,7 +1939,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{instance=\"jeff-bridwell-personal-site-app\"}[5m])) by (le, path))",
+          "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{instance=\"localhost:3000\"}[5m])) by (le, path))",
           "legendFormat": "{{path}}",
           "refId": "A"
         }
@@ -2089,7 +2101,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(rate(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\"}[5m])) by (path, method)",
+          "expr": "sum(rate(http_request_duration_seconds_count{instance=\"localhost:3000\"}[5m])) by (path, method)",
           "format": "table",
           "instant": true,
           "legendFormat": "",
@@ -2100,7 +2112,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(rate(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\", status_code=~\"2..\"}[5m])) by (path, method)",
+          "expr": "sum(rate(http_request_duration_seconds_count{instance=\"localhost:3000\", status_code=~\"2..\"}[5m])) by (path, method)",
           "format": "table",
           "instant": true,
           "legendFormat": "",
@@ -2111,7 +2123,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(rate(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\", status_code=~\"5..\"}[5m])) by (path, method)",
+          "expr": "sum(rate(http_request_duration_seconds_count{instance=\"localhost:3000\", status_code=~\"5..\"}[5m])) by (path, method)",
           "format": "table",
           "instant": true,
           "legendFormat": "",
@@ -2122,7 +2134,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "100 * sum(rate(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\", status_code=~\"2..\"}[5m])) by (path, method) / sum(rate(http_request_duration_seconds_count{instance=\"jeff-bridwell-personal-site-app\"}[5m])) by (path, method)",
+          "expr": "100 * sum(rate(http_request_duration_seconds_count{instance=\"localhost:3000\", status_code=~\"2..\"}[5m])) by (path, method) / sum(rate(http_request_duration_seconds_count{instance=\"localhost:3000\"}[5m])) by (path, method)",
           "format": "table",
           "instant": true,
           "legendFormat": "",
@@ -2133,7 +2145,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{instance=\"jeff-bridwell-personal-site-app\"}[5m])) by (le, path, method))",
+          "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{instance=\"localhost:3000\"}[5m])) by (le, path, method))",
           "format": "table",
           "instant": true,
           "legendFormat": "",
@@ -2168,7 +2180,7 @@
       "type": "table"
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2176,749 +2188,990 @@
         "y": 56
       },
       "id": 63,
-      "panels": [],
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "decimals": 1,
+              "max": 1,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 0.99
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.999
+                  }
+                ]
+              },
+              "unit": "percentunit"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 0,
+            "y": 57
+          },
+          "id": 64,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "avg_over_time(probe_success{job=\"blackbox-app\"}[24h])",
+              "legendFormat": "24h",
+              "refId": "A"
+            }
+          ],
+          "title": "Gathering (24h)",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "decimals": 1,
+              "max": 1,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 0.99
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.999
+                  }
+                ]
+              },
+              "unit": "percentunit"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 3,
+            "y": 57
+          },
+          "id": 65,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "avg_over_time(probe_success{job=\"blackbox-fuseki\"}[24h])",
+              "legendFormat": "24h",
+              "refId": "A"
+            }
+          ],
+          "title": "Fuseki (24h)",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "decimals": 1,
+              "max": 1,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 0.99
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.999
+                  }
+                ]
+              },
+              "unit": "percentunit"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 6,
+            "y": 57
+          },
+          "id": 66,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "avg_over_time(probe_success{job=\"blackbox-wordpress\"}[24h])",
+              "legendFormat": "24h",
+              "refId": "A"
+            }
+          ],
+          "title": "WordPress (24h)",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "decimals": 1,
+              "max": 1,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 0.99
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.999
+                  }
+                ]
+              },
+              "unit": "percentunit"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 9,
+            "y": 57
+          },
+          "id": 67,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "avg_over_time(probe_success{job=\"blackbox-vikunja\"}[24h])",
+              "legendFormat": "24h",
+              "refId": "A"
+            }
+          ],
+          "title": "Vikunja (24h)",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "decimals": 1,
+              "max": 1,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 0.99
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.999
+                  }
+                ]
+              },
+              "unit": "percentunit"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 12,
+            "y": 57
+          },
+          "id": 68,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "avg_over_time(probe_success{job=\"blackbox-navidrome\"}[24h])",
+              "legendFormat": "24h",
+              "refId": "A"
+            }
+          ],
+          "title": "Navidrome (24h)",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "decimals": 1,
+              "max": 1,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 0.99
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.999
+                  }
+                ]
+              },
+              "unit": "percentunit"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 15,
+            "y": 57
+          },
+          "id": 69,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "avg_over_time(probe_success{job=\"blackbox-css\"}[24h])",
+              "legendFormat": "24h",
+              "refId": "A"
+            }
+          ],
+          "title": "SOLID (24h)",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "decimals": 1,
+              "max": 1,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 0.99
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.999
+                  }
+                ]
+              },
+              "unit": "percentunit"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 18,
+            "y": 57
+          },
+          "id": 70,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "avg_over_time(probe_success{job=\"blackbox-images-api\"}[24h])",
+              "legendFormat": "24h",
+              "refId": "A"
+            }
+          ],
+          "title": "Images API (24h)",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "decimals": 1,
+              "max": 1,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 0.99
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.999
+                  }
+                ]
+              },
+              "unit": "percentunit"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 21,
+            "y": 57
+          },
+          "id": 71,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "avg_over_time(probe_success{job=\"blackbox-video-server\"}[24h])",
+              "legendFormat": "24h",
+              "refId": "A"
+            }
+          ],
+          "title": "Video Server (24h)",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "decimals": 1,
+              "max": 1,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 0.99
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.999
+                  }
+                ]
+              },
+              "unit": "percentunit"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 0,
+            "y": 60
+          },
+          "id": 72,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "avg_over_time(probe_success{job=\"blackbox-ollama\"}[24h])",
+              "legendFormat": "24h",
+              "refId": "A"
+            }
+          ],
+          "title": "Ollama (24h)",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "decimals": 1,
+              "max": 1,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 0.99
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.999
+                  }
+                ]
+              },
+              "unit": "percentunit"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 3,
+            "y": 60
+          },
+          "id": 73,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "expr": "avg_over_time(probe_success{job=\"blackbox-external\"}[24h])",
+              "legendFormat": "24h",
+              "refId": "A"
+            }
+          ],
+          "title": "External (24h)",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 6,
+            "y": 60
+          },
+          "id": 203,
+          "title": "MySQL (24h)",
+          "type": "stat",
+          "targets": [
+            {
+              "expr": "avg_over_time(up{job=\"mysqld-exporter\"}[24h])",
+              "legendFormat": ""
+            }
+          ],
+          "options": {
+            "colorMode": "background",
+            "textMode": "value"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "percentunit",
+              "decimals": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.99
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 9,
+            "y": 60
+          },
+          "id": 204,
+          "title": "Alertmanager (24h)",
+          "type": "stat",
+          "targets": [
+            {
+              "expr": "avg_over_time(probe_success{job=\"blackbox-alertmanager\"}[24h])",
+              "legendFormat": ""
+            }
+          ],
+          "options": {
+            "colorMode": "background",
+            "textMode": "value"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "percentunit",
+              "decimals": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.99
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 12,
+            "y": 60
+          },
+          "id": 205,
+          "title": "Prometheus (24h)",
+          "type": "stat",
+          "targets": [
+            {
+              "expr": "avg_over_time(up{job=\"prometheus\"}[24h])",
+              "legendFormat": ""
+            }
+          ],
+          "options": {
+            "colorMode": "background",
+            "textMode": "value"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "percentunit",
+              "decimals": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.99
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 15,
+            "y": 60
+          },
+          "id": 206,
+          "title": "Grafana (24h)",
+          "type": "stat",
+          "targets": [
+            {
+              "expr": "avg_over_time(up{job=\"grafana\"}[24h])",
+              "legendFormat": ""
+            }
+          ],
+          "options": {
+            "colorMode": "background",
+            "textMode": "value"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "percentunit",
+              "decimals": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.99
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 18,
+            "y": 60
+          },
+          "id": 207,
+          "title": "Loki (24h)",
+          "type": "stat",
+          "targets": [
+            {
+              "expr": "avg_over_time(up{job=\"loki\"}[24h])",
+              "legendFormat": ""
+            }
+          ],
+          "options": {
+            "colorMode": "background",
+            "textMode": "value"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "percentunit",
+              "decimals": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 0.95
+                  },
+                  {
+                    "color": "green",
+                    "value": 0.99
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
       "title": "Service Uptime",
       "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 1,
-          "max": 1,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 0.95
-              },
-              {
-                "color": "yellow",
-                "value": 0.99
-              },
-              {
-                "color": "green",
-                "value": 0.999
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 0,
-        "y": 57
-      },
-      "id": 64,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "avg_over_time(probe_success{job=\"blackbox-app\"}[24h])",
-          "legendFormat": "24h",
-          "refId": "A"
-        }
-      ],
-      "title": "Gathering (24h)",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 1,
-          "max": 1,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 0.95
-              },
-              {
-                "color": "yellow",
-                "value": 0.99
-              },
-              {
-                "color": "green",
-                "value": 0.999
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 4,
-        "y": 57
-      },
-      "id": 65,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "avg_over_time(probe_success{job=\"blackbox-fuseki\"}[24h])",
-          "legendFormat": "24h",
-          "refId": "A"
-        }
-      ],
-      "title": "Fuseki (24h)",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 1,
-          "max": 1,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 0.95
-              },
-              {
-                "color": "yellow",
-                "value": 0.99
-              },
-              {
-                "color": "green",
-                "value": 0.999
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 8,
-        "y": 57
-      },
-      "id": 66,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "avg_over_time(probe_success{job=\"blackbox-wordpress\"}[24h])",
-          "legendFormat": "24h",
-          "refId": "A"
-        }
-      ],
-      "title": "WordPress (24h)",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 1,
-          "max": 1,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 0.95
-              },
-              {
-                "color": "yellow",
-                "value": 0.99
-              },
-              {
-                "color": "green",
-                "value": 0.999
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 12,
-        "y": 57
-      },
-      "id": 67,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "avg_over_time(probe_success{job=\"blackbox-vikunja\"}[24h])",
-          "legendFormat": "24h",
-          "refId": "A"
-        }
-      ],
-      "title": "Vikunja (24h)",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 1,
-          "max": 1,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 0.95
-              },
-              {
-                "color": "yellow",
-                "value": 0.99
-              },
-              {
-                "color": "green",
-                "value": 0.999
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 16,
-        "y": 57
-      },
-      "id": 68,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "avg_over_time(probe_success{job=\"blackbox-navidrome\"}[24h])",
-          "legendFormat": "24h",
-          "refId": "A"
-        }
-      ],
-      "title": "Navidrome (24h)",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 1,
-          "max": 1,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 0.95
-              },
-              {
-                "color": "yellow",
-                "value": 0.99
-              },
-              {
-                "color": "green",
-                "value": 0.999
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 20,
-        "y": 57
-      },
-      "id": 69,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "avg_over_time(probe_success{job=\"blackbox-css\"}[24h])",
-          "legendFormat": "24h",
-          "refId": "A"
-        }
-      ],
-      "title": "SOLID (24h)",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 1,
-          "max": 1,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 0.95
-              },
-              {
-                "color": "yellow",
-                "value": 0.99
-              },
-              {
-                "color": "green",
-                "value": 0.999
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 0,
-        "y": 61
-      },
-      "id": 70,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "avg_over_time(probe_success{job=\"blackbox-images-api\"}[24h])",
-          "legendFormat": "24h",
-          "refId": "A"
-        }
-      ],
-      "title": "Images API (24h)",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 1,
-          "max": 1,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 0.95
-              },
-              {
-                "color": "yellow",
-                "value": 0.99
-              },
-              {
-                "color": "green",
-                "value": 0.999
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 4,
-        "y": 61
-      },
-      "id": 71,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "avg_over_time(probe_success{job=\"blackbox-video-server\"}[24h])",
-          "legendFormat": "24h",
-          "refId": "A"
-        }
-      ],
-      "title": "Video Server (24h)",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 1,
-          "max": 1,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 0.95
-              },
-              {
-                "color": "yellow",
-                "value": 0.99
-              },
-              {
-                "color": "green",
-                "value": 0.999
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 8,
-        "y": 61
-      },
-      "id": 72,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "avg_over_time(probe_success{job=\"blackbox-ollama\"}[24h])",
-          "legendFormat": "24h",
-          "refId": "A"
-        }
-      ],
-      "title": "Ollama (24h)",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 1,
-          "max": 1,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "orange",
-                "value": 0.95
-              },
-              {
-                "color": "yellow",
-                "value": 0.99
-              },
-              {
-                "color": "green",
-                "value": 0.999
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 12,
-        "y": 61
-      },
-      "id": 73,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "avg_over_time(probe_success{job=\"blackbox-external\"}[24h])",
-          "legendFormat": "24h",
-          "refId": "A"
-        }
-      ],
-      "title": "External (24h)",
-      "type": "stat"
     },
     {
       "collapsed": false,
@@ -2934,85 +3187,6 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "red",
-                  "index": 1,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "green",
-                  "index": 0,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "green",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 14,
-        "w": 24,
-        "x": 0,
-        "y": 66
-      },
-      "id": 75,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "value_and_name"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "launchagent_up{kind=\"keepalive\",machine=\"library\"}",
-          "legendFormat": "{{name}}",
-          "refId": "A"
-        }
-      ],
-      "title": "KeepAlive Agents",
-      "type": "stat"
-    },
-    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
@@ -3024,85 +3198,6 @@
       "panels": [],
       "title": "LaunchAgent Status (Bedroom Mac)",
       "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "red",
-                  "index": 1,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "green",
-                  "index": 0,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "green",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 24,
-        "x": 0,
-        "y": 81
-      },
-      "id": 77,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "value_and_name"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "launchagent_up{kind=\"keepalive\",machine=\"bedroom\"}",
-          "legendFormat": "{{name}}",
-          "refId": "A"
-        }
-      ],
-      "title": "KeepAlive Agents (Bedroom)",
-      "type": "stat"
     },
     {
       "collapsed": false,
@@ -3359,246 +3454,6 @@
       ],
       "title": "Error Log Count",
       "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 0,
-        "y": 23
-      },
-      "id": 60,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "probe_success{job=\"blackbox-images-api\"}",
-          "legendFormat": "Navidrome",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Images API",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 4,
-        "y": 23
-      },
-      "id": 61,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "probe_success{job=\"blackbox-video-server\"}",
-          "legendFormat": "Navidrome",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Video Server",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "color": "#EF4444",
-                  "index": 0,
-                  "text": "DOWN"
-                },
-                "1": {
-                  "color": "#10B981",
-                  "index": 1,
-                  "text": "UP"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#EF4444",
-                "value": null
-              },
-              {
-                "color": "#10B981",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 8,
-        "y": 23
-      },
-      "id": 62,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "probe_success{job=\"blackbox-ollama\"}",
-          "legendFormat": "Navidrome",
-          "instant": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Ollama",
-      "type": "stat"
     }
   ],
   "refresh": "30s",
@@ -3614,8 +3469,8 @@
       {
         "current": {
           "selected": true,
-          "text": "App",
-          "value": "jeff-bridwell-personal-site-app"
+          "text": "Gathering",
+          "value": "localhost:3000"
         },
         "hide": 0,
         "label": "Service",
@@ -3623,33 +3478,38 @@
         "options": [
           {
             "selected": true,
-            "text": "App",
-            "value": "jeff-bridwell-personal-site-app"
+            "text": "Gathering",
+            "value": "localhost:3000"
           },
           {
             "selected": false,
             "text": "Fuseki",
-            "value": "jeff-bridwell-personal-site-fuseki"
+            "value": "localhost:3030"
           },
           {
             "selected": false,
             "text": "WordPress",
-            "value": "wordpress-blog"
+            "value": "localhost:8081"
           },
           {
             "selected": false,
             "text": "MySQL",
-            "value": "wordpress-mysql"
+            "value": "localhost:3306"
           },
           {
             "selected": false,
-            "text": "WebVOWL",
-            "value": "jeff-bridwell-personal-site-webvowl"
+            "text": "SOLID",
+            "value": "localhost:3001"
           },
           {
             "selected": false,
             "text": "Vikunja",
-            "value": "vikunja"
+            "value": "localhost:3456"
+          },
+          {
+            "selected": false,
+            "text": "Alertmanager",
+            "value": "localhost:9093"
           },
           {
             "selected": false,
@@ -3659,27 +3519,38 @@
           {
             "selected": false,
             "text": "Grafana",
-            "value": "grafana:3000"
+            "value": "localhost:3100"
           },
           {
             "selected": false,
             "text": "Loki",
-            "value": "loki:3100"
+            "value": "localhost:3102"
           },
           {
             "selected": false,
-            "text": "Promtail",
-            "value": "promtail:9080"
+            "text": "Navidrome",
+            "value": "192.168.86.242:4533"
           },
           {
             "selected": false,
-            "text": "Node Exporter",
-            "value": "node-exporter:9100"
+            "text": "Images API",
+            "value": "192.168.86.242:3001"
+          },
+          {
+            "selected": false,
+            "text": "Video Server",
+            "value": "192.168.86.242:8082"
+          },
+          {
+            "selected": false,
+            "text": "Ollama",
+            "value": "192.168.86.242:11434"
           }
         ],
-        "query": "jeff-bridwell-personal-site-app : App,jeff-bridwell-personal-site-fuseki : Fuseki,jeff-bridwell-personal-site-navidrome : Navidrome,jeff-bridwell-personal-site-css : SOLID,wordpress-blog : WordPress,wordpress-mysql : MySQL,wordpress-mailhog : MailHog,jeff-bridwell-personal-site-webvowl : WebVOWL,vikunja : Vikunja,alertmanager : Alertmanager,localhost:9090 : Prometheus,grafana:3000 : Grafana,loki:3100 : Loki,promtail:9080 : Promtail,node-exporter:9100 : Node Exporter",
+        "query": "Gathering : localhost:3000,Fuseki : localhost:3030,WordPress : localhost:8081,MySQL : localhost:3306,SOLID : localhost:3001,Vikunja : localhost:3456,Alertmanager : localhost:9093,Prometheus : localhost:9090,Grafana : localhost:3100,Loki : localhost:3102,Navidrome : 192.168.86.242:4533,Images API : 192.168.86.242:3001,Video Server : 192.168.86.242:8082,Ollama : 192.168.86.242:11434",
         "skipUrlSync": false,
-        "type": "custom"
+        "type": "custom",
+        "includeAll": false
       },
       {
         "current": {

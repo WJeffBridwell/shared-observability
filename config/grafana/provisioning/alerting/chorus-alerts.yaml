@@ -129,5 +129,129 @@ groups:
         labels:
           severity: warning
 
+  - name: nifi-health
+    folder: Infrastructure
+    interval: 1m
+    rules:
+      - uid: nifi-down
+        title: NiFi down on Bedroom
+        condition: C
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 120
+              to: 0
+            datasourceUid: prometheus
+            model:
+              expr: 'nifi_up{job="nifi"}'
+              instant: true
+              refId: A
+          - refId: C
+            relativeTimeRange:
+              from: 120
+              to: 0
+            datasourceUid: __expr__
+            model:
+              type: threshold
+              expression: A
+              conditions:
+                - evaluator:
+                    type: lt
+                    params: [1]
+                  operator:
+                    type: and
+                  reducer:
+                    type: last
+              refId: C
+        noDataState: Alerting
+        execErrState: Alerting
+        for: 2m
+        annotations:
+          summary: NiFi is down on Bedroom Mac.
+          description: "nifi_up metric reports 0 or missing. Check: ssh 192.168.86.242 'ps aux | grep nifi'. Dashboard: http://localhost:3100/d/nifi-bedroom"
+        labels:
+          severity: critical
+          service: nifi
+
+      - uid: nifi-pipeline-errors
+        title: NiFi pipeline errors detected
+        condition: C
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 300
+              to: 0
+            datasourceUid: loki
+            model:
+              expr: 'sum(count_over_time({job="nifi", component="app"} |~ "(?i)error" [5m]))'
+              instant: true
+              refId: A
+          - refId: C
+            relativeTimeRange:
+              from: 300
+              to: 0
+            datasourceUid: __expr__
+            model:
+              type: threshold
+              expression: A
+              conditions:
+                - evaluator:
+                    type: gt
+                    params: [0]
+                  operator:
+                    type: and
+                  reducer:
+                    type: last
+              refId: C
+        noDataState: OK
+        execErrState: Alerting
+        for: 1m
+        annotations:
+          summary: NiFi pipeline errors detected in the last 5 minutes.
+          description: "Error-level log entries found in nifi-app.log. Check Grafana: http://localhost:3100/d/nifi-bedroom"
+        labels:
+          severity: warning
+          service: nifi
+
+      - uid: nifi-heap-critical
+        title: NiFi JVM heap above 85%
+        condition: C
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 300
+              to: 0
+            datasourceUid: prometheus
+            model:
+              expr: 'nifi_jvm_heap_utilization_percent{job="nifi"}'
+              instant: true
+              refId: A
+          - refId: C
+            relativeTimeRange:
+              from: 300
+              to: 0
+            datasourceUid: __expr__
+            model:
+              type: threshold
+              expression: A
+              conditions:
+                - evaluator:
+                    type: gt
+                    params: [85]
+                  operator:
+                    type: and
+                  reducer:
+                    type: last
+              refId: C
+        noDataState: OK
+        execErrState: Alerting
+        for: 5m
+        annotations:
+          summary: NiFi JVM heap utilization above 85%.
+          description: "Heap at {{ $value }}%. Risk of OOM. Consider increasing -Xmx or reducing concurrent processors."
+        labels:
+          severity: warning
+          service: nifi
+
 # Contact points and notification policies provisioned in contact-points.yaml.
 # Warning alerts → #silas, Critical alerts → #all-gathering.

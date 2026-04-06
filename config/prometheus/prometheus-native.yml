@@ -5,13 +5,13 @@ global:
     monitor: 'shared-observability'
 
 rule_files:
-  - /etc/prometheus/rules/*.yml
+  - /Users/jeffbridwell/CascadeProjects/shared-observability/config/prometheus/rules/*.yml
 
 alerting:
   alertmanagers:
     - static_configs:
         - targets:
-            - host.docker.internal:9093  # #1391: native LaunchAgent
+            - localhost:9093
 
 scrape_configs:
   # Self-monitoring
@@ -20,66 +20,35 @@ scrape_configs:
       - targets: ['localhost:9090']
 
   # Node Exporter — native macOS host metrics (both machines)
-  # #1375: Docker node-exporter removed — host LaunchAgent on 9102 now serves
-  # textfile collector metrics (harvest, fuseki perf) + accurate APFS disk metrics
   - job_name: 'node-exporter'
     static_configs:
-      - targets: ['host.docker.internal:9102']
+      - targets: ['localhost:9102']
         labels:
           machine: 'library'
       - targets: ['192.168.86.242:9100']
         labels:
           machine: 'bedroom'
 
-  # Docker service discovery for containers with metrics.enabled=true label
-  - job_name: 'docker-services'
-    docker_sd_configs:
-      - host: unix:///var/run/docker.sock
-        refresh_interval: 30s
-        filters:
-          - name: network
-            values: ['observability-network']
-          - name: label
-            values: ['metrics.enabled=true']
-    relabel_configs:
-      # Use container name as instance
-      - source_labels: [__meta_docker_container_name]
-        regex: '/(.*)'
-        target_label: instance
-
-      # Build scrape address from container name + metrics.port label
-      # Prometheus joins source_labels with ';' → "/<container_name>;<port>"
-      - source_labels: [__meta_docker_container_name, __meta_docker_container_label_metrics_port]
-        regex: '/(.+);(.+)'
-        target_label: __address__
-        replacement: '${1}:${2}'
-
-      # Use metrics.path label for metrics path
-      - source_labels: [__meta_docker_container_label_metrics_path]
-        target_label: __metrics_path__
-        regex: (.+)
-
-      # Add container labels
-      - source_labels: [__meta_docker_container_label_com_docker_compose_service]
-        target_label: service
-
-      - source_labels: [__meta_docker_container_label_com_docker_compose_project]
-        target_label: project
+  # Express app metrics (native LaunchAgent)
+  - job_name: 'gathering-app'
+    static_configs:
+      - targets: ['localhost:3000']
+    metrics_path: /metrics
 
   # Loki metrics
   - job_name: 'loki'
     static_configs:
-      - targets: ['loki:3100']
+      - targets: ['localhost:3102']
 
   # Grafana metrics
   - job_name: 'grafana'
     static_configs:
-      - targets: ['host.docker.internal:3100']  # #1391: native, port 3100 directly
+      - targets: ['localhost:3100']
 
   # Promtail metrics
   - job_name: 'promtail'
     static_configs:
-      - targets: ['promtail:9080']
+      - targets: ['localhost:9080']
 
   # Blackbox HTTP probe for WordPress
   - job_name: 'blackbox-wordpress'
@@ -88,14 +57,14 @@ scrape_configs:
       module: [http_2xx]
     static_configs:
       - targets:
-        - http://localhost:8081  # #1391: native blackbox probes via localhost
+        - http://localhost:8081
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: host.docker.internal:9115
+        replacement: localhost:9115
 
   # Blackbox HTTP probe for Fuseki
   - job_name: 'blackbox-fuseki'
@@ -111,7 +80,7 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: host.docker.internal:9115
+        replacement: localhost:9115
 
   # Blackbox HTTP probe for Express app
   - job_name: 'blackbox-app'
@@ -127,9 +96,7 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: host.docker.internal:9115
-
-  # #1376: WebVOWL + mailhog probes removed — moved to on-demand profile
+        replacement: localhost:9115
 
   # Blackbox HTTP probe for Vikunja (kanban board)
   - job_name: 'blackbox-vikunja'
@@ -145,24 +112,23 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: host.docker.internal:9115
+        replacement: localhost:9115
 
-
-  # Blackbox HTTP probe for Navidrome (music server)
+  # Blackbox HTTP probe for Navidrome (music server — Bedroom Mac)
   - job_name: 'blackbox-navidrome'
     metrics_path: /probe
     params:
       module: [http_2xx]
     static_configs:
       - targets:
-        - http://192.168.86.242:4533/  # #1375: migrated to Bedroom Mac
+        - http://192.168.86.242:4533/
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: host.docker.internal:9115
+        replacement: localhost:9115
 
   # Blackbox HTTP probe for CSS (Community Solid Server)
   - job_name: 'blackbox-css'
@@ -178,7 +144,7 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: host.docker.internal:9115
+        replacement: localhost:9115
 
   # Blackbox HTTP probe for Alertmanager
   - job_name: 'blackbox-alertmanager'
@@ -194,18 +160,16 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: host.docker.internal:9115
+        replacement: localhost:9115
 
-  # #1376: mailhog probe removed — see WebVOWL comment above
-
-  # Cloudflare Tunnel metrics (cloudflared runs on host, exposes Prometheus metrics)
+  # Cloudflare Tunnel metrics
   - job_name: 'cloudflared'
     static_configs:
-      - targets: ['host.docker.internal:20241']
+      - targets: ['localhost:20241']
         labels:
           tunnel: 'lightlifeurbangardens'
 
-  # Blackbox HTTPS probe for public site (catches tunnel-down while internal stays green)
+  # Blackbox HTTPS probe for public site
   - job_name: 'blackbox-external'
     metrics_path: /probe
     params:
@@ -220,12 +184,12 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: host.docker.internal:9115
+        replacement: localhost:9115
 
   # MySQL exporter
   - job_name: 'mysqld-exporter'
     static_configs:
-      - targets: ['host.docker.internal:9104']  # #1391: native LaunchAgent
+      - targets: ['localhost:9104']
 
   # ICMP ping probes for all home network devices
   - job_name: 'blackbox-icmp'
@@ -234,7 +198,6 @@ scrape_configs:
       module: [icmp]
     scrape_interval: 30s
     static_configs:
-      # Compute
       - targets: ['192.168.86.36']
         labels:
           device: 'Mac Mini Primary'
@@ -245,7 +208,6 @@ scrape_configs:
           device: 'Mac Mini Secondary'
           category: 'compute'
           room: '3rd-floor'
-      # Network Infrastructure
       - targets: ['192.168.86.1']
         labels:
           device: 'Nest WiFi Router'
@@ -261,7 +223,6 @@ scrape_configs:
           device: 'Nest WiFi Point'
           category: 'network'
           room: 'mesh-3'
-      # Apple TVs
       - targets: ['192.168.86.22']
         labels:
           device: 'Apple TV'
@@ -277,7 +238,6 @@ scrape_configs:
           device: 'Apple TV'
           category: 'entertainment'
           room: 'kitchen'
-      # HomePods
       - targets: ['192.168.86.42']
         labels:
           device: 'HomePod'
@@ -303,7 +263,6 @@ scrape_configs:
           device: 'HomePod'
           category: 'homepod'
           room: 'attic'
-      # Entertainment
       - targets: ['192.168.86.28']
         labels:
           device: 'Pioneer AV Receiver'
@@ -319,7 +278,6 @@ scrape_configs:
           device: 'LG OLED TV'
           category: 'entertainment'
           room: 'living-room'
-      # Smart Speakers
       - targets: ['192.168.86.32']
         labels:
           device: 'Speaker'
@@ -330,7 +288,6 @@ scrape_configs:
           device: 'Speaker 2'
           category: 'speaker'
           room: 'bedroom'
-      # Mobile Devices
       - targets: ['192.168.86.31']
         labels:
           device: "Jeff's iPhone"
@@ -341,7 +298,6 @@ scrape_configs:
           device: "Kathy's iPhone"
           category: 'mobile'
           room: 'mobile'
-      # Other
       - targets: ['192.168.86.29']
         labels:
           device: 'HP Printer'
@@ -358,7 +314,16 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: host.docker.internal:9115
+        replacement: localhost:9115
+
+  # NiFi metrics (Bedroom Mac — custom exporter on port 9091)
+  - job_name: 'nifi'
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['192.168.86.242:9091']
+        labels:
+          machine: 'bedroom'
+          service: 'nifi'
 
   # Blackbox HTTP probe for Bedroom Mac — Images API (Gallery)
   - job_name: 'blackbox-images-api'
@@ -374,7 +339,7 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: host.docker.internal:9115
+        replacement: localhost:9115
 
   # Blackbox HTTP probe for Bedroom Mac — Video Server
   - job_name: 'blackbox-video-server'
@@ -390,7 +355,7 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: host.docker.internal:9115
+        replacement: localhost:9115
 
   # Blackbox HTTP probe for Bedroom Mac — Ollama
   - job_name: 'blackbox-ollama'
@@ -406,4 +371,4 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: host.docker.internal:9115
+        replacement: localhost:9115

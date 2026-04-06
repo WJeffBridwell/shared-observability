@@ -110,8 +110,8 @@
         ]
       },
       "transformations": [
-        { "id": "merge", "options": {} },
-        { "id": "organize", "options": { "excludeByName": { "Time": true, "__name__": true, "instance": true, "job": true, "mountpoint": true, "device": true, "fstype": true }, "indexByName": {}, "renameByName": {} } }
+        { "id": "joinByField", "options": { "byField": "machine", "mode": "outer" } },
+        { "id": "organize", "options": { "excludeByName": { "Time 1": true, "Time 2": true, "Time 3": true, "__name__": true, "instance 1": true, "instance 2": true, "instance 3": true, "job 1": true, "job 2": true, "job 3": true, "mountpoint": true, "device": true, "fstype": true }, "indexByName": {}, "renameByName": {} } }
       ],
       "targets": [
         { "expr": "node_memory_total_bytes{job=\"node-exporter-host\"}", "legendFormat": "", "refId": "A", "format": "table", "instant": true },

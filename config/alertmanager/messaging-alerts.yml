@@ -1,0 +1,12 @@
+groups:
+  - name: messaging-tier
+    rules:
+      - alert: NudgeQueueDepthHigh
+        expr: messaging_nudge_queue_depth > 1000
+        for: 5m
+        labels:
+          severity: warning
+          domain: chorus
+        annotations:
+          summary: "Nudge queue depth is {{ $value }} (threshold: 1000)"
+          description: "Unacknowledged nudges are piling up. Roles may not be draining their inbox."

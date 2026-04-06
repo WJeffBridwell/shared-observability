@@ -14,6 +14,26 @@
     "refresh_intervals": ["10s", "30s", "1m", "5m"],
     "time_options": ["1h", "6h", "12h", "24h", "2d", "7d"]
   },
+  "templating": {
+    "list": [
+      {
+        "name": "domain",
+        "label": "Domain",
+        "type": "custom",
+        "query": "app,infra,home",
+        "current": { "selected": true, "text": "All", "value": "$__all" },
+        "includeAll": true,
+        "allValue": ".*",
+        "multi": false,
+        "options": [
+          { "selected": true, "text": "All", "value": "$__all" },
+          { "selected": false, "text": "app", "value": "app" },
+          { "selected": false, "text": "infra", "value": "infra" },
+          { "selected": false, "text": "home", "value": "home" }
+        ]
+      }
+    ]
+  },
   "panels": [
     {
       "id": 1,
@@ -23,7 +43,7 @@
       "datasource": { "uid": "prometheus", "type": "prometheus" },
       "targets": [
         {
-          "expr": "count(ALERTS{alertstate=\"firing\"}) or vector(0)",
+          "expr": "count(ALERTS{alertstate=\"firing\",domain=~\"$domain\"}) or vector(0)",
           "refId": "A",
           "instant": true
         }
@@ -58,7 +78,7 @@
       "datasource": { "uid": "prometheus", "type": "prometheus" },
       "targets": [
         {
-          "expr": "count(ALERTS{alertstate=\"firing\",severity=\"critical\"}) or vector(0)",
+          "expr": "count(ALERTS{alertstate=\"firing\",severity=\"critical\",domain=~\"$domain\"}) or vector(0)",
           "refId": "A",
           "instant": true
         }
@@ -92,7 +112,7 @@
       "datasource": { "uid": "prometheus", "type": "prometheus" },
       "targets": [
         {
-          "expr": "count(ALERTS{alertstate=\"firing\",severity=\"warning\"}) or vector(0)",
+          "expr": "count(ALERTS{alertstate=\"firing\",severity=\"warning\",domain=~\"$domain\"}) or vector(0)",
           "refId": "A",
           "instant": true
         }
@@ -127,7 +147,7 @@
       "datasource": { "uid": "prometheus", "type": "prometheus" },
       "targets": [
         {
-          "expr": "count(count by (alertname)(ALERTS or ALERTS_FOR_STATE)) or vector(0)",
+          "expr": "count(count by (alertname)(ALERTS{domain=~\"$domain\"} or ALERTS_FOR_STATE{domain=~\"$domain\"})) or vector(0)",
           "refId": "A",
           "instant": true
         }
@@ -157,7 +177,7 @@
       "gridPos": { "h": 4, "w": 8, "x": 16, "y": 0 },
       "options": {
         "mode": "markdown",
-        "content": "### Alerts Overview\nAll infrastructure and application alerts in one view.\n\n**Time range** controls history depth.\n\n[Alert Rules](/alerting/list) · [Silences](/alerting/silences) · [Contact Points](/alerting/notifications)"
+        "content": "### Alerts Overview\nFilter by **Domain**: app, infra, home.\n\n**Time range** controls history depth.\n\n[Alert Rules](/alerting/list) · [Silences](/alerting/silences) · [Contact Points](/alerting/notifications)"
       }
     },
     {
@@ -169,7 +189,7 @@
       "datasource": { "uid": "prometheus", "type": "prometheus" },
       "targets": [
         {
-          "expr": "ALERTS",
+          "expr": "ALERTS{domain=~\"$domain\"}",
           "refId": "A",
           "instant": true,
           "format": "table"
@@ -192,13 +212,15 @@
               "alertname": "Alert",
               "severity": "Severity",
               "alertstate": "State",
+              "domain": "Domain",
               "query": "Query"
             },
             "indexByName": {
               "alertname": 0,
               "alertstate": 1,
               "severity": 2,
-              "query": 3
+              "domain": 3,
+              "query": 4
             }
           }
         }
@@ -254,7 +276,7 @@
       "datasource": { "uid": "prometheus", "type": "prometheus" },
       "targets": [
         {
-          "expr": "ALERTS{alertstate=~\"firing|pending\"}",
+          "expr": "ALERTS{alertstate=~\"firing|pending\",domain=~\"$domain\"}",
           "refId": "A",
           "legendFormat": "{{alertname}} ({{query}}{{service}})"
         }
@@ -294,12 +316,12 @@
       "datasource": { "uid": "prometheus", "type": "prometheus" },
       "targets": [
         {
-          "expr": "count(ALERTS{alertstate=\"firing\",severity=\"critical\"}) or vector(0)",
+          "expr": "count(ALERTS{alertstate=\"firing\",severity=\"critical\",domain=~\"$domain\"}) or vector(0)",
           "refId": "A",
           "legendFormat": "Critical"
         },
         {
-          "expr": "count(ALERTS{alertstate=\"firing\",severity=\"warning\"}) or vector(0)",
+          "expr": "count(ALERTS{alertstate=\"firing\",severity=\"warning\",domain=~\"$domain\"}) or vector(0)",
           "refId": "B",
           "legendFormat": "Warning"
         }
@@ -341,7 +363,7 @@
       "datasource": { "uid": "loki", "type": "loki" },
       "targets": [
         {
-          "expr": "{job=\"chorus-operations\"} |~ \"alert_firing|alert_resolved\"",
+          "expr": "{job=\"chorus-operations\"} |~ \"alert_firing|alert_resolved|ops\\\\.alert\\\\.fired|ops\\\\.alert\\\\.resolved\"",
           "refId": "A"
         }
       ],
@@ -357,5 +379,5 @@
     }
   ],
   "schemaVersion": 39,
-  "version": 1
+  "version": 2
 }

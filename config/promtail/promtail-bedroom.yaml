@@ -1,0 +1,111 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+  log_level: info
+
+positions:
+  filename: /tmp/promtail-positions.yaml
+
+clients:
+  - url: http://192.168.86.36:3102/loki/api/v1/push
+    tenant_id: default
+    batchwait: 1s
+    batchsize: 1048576
+    timeout: 10s
+
+scrape_configs:
+  # NiFi application log — primary operational log
+  - job_name: nifi-app
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: nifi
+          component: app
+          machine: bedroom
+          __path__: /opt/homebrew/Cellar/nifi/2.8.0/libexec/logs/nifi-app.log
+    pipeline_stages:
+      - multiline:
+          firstline: '^\d{4}-\d{2}-\d{2}'
+          max_wait_time: 3s
+      - regex:
+          expression: '^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3}) (?P<level>\w+) \[(?P<thread>[^\]]+)\] (?P<logger>[^ ]+) (?P<message>.*)$'
+      - labels:
+          level:
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02 15:04:05,000'
+      - output:
+          source: message
+
+  # NiFi bootstrap log
+  - job_name: nifi-bootstrap
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: nifi
+          component: bootstrap
+          machine: bedroom
+          __path__: /opt/homebrew/Cellar/nifi/2.8.0/libexec/logs/nifi-bootstrap.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # NiFi user log — authentication and access events
+  - job_name: nifi-user
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: nifi
+          component: user
+          machine: bedroom
+          __path__: /opt/homebrew/Cellar/nifi/2.8.0/libexec/logs/nifi-user.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # NiFi request log — HTTP request audit
+  - job_name: nifi-request
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: nifi
+          component: request
+          machine: bedroom
+          __path__: /opt/homebrew/Cellar/nifi/2.8.0/libexec/logs/nifi-request.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Rotated NiFi app logs (hourly rotation)
+  - job_name: nifi-app-rotated
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: nifi
+          component: app-rotated
+          machine: bedroom
+          __path__: /opt/homebrew/Cellar/nifi/2.8.0/libexec/logs/nifi-app_*.log
+    pipeline_stages:
+      - multiline:
+          firstline: '^\d{4}-\d{2}-\d{2}'
+          max_wait_time: 3s
+      - regex:
+          expression: '^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3}) (?P<level>\w+) \[(?P<thread>[^\]]+)\] (?P<logger>[^ ]+) (?P<message>.*)$'
+      - labels:
+          level:
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02 15:04:05,000'
+      - output:
+          source: message
