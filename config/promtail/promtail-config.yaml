@@ -389,3 +389,13 @@ scrape_configs:
       - timestamp:
           source: timestamp
           format: '2006-01-02T15:04:05.000Z'
+
+  # Vikunja board service (#1856)
+  - job_name: vikunja
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: vikunja
+          machine: library
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/vikunja.log
