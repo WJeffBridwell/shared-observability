@@ -7,7 +7,7 @@ positions:
   filename: /tmp/promtail-positions.yaml
 
 clients:
-  - url: http://192.168.86.36:3102/loki/api/v1/push
+  - url: http://127.0.0.1:3102/loki/api/v1/push
     tenant_id: default
     batchwait: 1s
     batchsize: 1048576
@@ -109,3 +109,65 @@ scrape_configs:
           format: '2006-01-02 15:04:05,000'
       - output:
           source: message
+
+  # --- Bedroom app services (#1852) ---
+
+  - job_name: images-api-server
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: images-api
+          component: server
+          machine: bedroom
+          __path__: /tmp/images-api-server.log
+
+  - job_name: images-api-video
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: images-api
+          component: video
+          machine: bedroom
+          __path__: /tmp/images-api-video.log
+
+  - job_name: ollama
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: ollama
+          machine: bedroom
+          __path__: /tmp/ollama.log
+
+  - job_name: navidrome
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: navidrome
+          machine: bedroom
+          __path__: /tmp/navidrome.log
+
+  - job_name: node-exporter
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: node-exporter
+          machine: bedroom
+          __path__: /tmp/node-exporter.log
+
+  - job_name: sexuality-player
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: sexuality-player
+          machine: bedroom
+          __path__: /Users/jeffbridwell/Library/Logs/sexuality-player.log
+
+  # --- Bedroom system logs ---
+
+  - job_name: system
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: system
+          machine: bedroom
+          __path__: /var/log/system.log
