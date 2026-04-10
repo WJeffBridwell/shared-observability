@@ -7,7 +7,7 @@ set -euo pipefail
 
 NIFI_URL="https://192.168.86.242:8443"
 NIFI_USER="admin"
-NIFI_PASS="nifi-gathering-2026"
+NIFI_PASS="nifi2026gathering"
 METRICS_PORT=9091
 METRICS_FILE="/tmp/nifi-metrics.prom"
 POLL_INTERVAL=15
@@ -106,6 +106,33 @@ nifi_processors_invalid ${invalid}
 # TYPE nifi_up gauge
 nifi_up 1
 METRICS
+
+  # Per-pipeline metrics (#1857)
+  local pgs
+  pgs=$(curl -sk -H "$auth" "${NIFI_URL}/nifi-api/flow/process-groups/root" 2>/dev/null)
+  if [ -n "$pgs" ]; then
+    echo '# HELP nifi_pg_flowfiles_queued FlowFiles queued per process group' >> "${METRICS_FILE}.tmp"
+    echo '# TYPE nifi_pg_flowfiles_queued gauge' >> "${METRICS_FILE}.tmp"
+    echo '# HELP nifi_pg_bytes_queued Bytes queued per process group' >> "${METRICS_FILE}.tmp"
+    echo '# TYPE nifi_pg_bytes_queued gauge' >> "${METRICS_FILE}.tmp"
+    echo '# HELP nifi_pg_processors_running Running processors per process group' >> "${METRICS_FILE}.tmp"
+    echo '# TYPE nifi_pg_processors_running gauge' >> "${METRICS_FILE}.tmp"
+    echo '# HELP nifi_pg_processors_stopped Stopped processors per process group' >> "${METRICS_FILE}.tmp"
+    echo '# TYPE nifi_pg_processors_stopped gauge' >> "${METRICS_FILE}.tmp"
+    echo "$pgs" | python3 -c "
+import sys,json
+d=json.load(sys.stdin)
+for pg in d.get('processGroupFlow',{}).get('flow',{}).get('processGroups',[]):
+    c=pg.get('component',{})
+    s=pg.get('status',{}).get('aggregateSnapshot',{})
+    name=c.get('name','').replace(' ','_').replace('—','').replace('#','').replace('(','').replace(')','')[:40]
+    pgid=c.get('id','')
+    print(f'nifi_pg_flowfiles_queued{{pipeline=\"{name}\",id=\"{pgid}\"}} {s.get(\"flowFilesQueued\",0)}')
+    print(f'nifi_pg_bytes_queued{{pipeline=\"{name}\",id=\"{pgid}\"}} {s.get(\"bytesQueued\",0)}')
+    print(f'nifi_pg_processors_running{{pipeline=\"{name}\",id=\"{pgid}\"}} {s.get(\"runningCount\",0)}')
+    print(f'nifi_pg_processors_stopped{{pipeline=\"{name}\",id=\"{pgid}\"}} {s.get(\"stoppedCount\",0)}')
+" >> "${METRICS_FILE}.tmp" 2>/dev/null || true
+  fi
 
   mv "${METRICS_FILE}.tmp" "${METRICS_FILE}"
 }
