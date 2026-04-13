@@ -137,6 +137,7 @@ scrape_configs:
           format: '2006-01-02T15:04:05.000Z'
 
   # All Chorus daemon logs — glob catches every .log in the directory
+  # __path_exclude__ prevents duplicates with dedicated scrape jobs (#1986)
   - job_name: chorus-daemon-logs
     static_configs:
       - targets:
@@ -144,6 +145,7 @@ scrape_configs:
         labels:
           job: daemon-logs
           __path__: /Users/jeffbridwell/Library/Logs/Chorus/*.log
+          __path_exclude__: /Users/jeffbridwell/Library/Logs/Chorus/{chorus.log,chorus-api.log,tempo.log}
     pipeline_stages:
       - regex:
           expression: '^(?P<content>.+)$'
@@ -151,6 +153,7 @@ scrape_configs:
           source: content
 
   # All Gathering daemon logs
+  # __path_exclude__ prevents duplicates with dedicated scrape jobs (#1986)
   - job_name: gathering-daemon-logs
     static_configs:
       - targets:
@@ -158,6 +161,7 @@ scrape_configs:
         labels:
           job: daemon-logs
           __path__: /Users/jeffbridwell/Library/Logs/Gathering/*.log
+          __path_exclude__: /Users/jeffbridwell/Library/Logs/Gathering/{perf-baseline.log,fuseki-compact.log,alert-notifier.log,cloudflared.log}
     pipeline_stages:
       - regex:
           expression: '^(?P<content>.+)$'
