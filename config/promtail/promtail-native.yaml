@@ -143,6 +143,12 @@ scrape_configs:
           - localhost
         labels:
           job: daemon-logs
+          daemon: chorus-api
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/chorus-api.log
+      - targets:
+          - localhost
+        labels:
+          job: daemon-logs
           daemon: ops-agent
           __path__: /Users/jeffbridwell/Library/Logs/Chorus/ops-agent.log
       - targets:
