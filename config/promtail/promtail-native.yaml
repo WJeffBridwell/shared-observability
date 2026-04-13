@@ -136,33 +136,66 @@ scrape_configs:
           source: timestamp
           format: '2006-01-02T15:04:05.000Z'
 
-  # LaunchAgent daemon logs
-  - job_name: daemon-logs
+  # All Chorus daemon logs — glob catches every .log in the directory
+  - job_name: chorus-daemon-logs
     static_configs:
       - targets:
           - localhost
         labels:
           job: daemon-logs
-          daemon: chorus-api
-          __path__: /Users/jeffbridwell/Library/Logs/Chorus/chorus-api.log
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/*.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # All Gathering daemon logs
+  - job_name: gathering-daemon-logs
+    static_configs:
       - targets:
           - localhost
         labels:
           job: daemon-logs
-          daemon: ops-agent
-          __path__: /Users/jeffbridwell/Library/Logs/Chorus/ops-agent.log
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/*.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Chorus embed worker + session watcher
+  - job_name: chorus-home-logs
+    static_configs:
       - targets:
           - localhost
         labels:
           job: daemon-logs
-          daemon: defect-poller
-          __path__: /Users/jeffbridwell/Library/Logs/Chorus/defect-poller.log
+          __path__: /Users/jeffbridwell/.chorus/*.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Platform operational logs
+  - job_name: platform-logs
+    static_configs:
       - targets:
           - localhost
         labels:
-          job: daemon-logs
-          daemon: fuseki-perf
-          __path__: /Users/jeffbridwell/Library/Logs/Gathering/fuseki-perf.log
+          job: platform-logs
+          __path__: /Users/jeffbridwell/CascadeProjects/chorus/platform/logs/*.log
+      - targets:
+          - localhost
+        labels:
+          job: platform-logs
+          __path__: /Users/jeffbridwell/CascadeProjects/chorus/platform/pulse/logs/*.log
+      - targets:
+          - localhost
+        labels:
+          job: platform-logs
+          __path__: /Users/jeffbridwell/CascadeProjects/chorus/proving/logs/*.log
     pipeline_stages:
       - regex:
           expression: '^(?P<content>.+)$'
@@ -392,3 +425,511 @@ scrape_configs:
           job: vikunja
           machine: library
           __path__: /Users/jeffbridwell/Library/Logs/Gathering/vikunja.log
+
+  # ============================================================
+  # Chorus LaunchAgent logs — added 2026-04-12 by Wren (#1984)
+  # 48 log files not previously routed to Loki (6% → 100%)
+  # ============================================================
+
+  # Alert subsystem
+  - job_name: alert-runner
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: alert-runner
+          daemon: alert-runner
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/alert-runner.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: alert-delivery-test
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: alert-delivery-test
+          daemon: alert-delivery-test
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/alert-delivery-test.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Bridge subscribers (one per role)
+  - job_name: bridge-subscribers
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: bridge-subscriber
+          role: kade
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/bridge-subscriber-kade.log
+      - targets: [localhost]
+        labels:
+          job: bridge-subscriber
+          role: silas
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/bridge-subscriber-silas.log
+      - targets: [localhost]
+        labels:
+          job: bridge-subscriber
+          role: wren
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/bridge-subscriber-wren.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Chorus infrastructure services
+  - job_name: chorus-bridge
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: chorus-bridge
+          daemon: chorus-bridge
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/chorus-bridge.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: chorus-hooks
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: chorus-hooks
+          daemon: chorus-hooks
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/chorus-hooks.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: chorus-ops
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: chorus-ops
+          daemon: chorus-ops
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/chorus-ops.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Clearing probe
+  - job_name: clearing-probe
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: clearing-probe
+          stream: stdout
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/clearing-probe-stdout.log
+      - targets: [localhost]
+        labels:
+          job: clearing-probe
+          stream: stderr
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/clearing-probe-stderr.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Context cache (4 intervals + error logs)
+  - job_name: context-cache
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: context-cache
+          interval: 5min
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/context-cache-5min.log
+      - targets: [localhost]
+        labels:
+          job: context-cache
+          interval: 5min
+          stream: stderr
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/context-cache-5min.err
+      - targets: [localhost]
+        labels:
+          job: context-cache
+          interval: hourly
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/context-cache-hourly.log
+      - targets: [localhost]
+        labels:
+          job: context-cache
+          interval: daily
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/context-cache-daily.log
+      - targets: [localhost]
+        labels:
+          job: context-cache
+          interval: daily
+          stream: stderr
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/context-cache-daily.err
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Crawler and indexing
+  - job_name: crawler-index
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: crawler-index
+          daemon: crawler-index
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/crawler-index.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: cruft-scan
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: cruft-scan
+          daemon: cruft-scan
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/cruft-scan.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Health and monitoring
+  - job_name: deep-health
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: deep-health
+          daemon: deep-health
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/deep-health.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: embed-worker
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: embed-worker
+          daemon: embed-worker
+          __path__: /Users/jeffbridwell/.chorus/embed-worker.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: inject-watcher
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: inject-watcher
+          daemon: inject-watcher
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/inject-watcher.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: jeff-input-monitor
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: jeff-input-monitor
+          daemon: jeff-input-monitor
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/jeff-input-monitor.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: launchagent-metrics
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: launchagent-metrics
+          daemon: launchagent-metrics
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/launchagent-metrics.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: nudge-health
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: nudge-health
+          daemon: nudge-health
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/nudge-health.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: perf-baseline-nightly
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: perf-baseline-nightly
+          daemon: perf-baseline-nightly
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/perf-baseline-nightly.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: posture-capture
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: posture-capture
+          daemon: posture-capture
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/posture-capture.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: session-health
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: session-health
+          daemon: session-health
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/session-health.log
+      - targets: [localhost]
+        labels:
+          job: session-health
+          daemon: session-health
+          stream: stderr
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/session-health.err
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: watchdog
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: watchdog
+          daemon: watchdog
+          __path__: /Users/jeffbridwell/Library/Logs/Chorus/watchdog.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Gathering LaunchAgent logs
+  - job_name: bedroom-health
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: bedroom-health
+          daemon: bedroom-health
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/bedroom-health.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: daily-reviews
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: daily-review
+          review: ops
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/daily-review-ops.log
+      - targets: [localhost]
+        labels:
+          job: daily-review
+          review: quality
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/daily-review-quality.log
+      - targets: [localhost]
+        labels:
+          job: daily-review
+          review: summary
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/daily-review-summary.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: daily-signal-scan
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: daily-signal-scan
+          daemon: daily-signal-scan
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/daily-signal-scan.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: heartbeat-log
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: heartbeat
+          daemon: heartbeat
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/heartbeat.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: seed-probe
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: seed-probe
+          daemon: seed-probe
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/seed-probe.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: standards-surface
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: standards-surface
+          daemon: standards-surface
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/standards-surface.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: tm-thin
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: tm-thin
+          daemon: tm-thin
+          __path__: /Users/jeffbridwell/Library/Logs/Gathering/tm-thin.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Platform application logs
+  - job_name: platform-chorus-log
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: platform-chorus
+          __path__: /Users/jeffbridwell/CascadeProjects/chorus/platform/logs/chorus.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: platform-command-errors
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: platform-command-errors
+          __path__: /Users/jeffbridwell/CascadeProjects/chorus/platform/logs/command-errors.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: platform-permission-prompts
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: platform-permission-prompts
+          __path__: /Users/jeffbridwell/CascadeProjects/chorus/platform/logs/permission-prompts.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: messaging
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: messaging
+          __path__: /Users/jeffbridwell/CascadeProjects/chorus/platform/pulse/logs/messaging.log
+      - targets: [localhost]
+        labels:
+          job: messaging
+          variant: "2"
+          __path__: /Users/jeffbridwell/CascadeProjects/chorus/platform/pulse/logs/messaging2.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  # Proving logs
+  - job_name: proving-chorus
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: proving-chorus
+          __path__: /Users/jeffbridwell/CascadeProjects/chorus/proving/logs/chorus.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: proving-handoffs
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: proving-handoffs
+          __path__: /Users/jeffbridwell/CascadeProjects/chorus/proving/logs/handoffs.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
+
+  - job_name: proving-permission-prompts
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: proving-permission-prompts
+          __path__: /Users/jeffbridwell/CascadeProjects/chorus/proving/logs/permission-prompts.log
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<content>.+)$'
+      - output:
+          source: content
