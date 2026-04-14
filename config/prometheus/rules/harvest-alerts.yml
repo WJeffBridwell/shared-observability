@@ -1,20 +1,9 @@
 groups:
   - name: harvest-pipeline
     rules:
-      # Stage hasn't run in 48 hours (skip not_started stages)
-      # Scoped to job="node-exporter" to avoid duplicate alerts from docker-services scrape
-      - alert: HarvestStageStale
-        expr: >
-          (time() - harvest_stage_last_run_epoch{job="node-exporter"} > 172800)
-          and harvest_stage_status{job="node-exporter"} > 0
-          and harvest_stage_status{job="node-exporter"} < 5
-        for: 1h
-        labels:
-          severity: warning
-          domain: infra
-        annotations:
-          summary: "Harvest {{ $labels.domain }}/{{ $labels.stage }} stale (>48h)"
-          description: "Stage {{ $labels.stage }} for {{ $labels.domain }} hasn't run in over 48 hours."
+      # HarvestStageStale removed (#2023) — "vector contains metrics with the same labelset"
+      # error every 15s (561K errors in 72h). Multi-metric AND join produced duplicate series.
+      # Metrics exist but the cross-metric expression needs redesign if re-added.
 
       # Domain has too many open gaps
       - alert: HarvestDomainGaps
@@ -26,6 +15,7 @@ groups:
         annotations:
           summary: "Harvest {{ $labels.domain }} has {{ $value }} gaps"
           description: "Domain {{ $labels.domain }} has more than 3 open gaps. Review manifest."
+          runbook_url: "docs/RUNBOOKS.md#harvestdomaingaps"
 
       # Exporter itself hasn't run in 30 minutes
       - alert: HarvestExporterDown
@@ -37,3 +27,4 @@ groups:
         annotations:
           summary: "Harvest exporter not running"
           description: "harvest-exporter.sh hasn't updated metrics in 30 minutes. Check LaunchAgent."
+          runbook_url: "docs/RUNBOOKS.md#harvestexporterdown"
