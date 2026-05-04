@@ -32,34 +32,11 @@ scrape_configs:
       - output:
           source: log
 
-  # Host-level operational logs (Chorus audit, guardrails, deploy events)
-  - job_name: chorus-operations
-    static_configs:
-      - targets:
-          - localhost
-        labels:
-          job: chorus-operations
-          __path__: /Users/jeffbridwell/Library/Logs/Chorus/chorus.log
-
-    pipeline_stages:
-      - json:
-          expressions:
-            timestamp: timestamp
-            level: level
-            appName: appName
-            component: component
-            role: role
-            message: message
-      - labels:
-          level:
-          appName:
-          component:
-          role:
-      - timestamp:
-          source: timestamp
-          format: '2006-01-02T15:04:05.000Z'
-      - output:
-          source: message
+  # chorus-operations job retired 2026-05-04 (silas). Was tailing
+  # ~/Library/Logs/Chorus/chorus.log, which became orphaned when the producer
+  # moved to platform/logs/chorus.log on 2026-04-25 and never wrote there
+  # again. Mar 29 → Apr 25 contents have been concatenated into the live
+  # platform-chorus job's file and reshipped under that single label.
 
   # Command error logs
   - job_name: command-errors
@@ -176,6 +153,11 @@ scrape_configs:
         labels:
           job: daemon-logs
           __path__: /Users/jeffbridwell/.chorus/*.log
+          # Exclude chorus.log — it's the spine event journal, owned by the
+          # platform-chorus-log job (job=platform-chorus, appName labels parsed).
+          # Without this exclude, both jobs double-tail and rate-limit each
+          # other. 2026-05-04 backfill receipt.
+          __path_exclude__: /Users/jeffbridwell/.chorus/chorus.log
     pipeline_stages:
       - regex:
           expression: '^(?P<content>.+)$'
@@ -847,18 +829,35 @@ scrape_configs:
       - output:
           source: content
 
-  # Platform application logs
+  # Chorus spine event log. Producer is chorus-hook-shim writing to ~/.chorus/
+  # (CSC: Runtime Artifacts). Was platform/logs/chorus.log in the working tree
+  # until 2026-05-04 when branch checkouts started clobbering unstaged writes;
+  # producer + tail both moved out of the repo to runtime-artifact convention.
   - job_name: platform-chorus-log
     static_configs:
       - targets: [localhost]
         labels:
           job: platform-chorus
-          __path__: /Users/jeffbridwell/CascadeProjects/chorus/platform/logs/chorus.log
+          __path__: /Users/jeffbridwell/.chorus/chorus.log
     pipeline_stages:
-      - regex:
-          expression: '^(?P<content>.+)$'
+      - json:
+          expressions:
+            timestamp: timestamp
+            level: level
+            appName: appName
+            component: component
+            role: role
+            message: message
+      - labels:
+          level:
+          appName:
+          component:
+          role:
+      - timestamp:
+          source: timestamp
+          format: '2006-01-02T15:04:05.000Z'
       - output:
-          source: content
+          source: message
 
   - job_name: platform-command-errors
     static_configs:
