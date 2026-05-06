@@ -253,5 +253,49 @@ groups:
           severity: warning
           service: nifi
 
+  - name: clearing-shape
+    folder: Chorus
+    interval: 1m
+    rules:
+      - uid: clearing-smoke-failed
+        title: Clearing post-restart shape smoke failed
+        condition: C
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 600  # 10 minutes
+              to: 0
+            datasourceUid: loki
+            model:
+              expr: 'sum(count_over_time({job="chorus-operations", appName="chorus-events"} |= "clearing.smoke.failed" [10m]))'
+              instant: true
+              refId: A
+          - refId: C
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: __expr__
+            model:
+              type: threshold
+              expression: A
+              conditions:
+                - evaluator:
+                    type: gt
+                    params: [0]
+                  operator:
+                    type: and
+                  reducer:
+                    type: last
+              refId: C
+        noDataState: OK
+        execErrState: Alerting
+        for: 0m
+        annotations:
+          summary: /api/flow shape regression detected (#2333).
+          description: "clearing.smoke.failed fired in the last 10 minutes — the post-restart smoke caught a shape regression. Check ~/Library/Logs/Chorus/clearing-post-restart-smoke.log and the spine event detail (stage= field) for what broke. #2325 sequences[] contract may be broken."
+        labels:
+          severity: warning
+          service: clearing
+
 # Contact points and notification policies provisioned in contact-points.yaml.
 # Warning alerts → #silas, Critical alerts → #all-gathering.
